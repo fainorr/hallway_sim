@@ -13,9 +13,12 @@ from math import *
 
 chunks = 10
 
-avg_length = 2.0
-avg_width = 4.0
+avg_length = 5.0
+std_length = 1.0
 min_length = 0.5
+
+avg_width = 4.0
+std_width = 0.5
 min_width = 2.0
 
 wall_height = 3.0
@@ -30,11 +33,11 @@ length = zeros(chunks)
 width = zeros(chunks)
 
 for i in range(0,chunks):
-    length[i] = round(gauss(avg_length,0.5),2)
+    length[i] = round(gauss(avg_length,std_length),2)
     if length[i] < min_length:
         length[i] = min_length
 
-    width[i] = round(gauss(avg_width,1.0),2)
+    width[i] = round(gauss(avg_width,std_width),2)
     if width[i] < min_width:
         width[i] = min_width
 
@@ -48,7 +51,7 @@ part_list = []
 for i in range(0,chunks):
     pos_x = round((length[i]/2.0) + sum(length[0:i]),3)
     pos_y = width[i]/2.0 + wall_thickness/2.0
-    pos_z = wall_height/2.0
+    pos_z = 0
 
     size_x = length[i]
     size_y = wall_thickness

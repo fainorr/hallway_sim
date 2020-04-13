@@ -1,5 +1,8 @@
 <launch>
 
+  <!-- generate random hallway -->
+  <node name="gen_node" pkg="hallway_sim" type="gen_node.py"/>
+
   <arg name="model" default="$(find hallway_sim)/urdf/random_hall.urdf"/>
 
   <!-- launch gazebo world -->

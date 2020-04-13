@@ -10,8 +10,7 @@ import hallway_gen
 class gen_node():
 
 	def __init__(self):
-
-        execfile('hallway_gen.py')
+		execfile('hallway_gen.py')
 
 # main function
 

@@ -51,7 +51,7 @@ part_list = []
 for i in range(0,chunks):
     pos_x = round((length[i]/2.0) + sum(length[0:i]),3)
     pos_y = width[i]/2.0 + wall_thickness/2.0
-    pos_z = 0
+    pos_z = wall_height/2.0
 
     size_x = length[i]
     size_y = wall_thickness

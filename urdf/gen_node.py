@@ -13,7 +13,6 @@ class gen_node():
 
         execfile('hallway_gen.py')
 
-
 # main function
 
 def main(args):

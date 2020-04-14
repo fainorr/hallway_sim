@@ -158,7 +158,7 @@ for n in range(0,n_links):
     child.set("link","sec_{}_".format(chunk_list[n]) + part_list[n])
 
     origin = etree.SubElement(joint,"origin")
-    origin.set("xyz",xyz_list[n])
+    origin.set("xyz",'0 0 0')
     origin.set("rpy",'0 0 0')
 
 

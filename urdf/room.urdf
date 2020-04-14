@@ -1,33 +1,38 @@
 <?xml version="1.0"?>
 <robot name = "room">
 
-
 	<link name = "ground">
 		<visual>
-			<origin xyz = "0 0 0" rpy ="0 0 0"/>
+			<origin xyz = "0 0 -0.25" rpy ="0 0 0"/>
 			<geometry>
-				<box size = "20 20 0.5"/>
+				<box size = "10 10 0.5"/>
 			</geometry>
 		</visual>
 
 		<collision>
-			<origin xyz = "0 0 0" rpy ="0 0 0"/>
+			<origin xyz = "0 0 -0.25" rpy ="0 0 0"/>
 			<geometry>
-				<box size = "20 20 0.5"/>
+				<box size = "10 10 0.5"/>
 			</geometry>
 		</collision>
+
+		<inertial>
+            <mass value="50"/>
+			<origin xyz="0 0 -0.5"/>
+			<inertia ixx="50.0" ixy="0.0" ixz="0.0" iyy="50.0" iyz="0.0" izz="50.0"/>
+    	</inertial>
 	</link>
 
 	<link name = "front_wall">
 		<visual>
-			<origin xyz = "5 0 1.5" rpy ="0 0 0"/>
+			<origin xyz = "4.75 0 1.5" rpy ="0 0 0"/>
 			<geometry>
 				<box size = "0.5 10 3"/>
 			</geometry>
 		</visual>
 
 		<collision>
-			<origin xyz = "5 0 1.5" rpy ="0 0 0"/>
+			<origin xyz = "4.75 0 1.5" rpy ="0 0 0"/>
 			<geometry>
 				<box size = "0.5 10 3"/>
 			</geometry>
@@ -36,14 +41,14 @@
 
 	<link name = "right_wall">
 		<visual>
-			<origin xyz = "0 5 1.5" rpy ="0 0 0"/>
+			<origin xyz = "0 4.75 1.5" rpy ="0 0 0"/>
 			<geometry>
 				<box size = "10 0.5 3"/>
 			</geometry>
 		</visual>
 
 		<collision>
-			<origin xyz = "0 5 1.5" rpy ="0 0 0"/>
+			<origin xyz = "0 4.75 1.5" rpy ="0 0 0"/>
 			<geometry>
 				<box size = "10 0.5 3"/>
 			</geometry>
@@ -52,14 +57,14 @@
 
 	<link name = "back_wall">
 		<visual>
-			<origin xyz = "-5 0 1.5" rpy ="0 0 0"/>
+			<origin xyz = "-4.75 0 1.5" rpy ="0 0 0"/>
 			<geometry>
 				<box size = "0.5 10 3"/>
 			</geometry>
 		</visual>
 
 		<collision>
-			<origin xyz = "-5 0 1.5" rpy ="0 0 0"/>
+			<origin xyz = "-4.75 0 1.5" rpy ="0 0 0"/>
 			<geometry>
 				<box size = "0.5 10 3"/>
 			</geometry>
@@ -68,14 +73,14 @@
 
 	<link name = "left_wall">
 		<visual>
-			<origin xyz = "0 -5 1.5" rpy ="0 0 0"/>
+			<origin xyz = "0 -4.75 1.5" rpy ="0 0 0"/>
 			<geometry>
 				<box size = "10 0.5 3"/>
 			</geometry>
 		</visual>
 
 		<collision>
-			<origin xyz = "0 -5 1.5" rpy ="0 0 0"/>
+			<origin xyz = "0 -4.75 1.5" rpy ="0 0 0"/>
 			<geometry>
 				<box size = "10 0.5 3"/>
 			</geometry>
@@ -85,29 +90,29 @@
 	<joint name="front_joint" type="fixed">
 		<parent link="ground"/>
 		<child link="front_wall"/>
-		<origin xyz = "5 0 1.5" rpy ="0 0 0"/>
+		<origin xyz = "0 0 0" rpy ="0 0 0"/>
 	</joint>
 
 	<joint name="right_joint" type="fixed">
 		<parent link="ground"/>
 		<child link="right_wall"/>
-		<origin xyz = "0 5 1.5" rpy ="0 0 0"/>
+		<origin xyz = "0 0 0" rpy ="0 0 0"/>
 	</joint>
 
 	<joint name="back_joint" type="fixed">
 		<parent link="ground"/>
 		<child link="back_wall"/>
-		<origin xyz = "-5 0 1.5" rpy ="0 0 0"/>
+		<origin xyz = "0 0 0" rpy ="0 0 0"/>
 	</joint>
 
 	<joint name="left_joint" type="fixed">
 		<parent link="ground"/>
 		<child link="left_wall"/>
-		<origin xyz = "0 -5 1.5" rpy ="0 0 0"/>
+		<origin xyz = "0 0 0" rpy ="0 0 0"/>
 	</joint>
 
 	<gazebo>
-			<static>true</static>
+		<static>true</static>
 	</gazebo>
 
 </robot>

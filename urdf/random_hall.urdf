@@ -740,4 +740,7 @@
     <child link="sec_10_right_wall"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
+  <gazebo>
+    <static>true</static>
+  </gazebo>
 </robot>

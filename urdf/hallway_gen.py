@@ -1,4 +1,3 @@
-
 #!/usr/bin/python
 
 # RANDOMLY GENERATE STRAIGHT HALLWAY IN CHUNKS
@@ -10,6 +9,10 @@ from lxml import etree
 from random import *
 from numpy import *
 from math import *
+import roslib
+import rospy
+
+rospy.logwarn("generated new hallway")
 
 chunks = 10
 
@@ -68,14 +71,14 @@ for i in range(0,chunks):
             part = 'right_wall'
         elif link == 2: # left connector to next chunk
             if i+1 < chunks:
-                link_xyz = '{} {} {}'.format(sum(length[0:i+1]), (width[i]+width[i+1])/4, pos_z)
+                link_xyz = '{} {} {}'.format(sum(length[0:i+1]), (width[i]+width[i+1])/4 + wall_thickness/2, pos_z)
                 link_size = '{} {} {}'.format(wall_thickness, abs(width[i+1]-width[i])/2 + wall_thickness, size_z)
                 part = 'left_conn'
             else:
                 break
         elif link == 3: # right connector to next chunk
             if i+1 < chunks:
-                link_xyz = '{} {} {}'.format(sum(length[0:i+1]), -(width[i]+width[i+1])/4, pos_z)
+                link_xyz = '{} {} {}'.format(sum(length[0:i+1]), -((width[i]+width[i+1])/4 + wall_thickness/2), pos_z)
                 link_size = '{} {} {}'.format(wall_thickness, abs(width[i+1]-width[i])/2 + wall_thickness, size_z)
                 part = 'right_conn'
             else:

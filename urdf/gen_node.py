@@ -19,8 +19,8 @@ class gen_node():
 
 		file_folder = os.path.dirname(os.path.abspath(__file__))
 		my_file = os.path.join(file_folder, 'hallway_gen.py')
-		execfile(my_file)
-		rospy.logwarn("generated new hallway")
+		os.system(my_file)
+		rospy.logwarn("ran node")
 
 		# create loop
 		rospy.Timer(rospy.Duration(self.dT), self.loop, oneshot=False)

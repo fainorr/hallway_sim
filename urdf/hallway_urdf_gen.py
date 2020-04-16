@@ -5,6 +5,7 @@ from random import *
 from numpy import *
 from math import *
 from fxn_straight_hall import *
+from fxn_hall_intersect import *
 
 # ------------------------------------
 # RANDOMLY GENERATE HALLWAY WITH TURNS
@@ -14,23 +15,60 @@ from fxn_straight_hall import *
 # pip install lxml
 
 
-# --- first hallway, in x direction ---
+# --- define hallway specs ---
 
-start_xyz = [0,0,0]
 n_chunks = 10
 chunk_length = [5.0, 1.0, 0.5]
 chunk_width = [4.0, 0.5, 2.0]
 wall_specs = [3.0, 0.2]
+room_side = chunk_width[0]+3.0*chunk_width[1]
 
-chunk_list, xyz_list, size_list, part_list, hall_length, hall_max_width, start_xyz = \
-    straight_hall("x", n_chunks, chunk_length, chunk_width, wall_specs)
+xyz_list = []
+size_list = []
+part_list = []
 
+
+# --- build environment as combination of hallways ---
+
+# starting room
+element = 1
+room_center = [0,0]
+openings = [False, False, True, False]
+xyz, sizes, parts, room_center = hall_intersect(element, openings, chunk_width, wall_specs, room_center, room_side)
+xyz_list = xyz_list + xyz
+size_list = size_list + sizes
+part_list = part_list + parts
+
+
+# first hallway
+element = 2
+orientation = [1,0]
+xyz, sizes, parts, room_center = straight_hall(element, orientation, n_chunks, chunk_length, chunk_width, wall_specs, room_center, room_side)
+xyz_list = xyz_list + xyz
+size_list = size_list + sizes
+part_list = part_list + parts
+
+# intersection room
+element = 3
+openings = [True, True, False, True]
+xyz, sizes, parts, room_center = hall_intersect(element, openings, chunk_width, wall_specs, room_center, room_side)
+xyz_list = xyz_list + xyz
+size_list = size_list + sizes
+part_list = part_list + parts
+
+# second hallway
+element = 4
+orientation = [0,1]
+xyz, sizes, parts, room_center = straight_hall(element, orientation, n_chunks, chunk_length, chunk_width, wall_specs, room_center, room_side)
+xyz_list = xyz_list + xyz
+size_list = size_list + sizes
+part_list = part_list + parts
 
 
 # --- base specs ---
 
-base_xyz = '{} {} {}'.format(start_xyz[0]/2, 0, -wall_specs[1]/2.0)
-base_size = '{} {} {}'.format(hall_max_width, hall_max_width+2.0*wall_specs[1], wall_specs[1])
+base_xyz = '{} {} {}'.format(0, 0, -wall_specs[1]/2.0)
+base_size = '{} {} {}'.format(2*room_center[0], 2*room_center[1], wall_specs[1])
 base_inertia = ["50,0", "0.0", "0.0", "50.0", "0.0", "50.0"] # [ixx, ixy, ixz, iyy, iyz ,izz]
 
 
@@ -73,7 +111,7 @@ inertia.set("izz",base_inertia[5])
 n_links = len(xyz_list)
 for n in range(0,n_links):
     link = etree.SubElement(root,"link")
-    link.set("name","sec_{}_".format(chunk_list[n]) + part_list[n])
+    link.set("name", part_list[n])
 
     for tag in range(0,2):
         if tag == 0:
@@ -92,14 +130,14 @@ for n in range(0,n_links):
 
     # define joints
     joint = etree.SubElement(root,"joint")
-    joint.set("name","joint_sec_{}_".format(chunk_list[n]) + part_list[n])
+    joint.set("name","joint_" + part_list[n])
     joint.set("type","fixed")
 
     parent = etree.SubElement(joint,"parent")
     parent.set("link","base")
 
     child = etree.SubElement(joint,"child")
-    child.set("link","sec_{}_".format(chunk_list[n]) + part_list[n])
+    child.set("link", part_list[n])
 
     origin = etree.SubElement(joint,"origin")
     origin.set("xyz",'0 0 0')

@@ -17,10 +17,10 @@ from fxn_hall_intersect import *
 
 # --- define hallway specs ---
 
-chunk_length = [5.0, 1.0, 0.5]
-chunk_width = [4.0, 0.5, 2.0]
+chunk_length = [4.0, 1.0, 0.5]
+chunk_width = [4.0, 1.0, 2.0]
 wall_specs = [3.0, 0.2]
-room_side = chunk_width[0]+3.0*chunk_width[1]
+room_side = chunk_width[0]+2.0*chunk_width[1]
 
 xyz_list = []
 size_list = []

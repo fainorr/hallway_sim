@@ -17,7 +17,7 @@ from fxn_hall_intersect import *
 
 # --- define hallway specs ---
 
-n_chunks = 10
+n_chunks = 5
 chunk_length = [5.0, 1.0, 0.5]
 chunk_width = [4.0, 0.5, 2.0]
 wall_specs = [3.0, 0.2]
@@ -50,7 +50,7 @@ part_list = part_list + parts
 
 # intersection room
 element = 3
-openings = [True, True, False, True]
+openings = [True, True, True, False]
 xyz, sizes, parts, room_center = hall_intersect(element, openings, chunk_width, wall_specs, room_center, room_side)
 xyz_list = xyz_list + xyz
 size_list = size_list + sizes
@@ -69,7 +69,7 @@ part_list = part_list + parts
 
 base_xyz = '{} {} {}'.format(0, 0, -wall_specs[1]/2.0)
 base_size = '{} {} {}'.format(2*room_center[0], 2*room_center[1], wall_specs[1])
-base_inertia = ["50,0", "0.0", "0.0", "50.0", "0.0", "50.0"] # [ixx, ixy, ixz, iyy, iyz ,izz]
+base_inertia = ["50.0", "0.0", "0.0", "50.0", "0.0", "50.0"] # [ixx, ixy, ixz, iyy, iyz ,izz]
 
 
 # ---------------

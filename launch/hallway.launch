@@ -10,7 +10,6 @@
 
   <!-- spawn hallway into gazebo -->
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-file $(find hallway_sim)/urdf/random_hall.urdf -urdf -z 0 -x 0 -model random_hall" />
-  <node name="spawn_room_urdf" pkg="gazebo_ros" type="spawn_model" args="-file $(find hallway_sim)/urdf/room.urdf -urdf -z 0 -x -5 -model room" />
 
   <!-- set robot model -->
   <arg name="model" default="$(find floatinghead_description)/urdf/floatinghead.urdf"/>

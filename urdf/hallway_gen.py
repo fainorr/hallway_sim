@@ -9,10 +9,8 @@ from lxml import etree
 from random import *
 from numpy import *
 from math import *
-# import roslib
-# import rospy
-#
-# rospy.logwarn("generated new hallway")
+import roslib
+import rospy
 
 chunks = 10
 
@@ -169,7 +167,9 @@ for n in range(0,n_links):
 # make hallway static
 gazebo_link = etree.SubElement(root,"gazebo")
 static = etree.SubElement(gazebo_link,"static")
-static.set("true",'true')
+static.text = "true"
 
 
-etree.ElementTree(root).write("urdf/random_hall.urdf", pretty_print=True)
+etree.ElementTree(root).write("random_hall.urdf", pretty_print=True)
+
+rospy.logwarn("generated new hallway")

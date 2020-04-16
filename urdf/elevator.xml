@@ -129,7 +129,8 @@
 		<parent link = "ground"/>
 		<child link = "door"/>
 		<origin xyz = "0 0 0" rpy = "0 0 0"/>
-		<limit lower = ""
+		<limit lower = "-1.25" upper = "1.25" velocity = "0.1"/>
+	</joint>
 
 	<joint name = "front_interior_ground_joint" type = "fixed">
 		<parent link = "ground"/>

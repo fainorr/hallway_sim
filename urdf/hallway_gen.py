@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 # RANDOMLY GENERATE STRAIGHT HALLWAY IN CHUNKS
 
@@ -11,8 +11,6 @@ from numpy import *
 from math import *
 import roslib
 import rospy
-
-rospy.logwarn("generated new hallway")
 
 chunks = 10
 
@@ -100,6 +98,7 @@ base_size = '{} {} {}'.format(sum(length), max(width)+2.0*wall_thickness, wall_t
 root = etree.Element('robot')
 root.set("name","hallway")
 
+
 # create base layer
 base = etree.SubElement(root,"link")
 base.set("name","base")
@@ -165,4 +164,12 @@ for n in range(0,n_links):
     origin.set("rpy",'0 0 0')
 
 
+# make hallway static
+gazebo_link = etree.SubElement(root,"gazebo")
+static = etree.SubElement(gazebo_link,"static")
+static.text = "true"
+
+
 etree.ElementTree(root).write("random_hall.urdf", pretty_print=True)
+
+rospy.logwarn("generated new hallway")

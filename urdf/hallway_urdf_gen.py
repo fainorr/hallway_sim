@@ -17,7 +17,6 @@ from fxn_hall_intersect import *
 
 # --- define hallway specs ---
 
-n_chunks = 5
 chunk_length = [5.0, 1.0, 0.5]
 chunk_width = [4.0, 0.5, 2.0]
 wall_specs = [3.0, 0.2]
@@ -42,6 +41,7 @@ part_list = part_list + parts
 # hallway
 element = 2
 orientation = [1,0]
+n_chunks = 10
 xyz, sizes, parts, room_center = straight_hall(element, orientation, n_chunks, chunk_length, chunk_width, wall_specs, room_center, room_side)
 xyz_list = xyz_list + xyz
 size_list = size_list + sizes
@@ -58,6 +58,7 @@ part_list = part_list + parts
 # hallway
 element = 4
 orientation = [0,1]
+n_chunks = 4
 xyz, sizes, parts, room_center = straight_hall(element, orientation, n_chunks, chunk_length, chunk_width, wall_specs, room_center, room_side)
 xyz_list = xyz_list + xyz
 size_list = size_list + sizes
@@ -74,6 +75,7 @@ part_list = part_list + parts
 # hallway
 element = 6
 orientation = [-1,0]
+n_chunks = 5
 xyz, sizes, parts, room_center = straight_hall(element, orientation, n_chunks, chunk_length, chunk_width, wall_specs, room_center, room_side)
 xyz_list = xyz_list + xyz
 size_list = size_list + sizes

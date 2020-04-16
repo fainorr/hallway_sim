@@ -3,13 +3,13 @@
     <visual>
       <origin xyz="0 0 -0.1" rpy="0 0 0"/>
       <geometry>
-        <box size="59.66 62.14 0.2"/>
+        <box size="51.46 51.02 0.2"/>
       </geometry>
     </visual>
     <collision>
       <origin xyz="0 0 -0.1" rpy="0 0 0"/>
       <geometry>
-        <box size="59.66 62.14 0.2"/>
+        <box size="51.46 51.02 0.2"/>
       </geometry>
     </collision>
     <inertial>
@@ -60,13 +60,13 @@
     <visual>
       <origin xyz="2.85 2.35 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.7 3.0"/>
+        <box size="0.2 0.9 3.0"/>
       </geometry>
     </visual>
     <collision>
       <origin xyz="2.85 2.35 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.7 3.0"/>
+        <box size="0.2 0.9 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -79,13 +79,13 @@
     <visual>
       <origin xyz="2.85 -2.35 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.7 3.0"/>
+        <box size="0.2 0.9 3.0"/>
       </geometry>
     </visual>
     <collision>
       <origin xyz="2.85 -2.35 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.7 3.0"/>
+        <box size="0.2 0.9 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -115,13 +115,13 @@
   </joint>
   <link name="2_sec_1_left_wall">
     <visual>
-      <origin xyz="5.45 2.6 1.5" rpy="0 0 0"/>
+      <origin xyz="5.45 2.35 1.5" rpy="0 0 0"/>
       <geometry>
         <box size="5.0 0.2 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="5.45 2.6 1.5" rpy="0 0 0"/>
+      <origin xyz="5.45 2.35 1.5" rpy="0 0 0"/>
       <geometry>
         <box size="5.0 0.2 3.0"/>
       </geometry>
@@ -134,13 +134,13 @@
   </joint>
   <link name="2_sec_1_right_wall">
     <visual>
-      <origin xyz="5.45 -2.6 1.5" rpy="0 0 0"/>
+      <origin xyz="5.45 -2.35 1.5" rpy="0 0 0"/>
       <geometry>
         <box size="5.0 0.2 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="5.45 -2.6 1.5" rpy="0 0 0"/>
+      <origin xyz="5.45 -2.35 1.5" rpy="0 0 0"/>
       <geometry>
         <box size="5.0 0.2 3.0"/>
       </geometry>
@@ -153,15 +153,15 @@
   </joint>
   <link name="2_sec_1_left_conn">
     <visual>
-      <origin xyz="7.95 2.26 1.5" rpy="0 0 0"/>
+      <origin xyz="7.95 2.135 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.88 3.0"/>
+        <box size="0.2 0.63 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="7.95 2.26 1.5" rpy="0 0 0"/>
+      <origin xyz="7.95 2.135 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.88 3.0"/>
+        <box size="0.2 0.63 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -172,15 +172,15 @@
   </joint>
   <link name="2_sec_1_right_conn">
     <visual>
-      <origin xyz="7.95 -2.26 1.5" rpy="0 0 0"/>
+      <origin xyz="7.95 -2.135 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.88 3.0"/>
+        <box size="0.2 0.63 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="7.95 -2.26 1.5" rpy="0 0 0"/>
+      <origin xyz="7.95 -2.135 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.88 3.0"/>
+        <box size="0.2 0.63 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -191,15 +191,15 @@
   </joint>
   <link name="2_sec_2_left_wall">
     <visual>
-      <origin xyz="10.235 1.92 1.5" rpy="0 0 0"/>
+      <origin xyz="11.06 1.92 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="4.57 0.2 3.0"/>
+        <box size="6.22 0.2 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="10.235 1.92 1.5" rpy="0 0 0"/>
+      <origin xyz="11.06 1.92 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="4.57 0.2 3.0"/>
+        <box size="6.22 0.2 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -210,15 +210,15 @@
   </joint>
   <link name="2_sec_2_right_wall">
     <visual>
-      <origin xyz="10.235 -1.92 1.5" rpy="0 0 0"/>
+      <origin xyz="11.06 -1.92 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="4.57 0.2 3.0"/>
+        <box size="6.22 0.2 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="10.235 -1.92 1.5" rpy="0 0 0"/>
+      <origin xyz="11.06 -1.92 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="4.57 0.2 3.0"/>
+        <box size="6.22 0.2 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -229,15 +229,15 @@
   </joint>
   <link name="2_sec_2_left_conn">
     <visual>
-      <origin xyz="12.52 2.18 1.5" rpy="0 0 0"/>
+      <origin xyz="14.17 2.1225 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.72 3.0"/>
+        <box size="0.2 0.605 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="12.52 2.18 1.5" rpy="0 0 0"/>
+      <origin xyz="14.17 2.1225 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.72 3.0"/>
+        <box size="0.2 0.605 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -248,15 +248,15 @@
   </joint>
   <link name="2_sec_2_right_conn">
     <visual>
-      <origin xyz="12.52 -2.18 1.5" rpy="0 0 0"/>
+      <origin xyz="14.17 -2.1225 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.72 3.0"/>
+        <box size="0.2 0.605 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="12.52 -2.18 1.5" rpy="0 0 0"/>
+      <origin xyz="14.17 -2.1225 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.72 3.0"/>
+        <box size="0.2 0.605 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -267,15 +267,15 @@
   </joint>
   <link name="2_sec_3_left_wall">
     <visual>
-      <origin xyz="15.355 2.44 1.5" rpy="0 0 0"/>
+      <origin xyz="16.515 2.325 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="5.67 0.2 3.0"/>
+        <box size="4.69 0.2 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="15.355 2.44 1.5" rpy="0 0 0"/>
+      <origin xyz="16.515 2.325 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="5.67 0.2 3.0"/>
+        <box size="4.69 0.2 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -286,15 +286,15 @@
   </joint>
   <link name="2_sec_3_right_wall">
     <visual>
-      <origin xyz="15.355 -2.44 1.5" rpy="0 0 0"/>
+      <origin xyz="16.515 -2.325 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="5.67 0.2 3.0"/>
+        <box size="4.69 0.2 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="15.355 -2.44 1.5" rpy="0 0 0"/>
+      <origin xyz="16.515 -2.325 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="5.67 0.2 3.0"/>
+        <box size="4.69 0.2 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -305,15 +305,15 @@
   </joint>
   <link name="2_sec_3_left_conn">
     <visual>
-      <origin xyz="18.19 2.32 1.5" rpy="0 0 0"/>
+      <origin xyz="18.86 2.2875 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.44 3.0"/>
+        <box size="0.2 0.275 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="18.19 2.32 1.5" rpy="0 0 0"/>
+      <origin xyz="18.86 2.2875 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.44 3.0"/>
+        <box size="0.2 0.275 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -324,15 +324,15 @@
   </joint>
   <link name="2_sec_3_right_conn">
     <visual>
-      <origin xyz="18.19 -2.32 1.5" rpy="0 0 0"/>
+      <origin xyz="18.86 -2.2875 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.44 3.0"/>
+        <box size="0.2 0.275 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="18.19 -2.32 1.5" rpy="0 0 0"/>
+      <origin xyz="18.86 -2.2875 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.44 3.0"/>
+        <box size="0.2 0.275 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -343,15 +343,15 @@
   </joint>
   <link name="2_sec_4_left_wall">
     <visual>
-      <origin xyz="20.035 2.2 1.5" rpy="0 0 0"/>
+      <origin xyz="21.28 2.25 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="3.69 0.2 3.0"/>
+        <box size="4.84 0.2 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="20.035 2.2 1.5" rpy="0 0 0"/>
+      <origin xyz="21.28 2.25 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="3.69 0.2 3.0"/>
+        <box size="4.84 0.2 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -362,15 +362,15 @@
   </joint>
   <link name="2_sec_4_right_wall">
     <visual>
-      <origin xyz="20.035 -2.2 1.5" rpy="0 0 0"/>
+      <origin xyz="21.28 -2.25 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="3.69 0.2 3.0"/>
+        <box size="4.84 0.2 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="20.035 -2.2 1.5" rpy="0 0 0"/>
+      <origin xyz="21.28 -2.25 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="3.69 0.2 3.0"/>
+        <box size="4.84 0.2 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -381,15 +381,15 @@
   </joint>
   <link name="2_sec_4_left_conn">
     <visual>
-      <origin xyz="21.88 2.4 1.5" rpy="0 0 0"/>
+      <origin xyz="23.7 2.17 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.6 3.0"/>
+        <box size="0.2 0.36 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="21.88 2.4 1.5" rpy="0 0 0"/>
+      <origin xyz="23.7 2.17 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.6 3.0"/>
+        <box size="0.2 0.36 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -400,15 +400,15 @@
   </joint>
   <link name="2_sec_4_right_conn">
     <visual>
-      <origin xyz="21.88 -2.4 1.5" rpy="0 0 0"/>
+      <origin xyz="23.7 -2.17 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.6 3.0"/>
+        <box size="0.2 0.36 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="21.88 -2.4 1.5" rpy="0 0 0"/>
+      <origin xyz="23.7 -2.17 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.6 3.0"/>
+        <box size="0.2 0.36 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -419,15 +419,15 @@
   </joint>
   <link name="2_sec_5_left_wall">
     <visual>
-      <origin xyz="24.38 2.6 1.5" rpy="0 0 0"/>
+      <origin xyz="25.87 2.09 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="5.0 0.2 3.0"/>
+        <box size="4.34 0.2 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="24.38 2.6 1.5" rpy="0 0 0"/>
+      <origin xyz="25.87 2.09 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="5.0 0.2 3.0"/>
+        <box size="4.34 0.2 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -438,15 +438,15 @@
   </joint>
   <link name="2_sec_5_right_wall">
     <visual>
-      <origin xyz="24.38 -2.6 1.5" rpy="0 0 0"/>
+      <origin xyz="25.87 -2.09 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="5.0 0.2 3.0"/>
+        <box size="4.34 0.2 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="24.38 -2.6 1.5" rpy="0 0 0"/>
+      <origin xyz="25.87 -2.09 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="5.0 0.2 3.0"/>
+        <box size="4.34 0.2 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -455,17 +455,397 @@
     <child link="2_sec_5_right_wall"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
-  <link name="3_int_side_0_left">
+  <link name="2_sec_5_left_conn">
     <visual>
-      <origin xyz="26.98 -2.35 1.5" rpy="0 0 0"/>
+      <origin xyz="28.04 2.1525 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.7 3.0"/>
+        <box size="0.2 0.325 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="26.98 -2.35 1.5" rpy="0 0 0"/>
+      <origin xyz="28.04 2.1525 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.7 3.0"/>
+        <box size="0.2 0.325 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_2_sec_5_left_conn" type="fixed">
+    <parent link="base"/>
+    <child link="2_sec_5_left_conn"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="2_sec_5_right_conn">
+    <visual>
+      <origin xyz="28.04 -2.1525 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.325 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="28.04 -2.1525 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.325 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_2_sec_5_right_conn" type="fixed">
+    <parent link="base"/>
+    <child link="2_sec_5_right_conn"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="2_sec_6_left_wall">
+    <visual>
+      <origin xyz="29.975 2.215 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="3.87 0.2 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="29.975 2.215 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="3.87 0.2 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_2_sec_6_left_wall" type="fixed">
+    <parent link="base"/>
+    <child link="2_sec_6_left_wall"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="2_sec_6_right_wall">
+    <visual>
+      <origin xyz="29.975 -2.215 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="3.87 0.2 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="29.975 -2.215 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="3.87 0.2 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_2_sec_6_right_wall" type="fixed">
+    <parent link="base"/>
+    <child link="2_sec_6_right_wall"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="2_sec_6_left_conn">
+    <visual>
+      <origin xyz="31.91 2.02 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.59 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="31.91 2.02 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.59 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_2_sec_6_left_conn" type="fixed">
+    <parent link="base"/>
+    <child link="2_sec_6_left_conn"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="2_sec_6_right_conn">
+    <visual>
+      <origin xyz="31.91 -2.02 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.59 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="31.91 -2.02 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.59 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_2_sec_6_right_conn" type="fixed">
+    <parent link="base"/>
+    <child link="2_sec_6_right_conn"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="2_sec_7_left_wall">
+    <visual>
+      <origin xyz="34.845 1.825 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="5.87 0.2 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="34.845 1.825 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="5.87 0.2 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_2_sec_7_left_wall" type="fixed">
+    <parent link="base"/>
+    <child link="2_sec_7_left_wall"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="2_sec_7_right_wall">
+    <visual>
+      <origin xyz="34.845 -1.825 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="5.87 0.2 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="34.845 -1.825 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="5.87 0.2 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_2_sec_7_right_wall" type="fixed">
+    <parent link="base"/>
+    <child link="2_sec_7_right_wall"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="2_sec_7_left_conn">
+    <visual>
+      <origin xyz="37.78 1.75 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.35 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="37.78 1.75 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.35 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_2_sec_7_left_conn" type="fixed">
+    <parent link="base"/>
+    <child link="2_sec_7_left_conn"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="2_sec_7_right_conn">
+    <visual>
+      <origin xyz="37.78 -1.75 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.35 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="37.78 -1.75 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.35 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_2_sec_7_right_conn" type="fixed">
+    <parent link="base"/>
+    <child link="2_sec_7_right_conn"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="2_sec_8_left_wall">
+    <visual>
+      <origin xyz="39.9 1.675 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="4.24 0.2 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="39.9 1.675 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="4.24 0.2 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_2_sec_8_left_wall" type="fixed">
+    <parent link="base"/>
+    <child link="2_sec_8_left_wall"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="2_sec_8_right_wall">
+    <visual>
+      <origin xyz="39.9 -1.675 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="4.24 0.2 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="39.9 -1.675 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="4.24 0.2 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_2_sec_8_right_wall" type="fixed">
+    <parent link="base"/>
+    <child link="2_sec_8_right_wall"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="2_sec_8_left_conn">
+    <visual>
+      <origin xyz="42.02 1.88 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.61 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="42.02 1.88 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.61 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_2_sec_8_left_conn" type="fixed">
+    <parent link="base"/>
+    <child link="2_sec_8_left_conn"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="2_sec_8_right_conn">
+    <visual>
+      <origin xyz="42.02 -1.88 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.61 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="42.02 -1.88 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.61 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_2_sec_8_right_conn" type="fixed">
+    <parent link="base"/>
+    <child link="2_sec_8_right_conn"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="2_sec_9_left_wall">
+    <visual>
+      <origin xyz="44.195 2.085 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="4.35 0.2 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="44.195 2.085 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="4.35 0.2 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_2_sec_9_left_wall" type="fixed">
+    <parent link="base"/>
+    <child link="2_sec_9_left_wall"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="2_sec_9_right_wall">
+    <visual>
+      <origin xyz="44.195 -2.085 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="4.35 0.2 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="44.195 -2.085 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="4.35 0.2 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_2_sec_9_right_wall" type="fixed">
+    <parent link="base"/>
+    <child link="2_sec_9_right_wall"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="2_sec_9_left_conn">
+    <visual>
+      <origin xyz="46.37 2.2175 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.465 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="46.37 2.2175 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.465 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_2_sec_9_left_conn" type="fixed">
+    <parent link="base"/>
+    <child link="2_sec_9_left_conn"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="2_sec_9_right_conn">
+    <visual>
+      <origin xyz="46.37 -2.2175 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.465 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="46.37 -2.2175 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.465 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_2_sec_9_right_conn" type="fixed">
+    <parent link="base"/>
+    <child link="2_sec_9_right_conn"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="2_sec_10_left_wall">
+    <visual>
+      <origin xyz="48.87 2.35 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="5.0 0.2 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="48.87 2.35 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="5.0 0.2 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_2_sec_10_left_wall" type="fixed">
+    <parent link="base"/>
+    <child link="2_sec_10_left_wall"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="2_sec_10_right_wall">
+    <visual>
+      <origin xyz="48.87 -2.35 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="5.0 0.2 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="48.87 -2.35 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="5.0 0.2 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_2_sec_10_right_wall" type="fixed">
+    <parent link="base"/>
+    <child link="2_sec_10_right_wall"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="3_int_side_0_left">
+    <visual>
+      <origin xyz="51.47 -2.35 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.9 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="51.47 -2.35 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.9 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -476,15 +856,15 @@
   </joint>
   <link name="3_int_side_0_right">
     <visual>
-      <origin xyz="26.98 2.35 1.5" rpy="0 0 0"/>
+      <origin xyz="51.47 2.35 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.7 3.0"/>
+        <box size="0.2 0.9 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="26.98 2.35 1.5" rpy="0 0 0"/>
+      <origin xyz="51.47 2.35 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.7 3.0"/>
+        <box size="0.2 0.9 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -495,15 +875,15 @@
   </joint>
   <link name="3_int_side_1_left">
     <visual>
-      <origin xyz="32.18 2.85 1.5" rpy="0 0 0"/>
+      <origin xyz="56.67 2.85 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.7 0.2 3.0"/>
+        <box size="0.9 0.2 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="32.18 2.85 1.5" rpy="0 0 0"/>
+      <origin xyz="56.67 2.85 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.7 0.2 3.0"/>
+        <box size="0.9 0.2 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -514,15 +894,15 @@
   </joint>
   <link name="3_int_side_1_right">
     <visual>
-      <origin xyz="27.48 2.85 1.5" rpy="0 0 0"/>
+      <origin xyz="51.97 2.85 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.7 0.2 3.0"/>
+        <box size="0.9 0.2 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="27.48 2.85 1.5" rpy="0 0 0"/>
+      <origin xyz="51.97 2.85 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.7 0.2 3.0"/>
+        <box size="0.9 0.2 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -531,53 +911,34 @@
     <child link="3_int_side_1_right"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
-  <link name="3_int_side_2_left">
+  <link name="3_int_side_2">
     <visual>
-      <origin xyz="32.68 2.35 1.5" rpy="0 0 0"/>
+      <origin xyz="57.17 0.0 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.7 3.0"/>
+        <box size="0.2 5.9 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="32.68 2.35 1.5" rpy="0 0 0"/>
+      <origin xyz="57.17 0.0 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.7 3.0"/>
+        <box size="0.2 5.9 3.0"/>
       </geometry>
     </collision>
   </link>
-  <joint name="joint_3_int_side_2_left" type="fixed">
+  <joint name="joint_3_int_side_2" type="fixed">
     <parent link="base"/>
-    <child link="3_int_side_2_left"/>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-  </joint>
-  <link name="3_int_side_2_right">
-    <visual>
-      <origin xyz="32.68 -2.35 1.5" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.2 0.7 3.0"/>
-      </geometry>
-    </visual>
-    <collision>
-      <origin xyz="32.68 -2.35 1.5" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.2 0.7 3.0"/>
-      </geometry>
-    </collision>
-  </link>
-  <joint name="joint_3_int_side_2_right" type="fixed">
-    <parent link="base"/>
-    <child link="3_int_side_2_right"/>
+    <child link="3_int_side_2"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
   <link name="3_int_side_3">
     <visual>
-      <origin xyz="29.83 -2.85 1.5" rpy="0 0 0"/>
+      <origin xyz="54.32 -2.85 1.5" rpy="0 0 0"/>
       <geometry>
         <box size="5.9 0.2 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="29.83 -2.85 1.5" rpy="0 0 0"/>
+      <origin xyz="54.32 -2.85 1.5" rpy="0 0 0"/>
       <geometry>
         <box size="5.9 0.2 3.0"/>
       </geometry>
@@ -590,13 +951,13 @@
   </joint>
   <link name="4_sec_1_left_wall">
     <visual>
-      <origin xyz="32.43 5.45 1.5" rpy="0 0 0"/>
+      <origin xyz="56.67 5.45 1.5" rpy="0 0 0"/>
       <geometry>
         <box size="0.2 5.0 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="32.43 5.45 1.5" rpy="0 0 0"/>
+      <origin xyz="56.67 5.45 1.5" rpy="0 0 0"/>
       <geometry>
         <box size="0.2 5.0 3.0"/>
       </geometry>
@@ -609,13 +970,13 @@
   </joint>
   <link name="4_sec_1_right_wall">
     <visual>
-      <origin xyz="-32.43 5.45 1.5" rpy="0 0 0"/>
+      <origin xyz="51.97 5.45 1.5" rpy="0 0 0"/>
       <geometry>
         <box size="0.2 5.0 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="-32.43 5.45 1.5" rpy="0 0 0"/>
+      <origin xyz="51.97 5.45 1.5" rpy="0 0 0"/>
       <geometry>
         <box size="0.2 5.0 3.0"/>
       </geometry>
@@ -628,15 +989,15 @@
   </joint>
   <link name="4_sec_1_left_conn">
     <visual>
-      <origin xyz="32.2475 7.95 1.5" rpy="0 0 0"/>
+      <origin xyz="56.55 7.95 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.565 0.2 3.0"/>
+        <box size="0.44 0.2 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="32.2475 7.95 1.5" rpy="0 0 0"/>
+      <origin xyz="56.55 7.95 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.565 0.2 3.0"/>
+        <box size="0.44 0.2 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -647,15 +1008,15 @@
   </joint>
   <link name="4_sec_1_right_conn">
     <visual>
-      <origin xyz="32.2475 -7.95 1.5" rpy="0 0 0"/>
+      <origin xyz="52.09 7.95 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.565 0.2 3.0"/>
+        <box size="0.44 0.2 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="32.2475 -7.95 1.5" rpy="0 0 0"/>
+      <origin xyz="52.09 7.95 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.565 0.2 3.0"/>
+        <box size="0.44 0.2 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -666,15 +1027,15 @@
   </joint>
   <link name="4_sec_2_left_wall">
     <visual>
-      <origin xyz="32.065 10.92 1.5" rpy="0 0 0"/>
+      <origin xyz="56.43 9.785 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 5.94 3.0"/>
+        <box size="0.2 3.67 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="32.065 10.92 1.5" rpy="0 0 0"/>
+      <origin xyz="56.43 9.785 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 5.94 3.0"/>
+        <box size="0.2 3.67 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -685,15 +1046,15 @@
   </joint>
   <link name="4_sec_2_right_wall">
     <visual>
-      <origin xyz="-32.065 10.92 1.5" rpy="0 0 0"/>
+      <origin xyz="52.21 9.785 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 5.94 3.0"/>
+        <box size="0.2 3.67 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="-32.065 10.92 1.5" rpy="0 0 0"/>
+      <origin xyz="52.21 9.785 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 5.94 3.0"/>
+        <box size="0.2 3.67 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -704,15 +1065,15 @@
   </joint>
   <link name="4_sec_2_left_conn">
     <visual>
-      <origin xyz="31.84 13.89 1.5" rpy="0 0 0"/>
+      <origin xyz="56.3825 11.62 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.65 0.2 3.0"/>
+        <box size="0.295 0.2 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="31.84 13.89 1.5" rpy="0 0 0"/>
+      <origin xyz="56.3825 11.62 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.65 0.2 3.0"/>
+        <box size="0.295 0.2 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -723,15 +1084,15 @@
   </joint>
   <link name="4_sec_2_right_conn">
     <visual>
-      <origin xyz="31.84 -13.89 1.5" rpy="0 0 0"/>
+      <origin xyz="52.2575 11.62 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.65 0.2 3.0"/>
+        <box size="0.295 0.2 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="31.84 -13.89 1.5" rpy="0 0 0"/>
+      <origin xyz="52.2575 11.62 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.65 0.2 3.0"/>
+        <box size="0.295 0.2 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -742,15 +1103,15 @@
   </joint>
   <link name="4_sec_3_left_wall">
     <visual>
-      <origin xyz="31.615 16.545 1.5" rpy="0 0 0"/>
+      <origin xyz="56.335 14.59 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 5.31 3.0"/>
+        <box size="0.2 5.94 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="31.615 16.545 1.5" rpy="0 0 0"/>
+      <origin xyz="56.335 14.59 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 5.31 3.0"/>
+        <box size="0.2 5.94 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -761,15 +1122,15 @@
   </joint>
   <link name="4_sec_3_right_wall">
     <visual>
-      <origin xyz="-31.615 16.545 1.5" rpy="0 0 0"/>
+      <origin xyz="52.305 14.59 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 5.31 3.0"/>
+        <box size="0.2 5.94 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="-31.615 16.545 1.5" rpy="0 0 0"/>
+      <origin xyz="52.305 14.59 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 5.31 3.0"/>
+        <box size="0.2 5.94 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -780,15 +1141,15 @@
   </joint>
   <link name="4_sec_3_left_conn">
     <visual>
-      <origin xyz="31.8675 19.2 1.5" rpy="0 0 0"/>
+      <origin xyz="56.5025 17.56 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.705 0.2 3.0"/>
+        <box size="0.535 0.2 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="31.8675 19.2 1.5" rpy="0 0 0"/>
+      <origin xyz="56.5025 17.56 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.705 0.2 3.0"/>
+        <box size="0.535 0.2 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -799,15 +1160,15 @@
   </joint>
   <link name="4_sec_3_right_conn">
     <visual>
-      <origin xyz="31.8675 -19.2 1.5" rpy="0 0 0"/>
+      <origin xyz="52.1375 17.56 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.705 0.2 3.0"/>
+        <box size="0.535 0.2 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="31.8675 -19.2 1.5" rpy="0 0 0"/>
+      <origin xyz="52.1375 17.56 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.705 0.2 3.0"/>
+        <box size="0.535 0.2 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -818,15 +1179,15 @@
   </joint>
   <link name="4_sec_4_left_wall">
     <visual>
-      <origin xyz="32.12 21.16 1.5" rpy="0 0 0"/>
+      <origin xyz="56.67 20.06 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 3.92 3.0"/>
+        <box size="0.2 5.0 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="32.12 21.16 1.5" rpy="0 0 0"/>
+      <origin xyz="56.67 20.06 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 3.92 3.0"/>
+        <box size="0.2 5.0 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -837,15 +1198,15 @@
   </joint>
   <link name="4_sec_4_right_wall">
     <visual>
-      <origin xyz="-32.12 21.16 1.5" rpy="0 0 0"/>
+      <origin xyz="51.97 20.06 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 3.92 3.0"/>
+        <box size="0.2 5.0 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="-32.12 21.16 1.5" rpy="0 0 0"/>
+      <origin xyz="51.97 20.06 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 3.92 3.0"/>
+        <box size="0.2 5.0 3.0"/>
       </geometry>
     </collision>
   </link>
@@ -854,80 +1215,460 @@
     <child link="4_sec_4_right_wall"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
-  <link name="4_sec_4_left_conn">
+  <link name="5_int_side_0_left">
     <visual>
-      <origin xyz="32.275 23.12 1.5" rpy="0 0 0"/>
+      <origin xyz="51.47 23.16 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.51 0.2 3.0"/>
+        <box size="0.2 0.9 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="32.275 23.12 1.5" rpy="0 0 0"/>
+      <origin xyz="51.47 23.16 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.51 0.2 3.0"/>
+        <box size="0.2 0.9 3.0"/>
       </geometry>
     </collision>
   </link>
-  <joint name="joint_4_sec_4_left_conn" type="fixed">
+  <joint name="joint_5_int_side_0_left" type="fixed">
     <parent link="base"/>
-    <child link="4_sec_4_left_conn"/>
+    <child link="5_int_side_0_left"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
-  <link name="4_sec_4_right_conn">
+  <link name="5_int_side_0_right">
     <visual>
-      <origin xyz="32.275 -23.12 1.5" rpy="0 0 0"/>
+      <origin xyz="51.47 27.86 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.51 0.2 3.0"/>
+        <box size="0.2 0.9 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="32.275 -23.12 1.5" rpy="0 0 0"/>
+      <origin xyz="51.47 27.86 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.51 0.2 3.0"/>
+        <box size="0.2 0.9 3.0"/>
       </geometry>
     </collision>
   </link>
-  <joint name="joint_4_sec_4_right_conn" type="fixed">
+  <joint name="joint_5_int_side_0_right" type="fixed">
     <parent link="base"/>
-    <child link="4_sec_4_right_conn"/>
+    <child link="5_int_side_0_right"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
-  <link name="4_sec_5_left_wall">
+  <link name="5_int_side_1">
     <visual>
-      <origin xyz="32.43 25.62 1.5" rpy="0 0 0"/>
+      <origin xyz="54.32 28.36 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 5.0 3.0"/>
+        <box size="5.9 0.2 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="32.43 25.62 1.5" rpy="0 0 0"/>
+      <origin xyz="54.32 28.36 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 5.0 3.0"/>
+        <box size="5.9 0.2 3.0"/>
       </geometry>
     </collision>
   </link>
-  <joint name="joint_4_sec_5_left_wall" type="fixed">
+  <joint name="joint_5_int_side_1" type="fixed">
     <parent link="base"/>
-    <child link="4_sec_5_left_wall"/>
+    <child link="5_int_side_1"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
-  <link name="4_sec_5_right_wall">
+  <link name="5_int_side_2">
     <visual>
-      <origin xyz="-32.43 25.62 1.5" rpy="0 0 0"/>
+      <origin xyz="57.17 25.51 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 5.0 3.0"/>
+        <box size="0.2 5.9 3.0"/>
       </geometry>
     </visual>
     <collision>
-      <origin xyz="-32.43 25.62 1.5" rpy="0 0 0"/>
+      <origin xyz="57.17 25.51 1.5" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 5.0 3.0"/>
+        <box size="0.2 5.9 3.0"/>
       </geometry>
     </collision>
   </link>
-  <joint name="joint_4_sec_5_right_wall" type="fixed">
+  <joint name="joint_5_int_side_2" type="fixed">
     <parent link="base"/>
-    <child link="4_sec_5_right_wall"/>
+    <child link="5_int_side_2"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="5_int_side_3_left">
+    <visual>
+      <origin xyz="51.97 22.66 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.9 0.2 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="51.97 22.66 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.9 0.2 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_5_int_side_3_left" type="fixed">
+    <parent link="base"/>
+    <child link="5_int_side_3_left"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="5_int_side_3_right">
+    <visual>
+      <origin xyz="56.67 22.66 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.9 0.2 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="56.67 22.66 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.9 0.2 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_5_int_side_3_right" type="fixed">
+    <parent link="base"/>
+    <child link="5_int_side_3_right"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="6_sec_1_left_wall">
+    <visual>
+      <origin xyz="48.87 23.16 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-5.0 -0.2 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="48.87 23.16 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-5.0 -0.2 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_6_sec_1_left_wall" type="fixed">
+    <parent link="base"/>
+    <child link="6_sec_1_left_wall"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="6_sec_1_right_wall">
+    <visual>
+      <origin xyz="48.87 27.86 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-5.0 -0.2 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="48.87 27.86 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-5.0 -0.2 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_6_sec_1_right_wall" type="fixed">
+    <parent link="base"/>
+    <child link="6_sec_1_right_wall"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="6_sec_1_left_conn">
+    <visual>
+      <origin xyz="46.37 23.2925 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-0.2 -0.465 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="46.37 23.2925 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-0.2 -0.465 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_6_sec_1_left_conn" type="fixed">
+    <parent link="base"/>
+    <child link="6_sec_1_left_conn"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="6_sec_1_right_conn">
+    <visual>
+      <origin xyz="46.37 27.7275 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-0.2 -0.465 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="46.37 27.7275 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-0.2 -0.465 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_6_sec_1_right_conn" type="fixed">
+    <parent link="base"/>
+    <child link="6_sec_1_right_conn"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="6_sec_2_left_wall">
+    <visual>
+      <origin xyz="43.71 23.425 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-5.32 -0.2 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="43.71 23.425 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-5.32 -0.2 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_6_sec_2_left_wall" type="fixed">
+    <parent link="base"/>
+    <child link="6_sec_2_left_wall"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="6_sec_2_right_wall">
+    <visual>
+      <origin xyz="43.71 27.595 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-5.32 -0.2 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="43.71 27.595 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-5.32 -0.2 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_6_sec_2_right_wall" type="fixed">
+    <parent link="base"/>
+    <child link="6_sec_2_right_wall"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="6_sec_2_left_conn">
+    <visual>
+      <origin xyz="41.05 23.42 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-0.2 -0.21 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="41.05 23.42 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-0.2 -0.21 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_6_sec_2_left_conn" type="fixed">
+    <parent link="base"/>
+    <child link="6_sec_2_left_conn"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="6_sec_2_right_conn">
+    <visual>
+      <origin xyz="41.05 27.6 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-0.2 -0.21 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="41.05 27.6 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-0.2 -0.21 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_6_sec_2_right_conn" type="fixed">
+    <parent link="base"/>
+    <child link="6_sec_2_right_conn"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="6_sec_3_left_wall">
+    <visual>
+      <origin xyz="39.27 23.415 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-3.56 -0.2 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="39.27 23.415 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-3.56 -0.2 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_6_sec_3_left_wall" type="fixed">
+    <parent link="base"/>
+    <child link="6_sec_3_left_wall"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="6_sec_3_right_wall">
+    <visual>
+      <origin xyz="39.27 27.605 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-3.56 -0.2 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="39.27 27.605 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-3.56 -0.2 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_6_sec_3_right_wall" type="fixed">
+    <parent link="base"/>
+    <child link="6_sec_3_right_wall"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="6_sec_3_left_conn">
+    <visual>
+      <origin xyz="37.49 23.7725 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-0.2 -0.915 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="37.49 23.7725 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-0.2 -0.915 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_6_sec_3_left_conn" type="fixed">
+    <parent link="base"/>
+    <child link="6_sec_3_left_conn"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="6_sec_3_right_conn">
+    <visual>
+      <origin xyz="37.49 27.2475 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-0.2 -0.915 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="37.49 27.2475 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-0.2 -0.915 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_6_sec_3_right_conn" type="fixed">
+    <parent link="base"/>
+    <child link="6_sec_3_right_conn"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="6_sec_4_left_wall">
+    <visual>
+      <origin xyz="35.585 24.13 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-3.81 -0.2 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="35.585 24.13 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-3.81 -0.2 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_6_sec_4_left_wall" type="fixed">
+    <parent link="base"/>
+    <child link="6_sec_4_left_wall"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="6_sec_4_right_wall">
+    <visual>
+      <origin xyz="35.585 26.89 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-3.81 -0.2 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="35.585 26.89 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-3.81 -0.2 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_6_sec_4_right_wall" type="fixed">
+    <parent link="base"/>
+    <child link="6_sec_4_right_wall"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="6_sec_4_left_conn">
+    <visual>
+      <origin xyz="33.68 23.645 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-0.2 -1.17 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="33.68 23.645 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-0.2 -1.17 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_6_sec_4_left_conn" type="fixed">
+    <parent link="base"/>
+    <child link="6_sec_4_left_conn"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="6_sec_4_right_conn">
+    <visual>
+      <origin xyz="33.68 27.375 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-0.2 -1.17 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="33.68 27.375 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-0.2 -1.17 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_6_sec_4_right_conn" type="fixed">
+    <parent link="base"/>
+    <child link="6_sec_4_right_conn"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="6_sec_5_left_wall">
+    <visual>
+      <origin xyz="31.18 23.16 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-5.0 -0.2 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="31.18 23.16 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-5.0 -0.2 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_6_sec_5_left_wall" type="fixed">
+    <parent link="base"/>
+    <child link="6_sec_5_left_wall"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <link name="6_sec_5_right_wall">
+    <visual>
+      <origin xyz="31.18 27.86 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-5.0 -0.2 3.0"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="31.18 27.86 1.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="-5.0 -0.2 3.0"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_6_sec_5_right_wall" type="fixed">
+    <parent link="base"/>
+    <child link="6_sec_5_right_wall"/>
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
   <gazebo>

@@ -34,7 +34,7 @@ def hall_intersect(element, openings, chunk_width, wall_specs, room_center, room
 
         wall = [1,-1]
         parts = ['{}_int_side_{}_left'.format(element, side), \
-                 '{}_int_side_{}_right'.format(element, side),\
+                 '{}_int_side_{}_right'.format(element, side), \
                  '{}_int_side_{}'.format(element, side)]
 
         if openings[side] == True: # add opening for hallway
@@ -46,8 +46,8 @@ def hall_intersect(element, openings, chunk_width, wall_specs, room_center, room
                                 + wall[i]*side_offsets[side][0]*(chunk_width[0]/2+(chunk_width[1]+wall_specs[1])/2)
                 wall_pos_z = wall_specs[0]/2
 
-                wall_size_x = abs(side_offsets[side][0]*wall_specs[1] + side_offsets[side][1]*(chunk_width[1]+wall_specs[1]))
-                wall_size_y = abs(side_offsets[side][1]*wall_specs[1] + side_offsets[side][0]*(chunk_width[1]+wall_specs[1]))
+                wall_size_x = abs(side_offsets[side][0]*wall_specs[1] + side_offsets[side][1]*(chunk_width[1]+2*wall_specs[1]))
+                wall_size_y = abs(side_offsets[side][1]*wall_specs[1] + side_offsets[side][0]*(chunk_width[1]+2*wall_specs[1]))
                 wall_size_z = wall_specs[0]
 
                 link_xyz = '{} {} {}'.format(wall_pos_x, wall_pos_y, wall_pos_z)

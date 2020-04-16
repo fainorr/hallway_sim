@@ -94,7 +94,8 @@ def straight_hall(element, orientation, n_chunks, chunk_length, chunk_width, wal
 				link_size = '{} {} {}'.format(sidewall_size_x, sidewall_size_y, sidewall_size_z)
 				part = '{}_sec_{}_left_wall'.format(element,i+1)
 			elif link == 1: # right wall
-				link_xyz = '{} {} {}'.format(sidewall_pos_x, -sidewall_pos_y, sidewall_pos_z)
+				link_xyz = '{} {} {}'.format(orientation[0]*sidewall_pos_x - orientation[1]*sidewall_pos_x, \
+											 orientation[1]*sidewall_pos_y - orientation[0]*sidewall_pos_y, sidewall_pos_z)
 				link_size = '{} {} {}'.format(sidewall_size_x, sidewall_size_y, sidewall_size_z)
 				part = '{}_sec_{}_right_wall'.format(element,i+1)
 			elif link == 2: # left connector to next chunk

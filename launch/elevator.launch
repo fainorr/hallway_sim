@@ -1,8 +1,5 @@
 <launch>
 
-  <!-- generate random hallway -->
-  <node name="gen_node" pkg="hallway_sim" type="gen_node.py"/>
-
   <!-- launch gazebo world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find hallway_sim)/gazebo/emptyworld.world"/>

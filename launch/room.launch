@@ -1,8 +1,5 @@
 <launch>
 
-  <!-- generate random hallway -->
-  <node name="gen_node" pkg="hallway_sim" type="gen_node.py"/>
-
   <!-- launch gazebo world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find hallway_sim)/gazebo/emptyworld.world"/>
@@ -13,7 +10,7 @@
 
   <!-- set robot model -->
   <arg name="model" default="$(find floatinghead_description)/urdf/floatinghead.urdf"/>
-  
+
   <!-- send fake joint values -->
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
     <param name="use_gui" value="TRUE"/>
@@ -21,7 +18,7 @@
 
   <!-- Combine joint values -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
-  
+
   <!-- initiate rviz -->
   <node type="rviz" name="rviz" pkg="rviz" args="-d $(find floatinghead_description)/rviz/floatinghead.rviz" />
 
@@ -30,7 +27,7 @@
   <!-- spawn robot -->
   <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model" args="-file $(find floatinghead_description)/urdf/floatinghead.urdf -urdf -z .1 -model lidar_body" />
   <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" args="--perspective-file $(find floatinghead_description)/rqt/floatinghead.perspective"/>
-  
+
   <!-- run control nodes -->
   <node name="lidar_quad_node" pkg="openpup_ros" type="lidar_quad_node.py"/>
   <node name="gazebo_drive_node" pkg="openpup_ros" type="gazebo_drive_node.py"/>

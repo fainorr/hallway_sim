@@ -66,63 +66,62 @@ def straight_hall(element, orientation, n_chunks, chunk_length, chunk_width, wal
 
 	for i in range(0,n_chunks):
 
-        for link in range(0,2):
+		for link in range(0,2):
 
-            if link == 0: # left wall
-                sidewall_pos_x = hall_start[0] + orientation[0]*(round((lengths[i]/2.0) + sum(lengths[0:i]),3)) + \
-                                                orientation[1]*(widths[i]/2.0 + wall_specs[1]/2.0)
-                sidewall_pos_y = hall_start[1] + orientation[1]*(round((lengths[i]/2.0) + sum(lengths[0:i]),3)) + \
-                                                orientation[0]*(widths[i]/2.0 + wall_specs[1]/2.0)
+			if link == 0: # left wall
+				sidewall_pos_x = hall_start[0] + orientation[0]*(round((lengths[i]/2.0) + sum(lengths[0:i]),3)) + \
+												orientation[1]*(widths[i]/2.0 + wall_specs[1]/2.0)
+				sidewall_pos_y = hall_start[1] + orientation[1]*(round((lengths[i]/2.0) + sum(lengths[0:i]),3)) + \
+												orientation[0]*(widths[i]/2.0 + wall_specs[1]/2.0)
 				part = '{}_sec_{}_left_wall'.format(element,i+1)
 
-            if link == 1: #right wall
-                sidewall_pos_x = hall_start[0] + orientation[0]*(round((lengths[i]/2.0) + sum(lengths[0:i]),3)) - \
-                                                orientation[1]*(widths[i]/2.0 + wall_specs[1]/2.0)
-                sidewall_pos_y = hall_start[1] + orientation[1]*(round((lengths[i]/2.0) + sum(lengths[0:i]),3)) - \
-                                                orientation[0]*(widths[i]/2.0 + wall_specs[1]/2.0)
+			if link == 1: #right wall
+				sidewall_pos_x = hall_start[0] + orientation[0]*(round((lengths[i]/2.0) + sum(lengths[0:i]),3)) - \
+												orientation[1]*(widths[i]/2.0 + wall_specs[1]/2.0)
+				sidewall_pos_y = hall_start[1] + orientation[1]*(round((lengths[i]/2.0) + sum(lengths[0:i]),3)) - \
+												orientation[0]*(widths[i]/2.0 + wall_specs[1]/2.0)
 				part = '{}_sec_{}_right_wall'.format(element,i+1)
 
-            sidewall_pos_z = wall_specs[0]/2.0
+			sidewall_pos_z = wall_specs[0]/2.0
 
-            sidewall_size_x = orientation[0]*lengths[i] + orientation[1]*wall_specs[1]
-            sidewall_size_y = orientation[1]*lengths[i] + orientation[0]*wall_specs[1]
-            sidewall_size_z = wall_specs[0]
+			sidewall_size_x = orientation[0]*lengths[i] + orientation[1]*wall_specs[1]
+			sidewall_size_y = orientation[1]*lengths[i] + orientation[0]*wall_specs[1]
+			sidewall_size_z = wall_specs[0]
 
-            link_xyz = '{} {} {}'.format(sidewall_pos_x, sidewall_pos_y, sidewall_pos_z)
-            link_size = '{} {} {}'.format(sidewall_size_x, sidewall_size_y, sidewall_size_z)
+			link_xyz = '{} {} {}'.format(sidewall_pos_x, sidewall_pos_y, sidewall_pos_z)
+			link_size = '{} {} {}'.format(sidewall_size_x, sidewall_size_y, sidewall_size_z)
 
-            xyz_list.append(link_xyz)
+			xyz_list.append(link_xyz)
 			size_list.append(link_size)
 			part_list.append(part)
 
-        
-        if i < n_chunks-1:
 
-            for conn in range(0,2):
+		if i < n_chunks-1:
 
-                if conn == 0: # left connector to next chunk
-                    conn_pos_x = hall_start[0] + orientation[0]*sum(lengths[0:i+1]) + orientation[1]*((widths[i]+widths[i+1])/4 + wall_specs[1]/2)
-                    conn_pos_y = hall_start[1] + orientation[1]*sum(lengths[0:i+1]) + orientation[0]*((widths[i]+widths[i+1])/4 + wall_specs[1]/2)
+			for conn in range(0,2):
+
+				if conn == 0: # left connector to next chunk
+					conn_pos_x = hall_start[0] + orientation[0]*sum(lengths[0:i+1]) + orientation[1]*((widths[i]+widths[i+1])/4 + wall_specs[1]/2)
+					conn_pos_y = hall_start[1] + orientation[1]*sum(lengths[0:i+1]) + orientation[0]*((widths[i]+widths[i+1])/4 + wall_specs[1]/2)
 					part = '{}_sec_{}_left_conn'.format(element,i+1)
 
-                elif conn == 1: # right connector to next chunk
-                    conn_pos_x = hall_start[0] + orientation[0]*sum(lengths[0:i+1]) + orientation[1]*((widths[i]+widths[i+1])/4 + wall_specs[1]/2)
-                    conn_pos_y = hall_start[1] + orientation[1]*sum(lengths[0:i+1]) + orientation[0]*((widths[i]+widths[i+1])/4 + wall_specs[1]/2)
-            		part = '{}_sec_{}_right_conn'.format(element,i+1)
+				elif conn == 1: # right connector to next chunk
+					conn_pos_x = hall_start[0] + orientation[0]*sum(lengths[0:i+1]) + orientation[1]*((widths[i]+widths[i+1])/4 + wall_specs[1]/2)
+					conn_pos_y = hall_start[1] + orientation[1]*sum(lengths[0:i+1]) + orientation[0]*((widths[i]+widths[i+1])/4 + wall_specs[1]/2)
+					part = '{}_sec_{}_right_conn'.format(element,i+1)
 
-                conn_pos_z = wall_specs[0]/2.0
+				conn_pos_z = wall_specs[0]/2.0
 
-                conn_size_x = orientation[0]*wall_specs[1] + orientation[1]*(abs(widths[i+1]-widths[i])/2 + wall_specs[1])
-                conn_size_y = orientation[1]*wall_specs[1] + orientation[0]*(abs(widths[i+1]-widths[i])/2 + wall_specs[1])
-                conn_size_z = wall_specs[0]
+				conn_size_x = orientation[0]*wall_specs[1] + orientation[1]*(abs(widths[i+1]-widths[i])/2 + wall_specs[1])
+				conn_size_y = orientation[1]*wall_specs[1] + orientation[0]*(abs(widths[i+1]-widths[i])/2 + wall_specs[1])
+				conn_size_z = wall_specs[0]
 
-                link_xyz = '{} {} {}'.format(conn_pos_x, conn_pos_y, conn_pos_z)
-                link_size = '{} {} {}'.format(conn_size_x, conn_size_y, conn_size_z)
+				link_xyz = '{} {} {}'.format(conn_pos_x, conn_pos_y, conn_pos_z)
+				link_size = '{} {} {}'.format(conn_size_x, conn_size_y, conn_size_z)
 
-                xyz_list.append(link_xyz)
-                size_list.append(link_size)
-                part_list.append(part)
-
+				xyz_list.append(link_xyz)
+				size_list.append(link_size)
+				part_list.append(part)
 
 
 		# --- set link xyz and size in lists ---

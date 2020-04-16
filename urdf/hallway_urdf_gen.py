@@ -6,9 +6,9 @@ from numpy import *
 from math import *
 from fxn_straight_hall import *
 
-# --------------------------------------------
-# RANDOMLY GENERATE HALLWAY WITH INTERSECTIONS
-# --------------------------------------------
+# ------------------------------------
+# RANDOMLY GENERATE HALLWAY WITH TURNS
+# ------------------------------------
 
 # to install lxml library, run in terminal:
 # pip install lxml
@@ -16,19 +16,20 @@ from fxn_straight_hall import *
 
 # --- first hallway, in x direction ---
 
+start_xyz = [0,0,0]
 n_chunks = 10
 chunk_length = [5.0, 1.0, 0.5]
 chunk_width = [4.0, 0.5, 2.0]
 wall_specs = [3.0, 0.2]
 
-chunk_list, xyz_list, size_list, part_list, hall_length, hall_max_width = \
-    straight_hall(n_chunks, chunk_length, chunk_width, wall_specs)
+chunk_list, xyz_list, size_list, part_list, hall_length, hall_max_width, start_xyz = \
+    straight_hall("x", n_chunks, chunk_length, chunk_width, wall_specs)
 
 
 
 # --- base specs ---
 
-base_xyz = '{} {} {}'.format(hall_length/2, 0, -wall_specs[1]/2.0)
+base_xyz = '{} {} {}'.format(start_xyz[0]/2, 0, -wall_specs[1]/2.0)
 base_size = '{} {} {}'.format(hall_max_width, hall_max_width+2.0*wall_specs[1], wall_specs[1])
 base_inertia = ["50,0", "0.0", "0.0", "50.0", "0.0", "50.0"] # [ixx, ixy, ixz, iyy, iyz ,izz]
 

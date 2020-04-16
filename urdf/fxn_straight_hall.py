@@ -11,7 +11,7 @@ from math import *
 # given general hallway specs, this function will develop lists describing each
 # link that can be passed to the urdf generator
 
-def straight_hall(n_chunks, chunk_length, chunk_width, wall_specs):
+def straight_hall(orientation, n_chunks, chunk_length, chunk_width, wall_specs):
 
     # chunk_length = [avg, std, min]
     # chunk_width = [avg, std, min]
@@ -36,6 +36,12 @@ def straight_hall(n_chunks, chunk_length, chunk_width, wall_specs):
     # --- find overall hallway specs ---
     hall_length = sum(lengths)
     hall_max_width = max(widths)
+
+    if orientation == "x":
+        start_xyz = [hall_length+start_xyz[0], start_xyz[1], start_xyz[2]]
+
+    elif orientation == "y":
+        start_xyz = [start_xyz[0], hall_max_width+start_xyz[1], start_xyz[2]]
 
 
     # --- define necessary walls for each hallway chunk ---
@@ -100,4 +106,4 @@ def straight_hall(n_chunks, chunk_length, chunk_width, wall_specs):
             part_list.append(part)
 
 
-    return chunk_list, xyz_list, size_list, part_list, hall_length, hall_max_width
+    return chunk_list, xyz_list, size_list, part_list, hall_length, hall_max_width, start_xyz

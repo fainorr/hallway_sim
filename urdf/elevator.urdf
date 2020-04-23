@@ -120,13 +120,13 @@
 	</link>
 
 	<joint name = "front_exterior_ground_joint" type = "fixed">
-		<parent link = "ground"/>
+		<parent link = "floor"/>
 		<child link = "front_wall_exterior"/>
 		<origin xyz = "0 0 0" rpy = "0 0 0"/>
 	</joint>
 
 	<joint name = "door_ground_joint" type = "prismatic">
-		<parent link = "ground"/>
+		<parent link = "floor"/>
 		<child link = "door"/>
 		<origin xyz = "0 0 0" rpy = "0 0 0"/>
 		<limit lower = "-1.25" upper = "1.25" velocity = "0.1"/>
@@ -134,25 +134,25 @@
 	</joint>
 
 	<joint name = "front_interior_ground_joint" type = "fixed">
-		<parent link = "ground"/>
+		<parent link = "floor"/>
 		<child link = "front_wall_interior"/>
 		<origin xyz = "0 0 0" rpy = "0 0 0"/>
 	</joint>
 
 	<joint name = "back_ground_joint" type = "fixed">
-		<parent link = "ground"/>
+		<parent link = "floor"/>
 		<child link = "back_wall"/>
 		<origin xyz = "0 0 0" rpy = "0 0 0"/>
 	</joint>
 
 	<joint name = "right_ground_joint" type = "fixed">
-		<parent link = "ground"/>
+		<parent link = "floor"/>
 		<child link = "right_wall"/>
 		<origin xyz = "0 0 0" rpy = "0 0 0"/>
 	</joint>
 
 	<joint name = "left_ground_joint" type = "fixed">
-		<parent link = "ground"/>
+		<parent link = "floor"/>
 		<child link = "left_wall"/>
 		<origin xyz = "0 0 0" rpy = "0 0 0"/>
 	</joint>

@@ -5,8 +5,14 @@
     <arg name="world_name" value="$(find hallway_sim)/gazebo/emptyworld.world"/>
   </include>
 
-  <!-- spawn hallway into gazebo -->
-  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-file $(find hallway_sim)/urdf/room.urdf -urdf -z 0 -model room" />
+  <!-- spawn room into gazebo -->
+  <node name="spawn_room" pkg="gazebo_ros" type="spawn_model" args="-file $(find hallway_sim)/urdf/room.urdf -urdf -z 0 -model room" />
+
+  <!-- generate new person -->
+  <node name="person_node" pkg="hallway_sim" type="gen_person.sh"/>
+
+  <!-- spawn person into room -->
+  <node name="spawn_person" pkg="gazebo_ros" type="spawn_model" args="-file $(find hallway_sim)/urdf/person.urdf -urdf -z 0 -x 2 -y 2 -model person" />
 
   <!-- set robot model -->
   <arg name="model" default="$(find floatinghead_description)/urdf/floatinghead.urdf"/>

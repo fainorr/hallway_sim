@@ -21,21 +21,23 @@ height_std = 0.15
 height = round(random.normal(height_avg, height_std),3)
 body_height = round(6*height/7,3)
 head_height = round(height/7,3)
-body_radius = round(height/14,3)
-head_radius = round(height/28,3)
+body_radius = round(height/7,3)
+head_radius = round(height/14,3)
 body_mass = round(34.2*body_height,3)
 head_mass = round(34.2*head_height,3)
+
 
 # set vectors of link origins, sizes, and offsets [body, head]
 names = ['body', 'head']
 origins = ['0 0 {}'.format(body_height/2), '0 0 0']
 radii = ['{}'.format(body_radius), '{}'.format(head_radius)]
 lengths = ['{}'.format(body_height), '{}'.format(head_height)]
-offsets = ['0 0 0', '0 0 {}'.format(height/2)]
+offsets = ['0 0 0', '0 0 {}'.format(body_height + head_height/2)]
 masses = ['{}'.format(body_mass), '{}'.format(head_mass)]
 inertias_xx = ['{}'.format(round((1/12.0)*body_mass*body_height**2,3)), '{}'.format(round((1/12)*head_mass*head_height**2,3))]
 inertias_yy = ['{}'.format(round((1/12.0)*body_mass*body_height**2,3)), '{}'.format(round((1/12)*head_mass*head_height**2,3))]
 inertias_zz = ['{}'.format(round((1/2.0)*body_mass*body_radius**2,3)), '{}'.format(round((1/2)*head_mass*head_radius**2,3))]
+
 
 # ---------------
 # WRITE URDF FILE
@@ -43,6 +45,13 @@ inertias_zz = ['{}'.format(round((1/2.0)*body_mass*body_radius**2,3)), '{}'.form
 
 root = etree.Element('robot')
 root.set("name","person")
+
+# define materials
+material = etree.SubElement(root,"material")
+material.set("name",'red')
+color = etree.SubElement(material,"color")
+color.set("rgba",'0 0 0.8 1')
+
 
 # create links
 for n in range(0,2):
@@ -61,8 +70,6 @@ for n in range(0,2):
 
     material = etree.SubElement(visual,"material")
     material.set("name", 'red')
-    color = etree.SubElement(visual, "color")
-    color.set("rgba",'0.561 0.0 0.0 1.0')
 
     collision = etree.SubElement(link,"collision")
     origin = etree.SubElement(collision,"origin")

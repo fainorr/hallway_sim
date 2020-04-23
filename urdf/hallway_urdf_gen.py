@@ -33,7 +33,7 @@ part_list = []
 element = 1
 room_center = [0,0]
 openings = [False, False, True, False]
-xyz, sizes, parts, room_center = hall_intersect(element, openings, chunk_width, wall_specs, room_center, room_side)
+xyz, sizes, parts, room_center1 = hall_intersect(element, openings, chunk_width, wall_specs, room_center, room_side)
 xyz_list = xyz_list + xyz
 size_list = size_list + sizes
 part_list = part_list + parts
@@ -41,8 +41,8 @@ part_list = part_list + parts
 # hallway
 element = 2
 orientation = [1,0]
-n_chunks = 10
-xyz, sizes, parts, room_center = straight_hall(element, orientation, n_chunks, chunk_length, chunk_width, wall_specs, room_center, room_side)
+n_chunks = randint(4,10)
+xyz, sizes, parts, room_center2 = straight_hall(element, orientation, n_chunks, chunk_length, chunk_width, wall_specs, room_center1, room_side)
 xyz_list = xyz_list + xyz
 size_list = size_list + sizes
 part_list = part_list + parts
@@ -50,7 +50,7 @@ part_list = part_list + parts
 # intersection room
 element = 3
 openings = [True, True, False, False]
-xyz, sizes, parts, room_center = hall_intersect(element, openings, chunk_width, wall_specs, room_center, room_side)
+xyz, sizes, parts, room_center3 = hall_intersect(element, openings, chunk_width, wall_specs, room_center2, room_side)
 xyz_list = xyz_list + xyz
 size_list = size_list + sizes
 part_list = part_list + parts
@@ -58,16 +58,16 @@ part_list = part_list + parts
 # hallway
 element = 4
 orientation = [0,1]
-n_chunks = 4
-xyz, sizes, parts, room_center = straight_hall(element, orientation, n_chunks, chunk_length, chunk_width, wall_specs, room_center, room_side)
+n_chunks = randint(4,10)
+xyz, sizes, parts, room_center4 = straight_hall(element, orientation, n_chunks, chunk_length, chunk_width, wall_specs, room_center3, room_side)
 xyz_list = xyz_list + xyz
 size_list = size_list + sizes
 part_list = part_list + parts
 
 # intersection room
 element = 5
-openings = [True, False, False, True]
-xyz, sizes, parts, room_center = hall_intersect(element, openings, chunk_width, wall_specs, room_center, room_side)
+openings = [True, False, True, True]
+xyz, sizes, parts, room_center5 = hall_intersect(element, openings, chunk_width, wall_specs, room_center4, room_side)
 xyz_list = xyz_list + xyz
 size_list = size_list + sizes
 part_list = part_list + parts
@@ -75,8 +75,17 @@ part_list = part_list + parts
 # hallway
 element = 6
 orientation = [-1,0]
-n_chunks = 5
-xyz, sizes, parts, room_center = straight_hall(element, orientation, n_chunks, chunk_length, chunk_width, wall_specs, room_center, room_side)
+n_chunks = randint(4,10)
+xyz, sizes, parts, room_center6 = straight_hall(element, orientation, n_chunks, chunk_length, chunk_width, wall_specs, room_center5, room_side)
+xyz_list = xyz_list + xyz
+size_list = size_list + sizes
+part_list = part_list + parts
+
+# hallway
+element = 7
+orientation = [1,0]
+n_chunks = randint(4,10)
+xyz, sizes, parts, room_center7 = straight_hall(element, orientation, n_chunks, chunk_length, chunk_width, wall_specs, room_center5, room_side)
 xyz_list = xyz_list + xyz
 size_list = size_list + sizes
 part_list = part_list + parts

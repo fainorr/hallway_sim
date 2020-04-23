@@ -39,9 +39,31 @@
 		</collision>
 	</link>
 
+	<link name = "front_wall_interior">
+		<visual>
+			<origin xyz = "-0.75 1.0 1.5" rpy = "0 0 0"/>
+			<geometry>
+				<box size = "1.5 0.125 3"/>
+			</geometry>
+		</visual>
+
+		<collision>
+			<origin xyz = "-0.75 1.0 1.5" rpy = "0 0 0"/>
+			<geometry>
+				<box size = "1.5 0.125 3"/>
+			</geometry>
+		</collision>
+	</link>
+
 	<joint name = "front_exterior_ground_joint" type = "fixed">
 		<parent link = "floor"/>
 		<child link = "front_wall_exterior"/>
+		<origin xyz = "0 0 0" rpy = "0 0 0"/>
+	</joint>
+
+	<joint name = "front_interior_ground_joint" type = "fixed">
+		<parent link = "floor"/>
+		<child link = "front_wall_interior"/>
 		<origin xyz = "0 0 0" rpy = "0 0 0"/>
 	</joint>
 

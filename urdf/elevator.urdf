@@ -55,6 +55,22 @@
 		</collision>
 	</link>
 
+	<link name = "back_wall">
+		<visual>
+			<origin xyz = "0 -1.25 1.5" rpy = "0 0 0"/>
+			<geometry>
+				<box size = "3 0.25 3"/>
+			</geometry>
+		</visual>
+
+		<collision>
+			<origin xyz = "0 -1.25 1.5" rpy = "0 0 0"/>
+			<geometry>
+				<box size = "3 0.25 3"/>
+			</geometry>
+		</collision>
+	</link>
+
 	<joint name = "front_exterior_ground_joint" type = "fixed">
 		<parent link = "floor"/>
 		<child link = "front_wall_exterior"/>
@@ -64,6 +80,12 @@
 	<joint name = "front_interior_ground_joint" type = "fixed">
 		<parent link = "floor"/>
 		<child link = "front_wall_interior"/>
+		<origin xyz = "0 0 0" rpy = "0 0 0"/>
+	</joint>
+
+	<joint name = "back_ground_joint" type = "fixed">
+		<parent link = "floor"/>
+		<child link = "back_wall"/>
 		<origin xyz = "0 0 0" rpy = "0 0 0"/>
 	</joint>
 

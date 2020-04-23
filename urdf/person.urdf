@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<robot name = "person">
+
+	<link name = "body">
+		<visual>
+			<origin xyz = "0 0 1" rpy ="0 0 0"/>
+			<geometry>
+				<cylinder radius="1" length="0.5"/>
+			</geometry>
+      <material name="red">
+        <color rgba="0.561 0.0 0.0 1.0"/>
+      </material>
+		</visual>
+
+		<collision>
+			<origin xyz = "0 0 1" rpy ="0 0 0"/>
+			<geometry>
+				<cylinder radius="1" length="0.5"/>
+			</geometry>
+		</collision>
+
+		<inertial>
+            <mass value="50"/>
+			<origin xyz="0 0 -0.5"/>
+			<inertia ixx="50.0" ixy="0.0" ixz="0.0" iyy="50.0" iyz="0.0" izz="50.0"/>
+    	</inertial>
+	</link>

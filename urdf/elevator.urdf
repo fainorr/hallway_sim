@@ -23,7 +23,27 @@
 		</inertial>
 	</link>
 
+	<link name = "front_wall_exterior">
+		<visual>
+			<origin xyz = "-0.75 1.3125 1.5" rpy = "0 0 0"/>
+			<geometry>
+				<box size = "1.5 0.125 3"/>
+			</geometry>
+		</visual>
 
+		<collision>
+			<origin xyz = "-0.75 1.3125 1.5" rpy = "0 0 0"/>
+			<geometry>
+				<box size = "1.5 0.125 3"/>
+			</geometry>
+		</collision>
+	</link>
+
+	<joint name = "front_exterior_ground_joint" type = "fixed">
+		<parent link = "floor"/>
+		<child link = "front_wall_exterior"/>
+		<origin xyz = "0 0 0" rpy = "0 0 0"/>
+	</joint>
 
 	<gazebo>
 		<static>true</static>

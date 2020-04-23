@@ -103,6 +103,22 @@
 		</collision>
 	</link>
 
+	<link name = "door">
+		<visual>
+			<origin xyz = "0 1.125 1.5" rpy = "0 0 0"/>
+			<geometry>
+				<box size = "1.75 0.25 3"/>
+			</geometry>
+		</visual>
+
+		<collision>
+			<origin xyz = "0 1.125 1.5" rpy = "0 0 0"/>
+			<geometry>
+				<box size = "1.75 0.25 3"/>
+			</geometry>
+		</collision>
+	</link>
+
 	<joint name = "front_exterior_ground_joint" type = "fixed">
 		<parent link = "floor"/>
 		<child link = "front_wall_exterior"/>
@@ -131,6 +147,14 @@
 		<parent link = "floor"/>
 		<child link = "right_wall"/>
 		<origin xyz = "0 0 0" rpy = "0 0 0"/>
+	</joint>
+
+	<joint name = "door_ground_joint" type = "prismatic">
+		<parent link = "floor"/>
+		<child link = "door"/>
+		<origin xyz = "0 0 0" rpy = "0 0 0"/>
+		<limit effort = "1000.0" lower = "-1.25" upper = "1.25" velocity = "0.1"/>
+		<axis xyz = "1 0 0"/>
 	</joint>
 
 	<gazebo>

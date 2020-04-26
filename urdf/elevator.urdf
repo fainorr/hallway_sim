@@ -6,7 +6,7 @@
       <geometry>
         <box size = "10 10 0.5"/>
       </geometry>
-      <origin xyz = "0 0 0" rpy = "0 0 0"/>
+      <origin xyz = "1 1 1" rpy = "0 0 0"/>
     </visual>
   </link>
 

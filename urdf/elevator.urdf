@@ -9,4 +9,8 @@
     </visual>
   </link>
 
+  <gazebo>
+    <static>false</static>
+  </gazebo>
+
 </robot>

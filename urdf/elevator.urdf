@@ -107,14 +107,14 @@
     <visual>
       <origin xyz = "-0.75 1.3125 1.5" rpy = "0 0 0"/>
       <geometry>
-        <box size = "0.25 1.25 3"/>
+        <box size = "1.25 0.25 3"/>
       </geometry>
     </visual>
 
     <collision>
       <origin xyz = "-0.75 1.3125 1.5" rpy = "0 0 0"/>
       <geometry>
-        <box size = "0.25 1.25 3"/>
+        <box size = "1.25 0.25 3"/>
       </geometry>
     </collision>
   </link>

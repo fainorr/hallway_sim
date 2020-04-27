@@ -123,7 +123,7 @@ plugin.set("name",'object_controller')
 plugin.set("filename",'libgazebo_ros_planar_move.so')
 
 commandTopic = etree.SubElement(plugin,"commandTopic")
-commandTopic.text = "cmd_vel"+str(index)
+commandTopic.text = "vel_person"+str(index)
 
 odometryTopic = etree.SubElement(plugin,"odometryTopic")
 odometryTopic.text = "odom"
@@ -135,12 +135,6 @@ odometryRate = etree.SubElement(plugin,"odometryRate")
 odometryRate.text = "20.0"
 
 robotBaseFrame = etree.SubElement(plugin,"robotBaseFrame")
-robotBaseFrame.text = head
-
-
-<odometryTopic>odom</odometryTopic>
-<odometryFrame>odom</odometryFrame>
-<odometryRate>20.0</odometryRate>
-<robotBaseFrame>base_footprint</robotBaseFrame>
+robotBaseFrame.text = 'head'
 
 etree.ElementTree(root).write("person.urdf", pretty_print=True)

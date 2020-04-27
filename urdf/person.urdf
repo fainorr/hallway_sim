@@ -4,40 +4,40 @@
   </material>
   <link name="body">
     <visual>
-      <origin xyz="0 0 0.7175" rpy="0 0 0"/>
+      <origin xyz="0 0 0.8615" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="0.239" length="1.435"/>
+        <cylinder radius="0.287" length="1.723"/>
       </geometry>
       <material name="red"/>
     </visual>
     <collision>
-      <origin xyz="0 0 0.7175" rpy="0 0 0"/>
+      <origin xyz="0 0 0.8615" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="0.239" length="1.435"/>
+        <cylinder radius="0.287" length="1.723"/>
       </geometry>
     </collision>
     <inertial>
-      <mass value="49.077"/>
-      <origin xyz="0 0 0.7175"/>
-      <inertia ixx="8.422" ixy="0.0" ixz="0.0" iyy="8.422" iyz="0.0" izz="1.402"/>
+      <mass value="58.927"/>
+      <origin xyz="0 0 0.8615"/>
+      <inertia ixx="14.578" ixy="0.0" ixz="0.0" iyy="14.578" iyz="0.0" izz="2.427"/>
     </inertial>
   </link>
   <link name="head">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="0.12" length="0.239"/>
+        <cylinder radius="0.144" length="0.287"/>
       </geometry>
       <material name="red"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="0.12" length="0.239"/>
+        <cylinder radius="0.144" length="0.287"/>
       </geometry>
     </collision>
     <inertial>
-      <mass value="8.174"/>
+      <mass value="9.815"/>
       <origin xyz="0 0 0"/>
       <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
     </inertial>
@@ -45,16 +45,15 @@
   <joint name="joint" type="fixed">
     <parent link="body"/>
     <child link="head"/>
-    <origin xyz="0 0 1.5545" rpy="0 0 0"/>
+    <origin xyz="0 0 1.8665" rpy="0 0 0"/>
   </joint>
-
   <gazebo>
     <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
-      <commandTopic>cmd_vel</commandTopic>
+      <commandTopic>vel_person3</commandTopic>
       <odometryTopic>odom</odometryTopic>
       <odometryFrame>odom</odometryFrame>
       <odometryRate>20.0</odometryRate>
-      <robotBaseFrame>base_footprint</robotBaseFrame>
+      <robotBaseFrame>head</robotBaseFrame>
     </plugin>
   </gazebo>
 </robot>

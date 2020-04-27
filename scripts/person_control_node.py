@@ -8,7 +8,6 @@ roslib.load_manifest('hallway_sim')
 from std_msgs.msg import *
 from geometry_msgs.msg import *
 from numpy import *
-import random
 import time
 
 
@@ -16,7 +15,7 @@ class person_drive():
 
 	def __init__(self):
 
-		self.dT = 3;
+		self.dT = 5;
 		self.timenow = time.time()
 		self.oldtime = self.timenow
 
@@ -33,39 +32,38 @@ class person_drive():
 		self.v2 = Twist()
 		self.v3 = Twist()
 
-		velocity = random.normal(1.4,0.2)
-		angle_deg = random.randint(1,360)
-		angle = float(angle_deg)*pi/180
+		self.velocity = random.normal(0.6,0.2)
+		self.angle_deg = random.randint(1,360)
+		self.angle = float(self.angle_deg)*pi/180
 
-		self.v1.linear.x = velocity*cos(angle);
-		self.v1.linear.y = velocity*sin(angle);
-		self.v1.linear.z = 0.0;
-		self.v1.angular.x = 0.0;
-		self.v1.angular.y = 0.0;
-		self.v1.angular.z = 0.0;
+		self.v1.linear.x = self.velocity*cos(self.angle)
+		self.v1.linear.y = self.velocity*sin(self.angle)
+		self.v1.linear.z = 0.0
+		self.v1.angular.x = 0.0
+		self.v1.angular.y = 0.0
+		self.v1.angular.z = 0.0
 
-		velocity = random.normal(1.4,0.2)
-		angle_deg = random.randint(1,360)
-		angle = float(angle_deg)*pi/180
+		self.velocity = random.normal(0.6,0.2)
+		self.angle_deg = random.randint(1,360)
+		self.angle = float(self.angle_deg)*pi/180
 
-		self.v2.linear.x = velocity*cos(angle);
-		self.v2.linear.y = velocity*sin(angle);
-		self.v2.linear.z = 0.0;
-		self.v2.angular.x = 0.0;
-		self.v2.angular.y = 0.0;
-		self.v2.angular.z = 0.0;
+		self.v2.linear.x = self.velocity*cos(self.angle)
+		self.v2.linear.y = self.velocity*sin(self.angle)
+		self.v2.linear.z = 0.0
+		self.v2.angular.x = 0.0
+		self.v2.angular.y = 0.0
+		self.v2.angular.z = 0.0
 
-		velocity = random.normal(1.4,0.2)
-		angle_deg = random.randint(1,360)
-		angle = float(angle_deg)*pi/180
+		self.velocity = random.normal(0.6,0.2)
+		self.angle_deg = random.randint(1,360)
+		self.angle = float(self.angle_deg)*pi/180
 
-		self.v3.linear.x = velocity*cos(angle);
-		self.v3.linear.y = velocity*sin(angle);
-		self.v3.linear.z = 0.0;
-		self.v3.angular.x = 0.0;
-		self.v3.angular.y = 0.0;
-		self.v3.angular.z = 0.0;
-
+		self.v3.linear.x = self.velocity*cos(self.angle)
+		self.v3.linear.y = self.velocity*sin(self.angle)
+		self.v3.linear.z = 0.0
+		self.v3.angular.x = 0.0
+		self.v3.angular.y = 0.0
+		self.v3.angular.z = 0.0
 
 		self.velocity_person1.publish(self.v1)
 		self.velocity_person2.publish(self.v2)

@@ -4,40 +4,40 @@
   </material>
   <link name="body">
     <visual>
-      <origin xyz="0 0 0.8615" rpy="0 0 0"/>
+      <origin xyz="0 0 0.8235" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="0.287" length="1.723"/>
+        <cylinder radius="0.274" length="1.647"/>
       </geometry>
       <material name="red"/>
     </visual>
     <collision>
-      <origin xyz="0 0 0.8615" rpy="0 0 0"/>
+      <origin xyz="0 0 0.8235" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="0.287" length="1.723"/>
+        <cylinder radius="0.274" length="1.647"/>
       </geometry>
     </collision>
     <inertial>
-      <mass value="58.927"/>
-      <origin xyz="0 0 0.8615"/>
-      <inertia ixx="14.578" ixy="0.0" ixz="0.0" iyy="14.578" iyz="0.0" izz="2.427"/>
+      <mass value="56.327"/>
+      <origin xyz="0 0 0.8235"/>
+      <inertia ixx="12.733" ixy="0.0" ixz="0.0" iyy="12.733" iyz="0.0" izz="2.114"/>
     </inertial>
   </link>
   <link name="head">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="0.144" length="0.287"/>
+        <cylinder radius="0.137" length="0.274"/>
       </geometry>
       <material name="red"/>
     </visual>
     <collision>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <cylinder radius="0.144" length="0.287"/>
+        <cylinder radius="0.137" length="0.274"/>
       </geometry>
     </collision>
     <inertial>
-      <mass value="9.815"/>
+      <mass value="9.371"/>
       <origin xyz="0 0 0"/>
       <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
     </inertial>
@@ -45,7 +45,7 @@
   <joint name="joint" type="fixed">
     <parent link="body"/>
     <child link="head"/>
-    <origin xyz="0 0 1.8665" rpy="0 0 0"/>
+    <origin xyz="0 0 1.784" rpy="0 0 0"/>
   </joint>
   <gazebo>
     <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">

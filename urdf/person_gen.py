@@ -4,6 +4,7 @@ from lxml import etree
 from random import *
 from numpy import *
 from math import *
+import sys
 
 # ------------------------
 # RANDOMLY GENERATE PEOPLE
@@ -11,6 +12,10 @@ from math import *
 
 # to install lxml library, run in terminal:
 # pip install lxml
+
+
+# person index from launch file
+index = sys.argv[1]
 
 
 # --- person specs ---
@@ -110,5 +115,32 @@ origin = etree.SubElement(joint,"origin")
 origin.set("xyz",offsets[1])
 origin.set("rpy",'0 0 0')
 
+
+# define the controller plugin
+gazebo = etree.SubElement(root,"gazebo")
+plugin = etree.SubElement(gazebo,"plugin")
+plugin.set("name",'object_controller')
+plugin.set("filename",'libgazebo_ros_planar_move.so')
+
+commandTopic = etree.SubElement(plugin,"commandTopic")
+commandTopic.text = "cmd_vel"+str(index)
+
+odometryTopic = etree.SubElement(plugin,"odometryTopic")
+odometryTopic.text = "odom"
+
+odometryFrame = etree.SubElement(plugin,"odometryFrame")
+odometryFrame.text = "odom"
+
+odometryRate = etree.SubElement(plugin,"odometryRate")
+odometryRate.text = "20.0"
+
+robotBaseFrame = etree.SubElement(plugin,"robotBaseFrame")
+robotBaseFrame.text = head
+
+
+<odometryTopic>odom</odometryTopic>
+<odometryFrame>odom</odometryFrame>
+<odometryRate>20.0</odometryRate>
+<robotBaseFrame>base_footprint</robotBaseFrame>
 
 etree.ElementTree(root).write("person.urdf", pretty_print=True)

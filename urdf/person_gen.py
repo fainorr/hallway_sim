@@ -34,10 +34,10 @@ head_mass = round(34.2*head_height,3)
 
 # set vectors of link origins, sizes, and offsets [body, head]
 names = ['body', 'head']
-origins = ['0 0 {}'.format(body_height/2), '0 0 0']
+origins = ['0 0 0', '0 0 0']
 radii = ['{}'.format(body_radius), '{}'.format(head_radius)]
 lengths = ['{}'.format(body_height), '{}'.format(head_height)]
-offsets = ['0 0 0', '0 0 {}'.format(body_height + head_height/2)]
+offsets = ['0 0 {}'.format(body_height/2), '0 0 {}'.format(body_height + head_height/2)]
 masses = ['{}'.format(body_mass), '{}'.format(head_mass)]
 inertias_xx = ['{}'.format(round((1/12.0)*body_mass*body_height**2,3)), '{}'.format(round((1/12)*head_mass*head_height**2,3))]
 inertias_yy = ['{}'.format(round((1/12.0)*body_mass*body_height**2,3)), '{}'.format(round((1/12)*head_mass*head_height**2,3))]
@@ -57,9 +57,22 @@ material.set("name",'red')
 color = etree.SubElement(material,"color")
 color.set("rgba",'0 0 0.8 1')
 
+# create base_footprint link
+link = etree.SubElement(root,"link")
+link.set("name",'base_footprint')
+visual = etree.SubElement(link,"visual")
+origin = etree.SubElement(visual,"origin")
+origin.set("xyz",'0 0 0')
+origin.set("rpy",'0 0 0')
+geometry = etree.SubElement(visual,"geometry")
+box = etree.SubElement(geometry,"box")
+box.set("size",'0.001 0.001 0.001')
+
 
 # create links
 for n in range(0,2):
+
+    # define link
     link = etree.SubElement(root,"link")
     link.set("name", names[n])
     visual = etree.SubElement(link,"visual")
@@ -99,21 +112,20 @@ for n in range(0,2):
     inertia.set("iyz",'0.0')
     inertia.set("izz",inertias_zz[n])
 
+    # define joint
+    joint = etree.SubElement(root,"joint")
+    joint.set("name",'joint_'+names[n])
+    joint.set("type",'fixed')
 
-# define joint
-joint = etree.SubElement(root,"joint")
-joint.set("name",'joint')
-joint.set("type",'fixed')
+    parent = etree.SubElement(joint,"parent")
+    parent.set("link",'base_footprint')
 
-parent = etree.SubElement(joint,"parent")
-parent.set("link","body")
+    child = etree.SubElement(joint,"child")
+    child.set("link",names[n])
 
-child = etree.SubElement(joint,"child")
-child.set("link",'head')
-
-origin = etree.SubElement(joint,"origin")
-origin.set("xyz",offsets[1])
-origin.set("rpy",'0 0 0')
+    origin = etree.SubElement(joint,"origin")
+    origin.set("xyz",offsets[1])
+    origin.set("rpy",'0 0 0')
 
 
 # define the controller plugin
@@ -135,6 +147,6 @@ odometryRate = etree.SubElement(plugin,"odometryRate")
 odometryRate.text = "20.0"
 
 robotBaseFrame = etree.SubElement(plugin,"robotBaseFrame")
-robotBaseFrame.text = 'head'
+robotBaseFrame.text = 'base_footprint'
 
 etree.ElementTree(root).write("person.urdf", pretty_print=True)

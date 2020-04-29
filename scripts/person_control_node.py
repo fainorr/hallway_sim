@@ -15,7 +15,7 @@ class person_drive():
 
 	def __init__(self):
 
-		self.dT = 5;
+		self.dT = 3;
 		self.timenow = time.time()
 		self.oldtime = self.timenow
 
@@ -32,7 +32,7 @@ class person_drive():
 		self.v2 = Twist()
 		self.v3 = Twist()
 
-		self.velocity = random.normal(0.6,0.2)
+		self.velocity = random.normal(0.8,0.2)
 		self.angle_deg = random.randint(1,360)
 		self.angle = float(self.angle_deg)*pi/180
 
@@ -43,7 +43,7 @@ class person_drive():
 		self.v1.angular.y = 0.0
 		self.v1.angular.z = 0.0
 
-		self.velocity = random.normal(0.6,0.2)
+		self.velocity = random.normal(0.8,0.2)
 		self.angle_deg = random.randint(1,360)
 		self.angle = float(self.angle_deg)*pi/180
 
@@ -54,7 +54,7 @@ class person_drive():
 		self.v2.angular.y = 0.0
 		self.v2.angular.z = 0.0
 
-		self.velocity = random.normal(0.6,0.2)
+		self.velocity = random.normal(0.8,0.2)
 		self.angle_deg = random.randint(1,360)
 		self.angle = float(self.angle_deg)*pi/180
 

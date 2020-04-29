@@ -18,7 +18,7 @@
 
     <inertial>
       <mass value = "50"/>
-      <origin xyz = "0 0 -0.5"/>
+      <origin xyz = "0 0 -0.25"/>
       <inertia ixx = '50.0' ixy = "0.0" ixz = "0.0" iyy = "50.0" iyz = "0.0" izz = "50.0"/>
     </inertial>
   </link>
@@ -37,6 +37,12 @@
         <box size = "1.5 0.125 3"/>
       </geometry>
     </collision>
+
+    <inertial>
+      <mass value = "50"/>
+      <origin xyz = "-0.75 1.3125 1.5"/>
+      <inertia ixx = "50.0" ixy = "0.0" ixz = "0.0" iyy = "50.0" iyz = "0.0" izz = "50.0"/>
+    </inertial>
   </link>
 
   <link name = "front_wall_interior">
@@ -53,6 +59,12 @@
         <box size = "1.5 0.125 3"/>
       </geometry>
     </collision>
+
+    <inertial>
+      <mass value = "50"/>
+      <origin xyz = "-0.75 0.9375 1.5"/>
+      <inertia ixx = "50.0" ixy = "0.0" ixz = "0.0" iyy = "50.0" iyz = "0.0" izz = "50.0"/>
+    </inertial>
   </link>
 
   <link name = "back_wall">
@@ -69,6 +81,12 @@
         <box size = "3 0.25 3"/>
       </geometry>
     </collision>
+
+    <inertial>
+      <mass value = "50"/>
+      <origin xyz = "0 -1.25 1.5"/>
+      <inertia ixx = "50.0" ixy = "0.0" ixz = "0.0" iyy = "50.0" iyz = "0.0" izz = "50.0"/>
+    </inertial>
   </link>
 
   <link name = "left_wall">
@@ -85,6 +103,12 @@
         <box size = "0.25 2.75 3"/>
       </geometry>
     </collision>
+
+    <inertial>
+      <mass value = "50"/>
+      <origin xyz = "1.375 0 1.5"/>
+      <inertia ixx = "50.0" ixy = "0.0" ixz = "0.0" iyy = "50.0" iyz = "0.0" izz = "50.0"/>
+    </inertial>
   </link>
 
   <link name = "right_wall">
@@ -101,6 +125,12 @@
         <box size = "0.25 2.75 3"/>
       </geometry>
     </collision>
+
+    <inertial>
+      <mass value = "50"/>
+      <origin xyz = "-1.375 0 1.5"/>
+      <inertia ixx = "50.0" ixy = "0.0" ixz = "0.0" iyy = "50.0" iyz = "0.0" izz = "50.0"/>
+    </inertial>
   </link>
 
   <link name = "door">
@@ -117,6 +147,12 @@
         <box size = "1.25 0.25 3"/>
       </geometry>
     </collision>
+
+    <inertial>
+      <mass value = "50"/>
+      <origin xyz = "0 1.125 1.5"/>
+      <inertia ixx = "50.0" ixy = "0.0" ixz = "0.0" iyy = "50.0" iyz = "0.0" izz = "50.0"/>
+    </inertial>
   </link>
 
   <joint name = "front_exterior_ground_joint" type = "fixed">
@@ -149,14 +185,16 @@
     <origin xyz = "0 0 0" rpy = "0 0 0"/>
   </joint>
 
-  <joint name = "door_ground_joint" type = "fixed">
+  <joint name = "door_ground_joint" type = "prismatic">
     <parent link = "floor"/>
     <child link = "door"/>
+    <axis xyz = "1 0 0"/>
+    <limit effort = "1000.0" lower = "-0.625" upper = "0.625" velocity = "0.1"/>
     <origin xyz = "0 0 0" rpy = "0 0 0"/>
   </joint>
 
   <gazebo>
-    <static>true</static>
+    <static>false</static>
   </gazebo>
 
 </robot>

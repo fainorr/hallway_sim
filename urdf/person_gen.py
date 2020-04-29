@@ -124,7 +124,7 @@ for n in range(0,2):
     child.set("link",names[n])
 
     origin = etree.SubElement(joint,"origin")
-    origin.set("xyz",offsets[1])
+    origin.set("xyz",offsets[n])
     origin.set("rpy",'0 0 0')
 
 

@@ -6,8 +6,8 @@
   </include>
 
   <!-- spawn elevator into gazebo -->
-  <param name="robot_description" textfile="$(find hallway_sim/urdf/elevator.urdf"/>
-  
+  <param name="robot_description" textfile="$(find hallway_sim)/urdf/elevator.urdf"/>
+
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-file $(find hallway_sim)/urdf/elevator.urdf -urdf -z 0 -model room" />
 
   <rosparam file="$(find hallway_sim)/config/elevator_control.yaml" command="load"/>

@@ -45,7 +45,7 @@
   <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" args="--perspective-file $(find lidar_nav)/rqt/floatinghead.perspective"/>
 
   <!-- run control nodes -->
-  <node name="lidar_quad_node" pkg="openpup_ros" type="lidar_quad_node.py"/>
-  <node name="gazebo_drive_node" pkg="openpup_ros" type="gazebo_drive_node.py"/>
+  <node name="lidar_quad_node" pkg="hallway_sim" type="lidar_quad_node.py"/>
+  <node name="gazebo_drive_node" pkg="hallway_sim" type="gazebo_drive_node.py"/>
 
 </launch>

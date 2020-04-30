@@ -1,41 +1,47 @@
 <launch>
 
-  <!-- generate random hallway -->
-  <node name="gen_node" pkg="hallway_sim" type="gen_hallway.sh"/>
+		<!-- set launch time "start_time" -->
+		<param name="finding_time" command="$(find hallway_sim)/scripts/timestamp.sh"/>
 
-  <!-- launch gazebo world -->
-  <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find hallway_sim)/gazebo/emptyworld.world"/>
-  </include>
+		<!-- generate random hallway -->
+		<node name="gen_node" pkg="hallway_sim" type="gen_hallway.sh" args="$(arg start_time)"/>
 
-  <!-- spawn hallway into gazebo -->
-  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-file $(find hallway_sim)/urdf/random_hall.urdf -urdf -z 0 -x 0 -model random_hall" />
+		<!-- launch gazebo world -->
+		<include file="$(find gazebo_ros)/launch/empty_world.launch">
+			<arg name="world_name" value="$(find hallway_sim)/gazebo/emptyworld.world"/>
+		</include>
 
-  <!-- set robot model -->
-  <!-- <arg name="model" default="$(find floatinghead_description)/urdf/floatinghead.urdf"/> -->
-  <arg name="model" default="$(find lidar_nav)/urdf/lidar_body.urdf"/>
+		<!-- spawn hallway into gazebo -->
+		<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-file $(find hallway_sim)/urdf/random_hall.urdf -urdf -z 0 -x 0 -model random_hall" />
 
-  <!-- send fake joint values -->
-  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
-    <param name="use_gui" value="TRUE"/>
-  </node>
+		<!-- set robot model -->
+		<!-- <arg name="model" default="$(find floatinghead_description)/urdf/floatinghead.urdf"/> -->
+		<arg name="model" default="$(find lidar_nav)/urdf/lidar_body.urdf"/>
 
-  <!-- Combine joint values -->
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+		<!-- send fake joint values -->
+		<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+			<param name="use_gui" value="TRUE"/>
+		</node>
 
-  <!-- initiate rviz -->
-  <!-- <node type="rviz" name="rviz" pkg="rviz" args="-d $(find floatinghead_description)/rviz/floatinghead.rviz" /> -->
-  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find lidar_nav)/rviz/lidar_rviz.rviz" />
-  <param name="robot_description" command="cat $(arg model)" />
+		<!-- Combine joint values -->
+		<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
 
-  <!-- spawn robot -->
-  <!-- <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model" args="-file $(find floatinghead_description)/urdf/floatinghead.urdf -urdf -z .1 -model floatinghead" /> -->
-  <!-- <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" args="-perspective-file $(find floatinghead_description)/rqt/floatinghead.perspective"/> -->
-  <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model" args="-file $(find lidar_nav)/urdf/lidar_body.urdf -urdf -z .1 -model floatinghead" />
-  <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" args="--perspective-file $(find lidar_nav)/rqt/floatinghead.perspective"/>
+		<!-- initiate rviz -->
+		<!-- <node type="rviz" name="rviz" pkg="rviz" args="-d $(find floatinghead_description)/rviz/floatinghead.rviz" /> -->
+		<node type="rviz" name="rviz" pkg="rviz" args="-d $(find lidar_nav)/rviz/lidar_rviz.rviz" />
+		<param name="robot_description" command="cat $(arg model)" />
 
-  <!-- run control nodes -->
-  <node name="lidar_quad_node" pkg="hallway_sim" type="lidar_quad_node.py"/>
-  <node name="gazebo_drive_node" pkg="hallway_sim" type="gazebo_drive_node.py"/>
+		<!-- spawn robot -->
+		<!-- <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model" args="-file $(find floatinghead_description)/urdf/floatinghead.urdf -urdf -z .1 -model floatinghead" /> -->
+		<!-- <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" args="-perspective-file $(find floatinghead_description)/rqt/floatinghead.perspective"/> -->
+		<node name="spawn_robot" pkg="gazebo_ros" type="spawn_model" args="-file $(find lidar_nav)/urdf/lidar_body.urdf -urdf -z .1 -model floatinghead" />
+		<node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" args="--perspective-file $(find lidar_nav)/rqt/floatinghead.perspective"/>
+
+		<!-- run control nodes -->
+		<node name="lidar_quad_node" pkg="hallway_sim" type="lidar_quad_node.py"/>
+		<node name="gazebo_drive_node" pkg="hallway_sim" type="gazebo_drive_node.py"/>
+
+		<!-- echo robot position to file -->
+		<node name="robot_sub_node" pkg="hallway_sim" type="robot_sub_node.py" args="$(arg start_time)"/>
 
 </launch>

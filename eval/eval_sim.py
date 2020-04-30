@@ -18,7 +18,7 @@ from matplotlib import _color_data
 file_name = 'eval/hall_1588256612.txt'
 
 with open(file_name, 'r') as file:
-    full = file.readlines()
+	full = file.readlines()
 
 link_xpos = []
 link_ypos = []
@@ -26,13 +26,13 @@ link_xsize = []
 link_ysize = []
 
 for y in range(0,len(full)):
-    row = full[y].split(' ')
+	row = full[y].split(' ')
 
-    if y != 0:
-        link_xpos.append(float(row[0]))
-        link_ypos.append(float(row[1]))
-        link_xsize.append(float(row[2]))
-        link_ysize.append(float(row[3].strip('\n')))
+	if y != 0:
+		link_xpos.append(float(row[0]))
+		link_ypos.append(float(row[1]))
+		link_xsize.append(float(row[2]))
+		link_ysize.append(float(row[3].strip('\n')))
 
 
 # plot hall in x, y plane
@@ -44,16 +44,16 @@ ax = plt.axes(xlim=(min(link_xpos)-5,max(link_xpos)+5),ylim=(min(link_ypos)-5,ma
 
 for i in range(0,len(link_xpos)):
 
-    rect_x = link_xpos[i] - link_xsize[i]/2.0
-    rect_y = link_ypos[i] - link_ysize[i]/2.0
-    rect_len = link_xsize[i]
-    rect_height = link_ysize[i]
+	rect_x = link_xpos[i] - link_xsize[i]/2.0
+	rect_y = link_ypos[i] - link_ysize[i]/2.0
+	rect_len = link_xsize[i]
+	rect_height = link_ysize[i]
 
-    box = plt.Rectangle((rect_x, rect_y), rect_len, rect_height, fc='xkcd:goldenrod')
-    plt.gca().add_patch(box)
+	box = plt.Rectangle((rect_x, rect_y), rect_len, rect_height, fc='xkcd:goldenrod')
+	plt.gca().add_patch(box)
 
-    # box = ax.add_patch(patches.Rectangle((rect_x, rect_y), rect_len, rect_height, fc='xkcd:blue green'))
+	# box = ax.add_patch(patches.Rectangle((rect_x, rect_y), rect_len, rect_height, fc='xkcd:blue green'))
 
-    # scatter = ax.scatter(link_xpos[i], link_ypos[i], s=4, fc='xkcd:blue green')
+	# scatter = ax.scatter(link_xpos[i], link_ypos[i], s=4, fc='xkcd:blue green')
 
 plt.show()

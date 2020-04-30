@@ -6,7 +6,6 @@ from matplotlib import pyplot as plt
 from matplotlib import patches
 from matplotlib import _color_data
 
-
 # -------------------
 # EVALUATE SIMULATION (in post-processing)
 # -------------------

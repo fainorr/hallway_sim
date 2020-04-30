@@ -1,10 +1,10 @@
 <launch>
 
-		<!-- set launch time "start_time" -->
-		<param name="finding_time" command="$(find hallway_sim)/scripts/timestamp.sh"/>
+		<!-- set current time as ros parameter "start_time" -->
+		<node name="timestamp" pkg="hallway_sim" type="timestamp.sh"/>
 
 		<!-- generate random hallway -->
-		<node name="gen_node" pkg="hallway_sim" type="gen_hallway.sh" args="$(arg start_time)"/>
+		<node name="gen_node" pkg="hallway_sim" type="gen_hallway.sh"/>
 
 		<!-- launch gazebo world -->
 		<include file="$(find gazebo_ros)/launch/empty_world.launch">
@@ -34,7 +34,7 @@
 		<!-- spawn robot -->
 		<!-- <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model" args="-file $(find floatinghead_description)/urdf/floatinghead.urdf -urdf -z .1 -model floatinghead" /> -->
 		<!-- <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" args="-perspective-file $(find floatinghead_description)/rqt/floatinghead.perspective"/> -->
-		<node name="spawn_robot" pkg="gazebo_ros" type="spawn_model" args="-file $(find lidar_nav)/urdf/lidar_body.urdf -urdf -z .1 -model floatinghead" />
+		<node name="spawn_robot" pkg="gazebo_ros" type="spawn_model" args="-file $(find lidar_nav)/urdf/lidar_body.urdf -urdf -z .1 -Y .3 -model floatinghead" />
 		<node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" args="--perspective-file $(find lidar_nav)/rqt/floatinghead.perspective"/>
 
 		<!-- run control nodes -->
@@ -42,6 +42,6 @@
 		<node name="gazebo_drive_node" pkg="hallway_sim" type="gazebo_drive_node.py"/>
 
 		<!-- echo robot position to file -->
-		<node name="robot_sub_node" pkg="hallway_sim" type="robot_sub_node.py" args="$(arg start_time)"/>
+		<node name="robot_sub_node" pkg="hallway_sim" type="robot_sub_node.py"/>
 
 </launch>

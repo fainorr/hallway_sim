@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 
+import rospy
 from numpy import *
 from math import *
 from hallway_urdf_gen import URDF_generator
 import os
 import time
+import sys
 
 # ------------------
 # PREPARE SIMULATION
@@ -12,7 +14,7 @@ import time
 
 # store start_time from launch file argument
 
-start_time = sys.argv[1]
+start_time = rospy.get_param("/start_time")
 
 
 # first randomize urdf for simulation
@@ -41,8 +43,6 @@ for item in size_list:
 	link_xsize.append(float(link_xyz[0]))
 	link_ysize.append(float(link_xyz[1]))
 
-
-print(link_xpos)
 
 # push list of links to text file for post-processing
 

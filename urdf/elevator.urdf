@@ -23,6 +23,50 @@
     </inertial>
   </link>
 
+  <link name = "panel_floor_left">
+    <visual>
+      <origin xyz = "2 1.25 -0.25" rpy = "0 0 0"/>
+      <geometry>
+        <box size = "1 0.25 0.5"/>
+      </geometry>
+    </visual>
+
+    <collision>
+      <origin xyz = "2 1.25 -0.25" rpy = "0 0 0"/>
+      <geometry>
+        <box size = "1 0.25 0.5"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value = "50"/>
+      <origin xyz = "2 1.25 -0.25"/>
+      <inertia ixx = '50.0' ixy = "0.0" ixz = "0.0" iyy = "50.0" iyz = "0.0" izz = "50.0"/>
+    </inertial>
+  </link>
+
+  <link name = "panel_floor_right">
+    <visual>
+      <origin xyz = "-2 1.25 -0.25" rpy = "0 0 0"/>
+      <geometry>
+        <box size = "1 0.25 0.5"/>
+      </geometry>
+    </visual>
+
+    <collision>
+      <origin xyz = "-2 1.25 -0.25" rpy = "0 0 0"/>
+      <geometry>
+        <box size = "1 0.25 0.5"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value = "50"/>
+      <origin xyz = "-2 1.25 -0.25"/>
+      <inertia ixx = '50.0' ixy = "0.0" ixz = "0.0" iyy = "50.0" iyz = "0.0" izz = "50.0"/>
+    </inertial>
+  </link>
+
   <link name = "front_wall_exterior">
     <visual>
       <origin xyz = "-0.75 1.3125 1.5" rpy = "0 0 0"/>
@@ -42,6 +86,30 @@
       <mass value = "50"/>
       <origin xyz = "-0.75 1.3125 1.5"/>
       <inertia ixx = "50.0" ixy = "0.0" ixz = "0.0" iyy = "50.0" iyz = "0.0" izz = "50.0"/>
+    </inertial>
+  </link>
+
+  <link name = "left_panel">
+    <visual>
+      <origin xyz = "2 1.25 1.5" rpy = "0 0 0"/>
+      <geometry>
+        <box size = "1 0.25 3"/>
+      </geometry>
+    </visual>
+
+    <collision>
+      <origin xyz = "2 1.25 1.5" rpy = "0 0 0"/>
+      <geometry>
+        <box size = "1 0.25 3"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value = "50"/>
+      <origin xyz = "2 1.25 1.5" rpy = "0 0 0"/>
+      <geometry>
+        <box size = "1 0.25 3"/>
+      </geometry>
     </inertial>
   </link>
 

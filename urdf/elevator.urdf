@@ -197,4 +197,23 @@
     <static>false</static>
   </gazebo>
 
+  <!--        Gazebo Plug       -->
+  <gazebo>
+    <plugin name = "gazebo_ros_control" filename = "libgazebo_ros_control.so">
+      <robotNamespace>/elevator</robotNamespace>
+    </plugin>
+  </gazebo>
+
+  <transmission name = "simple_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name = "door_ground_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name = "driver">
+      <mechanicalReduction>1</mechanicalReduction>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </actuator>
+  </transmission>
+
+
 </robot>

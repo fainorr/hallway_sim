@@ -16,7 +16,7 @@ class lidar_quad():
 
 	def __init__(self):
 
-		self.dT = 1.0;
+		self.dT = 0.1;
 		self.timenow = time.time()
 		self.oldtime = self.timenow
 

@@ -51,11 +51,18 @@ for y in range(0,len(robot_full)):
 		robot_ypos.append(float(row[1]))
 
 
+# prepare for plot
+
+# find axes max and min limits
+ax_max = max(max(link_xpos)+2, max(link_ypos)+2)
+ax_min = max(min(link_xpos)-2, min(link_ypos)-2)
+
+
 # plot in x, y plane
 
 fig = plt.figure(figsize=(6,6))
 fig.patch.set_facecolor('w')
-ax = plt.axes(xlim=(min(link_xpos)-5,max(link_xpos)+5),ylim=(min(link_ypos)-5,max(link_ypos)+5))
+ax = plt.axes(xlim=(ax_min, ax_max),ylim=(ax_min, ax_max))
 
 
 # plot hallway

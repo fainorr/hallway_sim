@@ -106,10 +106,30 @@
 
     <inertial>
       <mass value = "50"/>
-      <origin xyz = "2 1.25 1.5" rpy = "0 0 0"/>
+      <origin xyz = "2 1.25 1.5"/>
+      <inertia ixx = "50.0" ixy = "0.0" ixz = "0.0" iyy = "50.0" iyz = "0.0" izz = "50.0"/>
+    </inertial>
+  </link>
+
+  <link name = "right_panel">
+    <visual>
+      <origin xyz = "-2 1.25 1.5" rpy = "0 0 0"/>
+      <geometry>
+        <box sizw = "1 0.25 3"/>
+      </geometry>
+    </visual>
+
+    <collision>
+      <origin xyz = "-2 1.25 1.5" rpy = "0 0 0"/>
       <geometry>
         <box size = "1 0.25 3"/>
       </geometry>
+    </collision>
+
+    <inertial>
+      <mass value = "50"/>
+      <origin xyz = "-2 1.25 1.5"/>
+      <inertia ixx = "50.0" ixy = "0.0" ixz = "0.0" iyy = "50.0" iyz = "0.0" izz = "50.0"/>
     </inertial>
   </link>
 
@@ -258,6 +278,30 @@
     <child link = "door"/>
     <axis xyz = "1 0 0"/>
     <limit effort = "1000.0" lower = "-0.625" upper = "0.625" velocity = "0.1"/>
+    <origin xyz = "0 0 0" rpy = "0 0 0"/>
+  </joint>
+
+  <joint name = "ground_panel_floor_right_joint" type = "fixed">
+    <parent link = "floor"/>
+    <child link = "panel_floor_right"/>
+    <origin xyz = "0 0 0" rpy = "0 0 0"/>
+  </joint>
+
+  <joint name = "ground_panel_floor_left_joint" type = "fixed">
+    <parent link = "floor"/>
+    <child link = "panel_floor_left"/>
+    <origin xyz = "0 0 0" rpy = "0 0 0"/>
+  </joint>
+
+  <joint name = "left_panel_floor_joint" type = "fixed">
+    <parent link = "panel_floor_left"/>
+    <child link = "left_panel"/>
+    <origin xyz = "0 0 0" rpy = "0 0 0"/>
+  </joint>
+
+  <joint name = "right_panel_floor_joint" type = "fixed">
+    <parent link = "panel_floor_right"/>
+    <child link = "right_panel"/>
     <origin xyz = "0 0 0" rpy = "0 0 0"/>
   </joint>
 

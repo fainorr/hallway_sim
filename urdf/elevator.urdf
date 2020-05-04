@@ -115,7 +115,7 @@
     <visual>
       <origin xyz = "-2 1.25 1.5" rpy = "0 0 0"/>
       <geometry>
-        <box sizw = "1 0.25 3"/>
+        <box size = "1 0.25 3"/>
       </geometry>
     </visual>
 

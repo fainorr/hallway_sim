@@ -27,7 +27,7 @@ class robot_sub():
 		self.model_names = String()
 		self.model_poses = Pose()
 
-		self.bumper_states = ContactState[]
+		self.bumper_states = ContactState()
 		self.collision_name = String()
 
 		self.model_sub = rospy.Subscriber('/gazebo/model_states', ModelStates, self.modelcallback)
@@ -57,23 +57,21 @@ class robot_sub():
 		self.robot_x = self.robot_pose.position.x
 		self.robot_y = self.robot_pose.position.y
 
-		# push positions to text file for post-processing
-		with open(self.data_file, 'a') as output:
-			output.write('{0} {1}'.format(self.robot_x, self.robot_y))
-
-
 		# parse through bumper data to find relevant collisions
 		collisions = len(self.bumper_states)
+
+		print(self.bumper_states)
+		print(collisions)
 		self.collision_val = False
 
 		for i in range(0,collisions):
 			self.collision_name = self.bumper_states[i].collision2_name
-			if "hallway_sim" in self.collision_name:
+			if "random_hall" in self.collision_name:
 				self.collision_val = True
 
-		# push collision value to text file for post-processing
+		# push positions and collision value to text file for post-processing
 		with open(self.data_file, 'a') as output:
-			output.write(' {0}\n'.format(self.collision_val))
+			output.write('{0} {1} {2}\n'.format(self.robot_x, self.robot_y, self.collision_val))
 
 
 	def modelcallback(self,data):

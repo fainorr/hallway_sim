@@ -12,12 +12,12 @@ from matplotlib import _color_data
 
 # plot hallway links with robot path to evaluation navigation simulations
 
-timestamp = '20-04-30-193118'
+timestamp = '20-04-30-192858'
 
 
 # extract hallway data from text file
 
-with open('eval/hall_{}.txt'.format(timestamp), 'r') as file:
+with open('eval/{}_hall.txt'.format(timestamp), 'r') as file:
 	hall_full = file.readlines()
 
 link_xpos = []
@@ -37,7 +37,7 @@ for y in range(0,len(hall_full)):
 
 # extract robot data from text file
 
-with open('eval/robot_{}.txt'.format(timestamp), 'r') as file:
+with open('eval/{}_hall.txt'.format(timestamp), 'r') as file:
 	robot_full = file.readlines()
 
 robot_xpos = []
@@ -74,7 +74,7 @@ for i in range(0,len(link_xpos)):
 	rect_len = link_xsize[i]
 	rect_height = link_ysize[i]
 
-	box = plt.Rectangle((rect_x, rect_y), rect_len, rect_height, fc='xkcd:goldenrod')
+	box = plt.Rectangle((rect_x, rect_y), rect_len, rect_height, fc='xkcd:medium blue')
 	plt.gca().add_patch(box)
 
 
@@ -82,7 +82,7 @@ for i in range(0,len(link_xpos)):
 
 for i in range(0,len(robot_xpos)):
 
-	scatter = ax.scatter(robot_xpos[i], robot_ypos[i], s=3, c='xkcd:blue green')
+	scatter = ax.scatter(robot_xpos[i], robot_ypos[i], s=3, c='xkcd:apple green')
 
 
 plt.show()

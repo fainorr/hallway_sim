@@ -47,7 +47,7 @@ for item in size_list:
 # push list of links to text file for post-processing
 
 this_folder = os.path.dirname(__file__)
-data_file = os.path.join(this_folder, '..', 'eval', 'hall_{}.txt'.format(start_time))
+data_file = os.path.join(this_folder, '..', 'eval', '{}_hall.txt'.format(start_time))
 
 with open(data_file, 'w+') as output:
 	output.write('x_pos y_pos x_size y_size\n')

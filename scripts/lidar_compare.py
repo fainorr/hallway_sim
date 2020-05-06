@@ -39,6 +39,7 @@ class lidar_compare():
 
 		# --- ANALYZE SCAN ---
 		# [left, back, right, front]
+        # GAZEBO: [back, right, front, left]
 
 		quad_obstacles =[0.,0.,0.,0.]
 		obst_percent = [0.,0.,0.,0.]
@@ -64,37 +65,41 @@ class lidar_compare():
 
 		# method = "INTENSITY"
 		obst_intensity = analyze_intensity(distances)
-		
+
 
 		# FINDING ACTION AND DIRECTION
 
-		if quad_obstacles[3] == 0:
+		if quad_obstacles[2] == 0:
 			action = "forward"
 			direction = "left"
 
-		elif quad_obstacles[3] == 1:
+		elif quad_obstacles[2] == 1:
 
-			if quad_obstacles[0] == 0 and quad_obstacles[2] == 1: # left = 0, right = 1
+			if quad_obstacles[3] == 0 and quad_obstacles[1] == 1: # left = 0, right = 1
 				action = "turn"
 				direction = "left"
-			elif quad_obstacles[0] == 1 and quad_obstacles[2] == 0: # left = 1, right = 0
+			elif quad_obstacles[3] == 1 and quad_obstacles[1] == 0: # left = 1, right = 0
 				action = "turn"
 				direction = "right"
 
 			else:
-				if obst_intensity[0] < obst_intensity[2]:
-					if old_commands[1] == "left":
-						action = "turn"
-						direction = "left"
-					elif old_commands[1] == "right":
-						action = "turn"
-						direction = "right"
-				if obst_intensity[0] >= obst_intensity[2]:
-					if old_commands[1] == "right":
-						action = "turn"
-						direction = "right"
-					elif old_commands[1] == "left":
-						action = "turn"
-						direction = "left"
+				if obst_intensity[3] < obst_intensity[1]:
+					action = "turn"
+					direction = "left"
+					# if old_commands[1] == "left":
+					# 	action = "turn"
+					# 	direction = "left"
+					# elif old_commands[1] == "right":
+					# 	action = "turn"
+					# 	direction = "right"
+				if obst_intensity[3] >= obst_intensity[1]:
+					action = "turn"
+					direction = "right"
+					# if old_commands[1] == "right":
+					# 	action = "turn"
+					# 	direction = "right"
+					# elif old_commands[1] == "left":
+					# 	action = "turn"
+					# 	direction = "left"
 
 		return action, direction

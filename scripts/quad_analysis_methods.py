@@ -47,13 +47,14 @@ def analyze_percent(in_range):
 
     for quad in range(0,4):
         for i in range(90*quad, 90*(quad+1)):
-            if in_range[i] == 1: quad_points[quad] = quad_points[quad] + 1
+            if in_range[i] == 1:
+                quad_points[quad] = quad_points[quad] + 1
 
     for quad in range(0,4):
         if sum(quad_points) == 0.0:
             obst_percent[quad] = 0.0
         else:
-            obst_percent[quad] = quad_points/sum(quad_points)*100
+            obst_percent[quad] = quad_points[quad]/sum(quad_points)*100
 
     return obst_percent
 

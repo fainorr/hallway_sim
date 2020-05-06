@@ -66,7 +66,7 @@ class URDF_generator():
 		# hallway
 		element = 4
 		orientation = [0,1]
-		n_chunks = randint(4,10)
+		n_chunks = randint(4,6)
 		xyz, sizes, parts, room_center = straight_hall(element, orientation, n_chunks, self.chunk_length, \
 											self.chunk_width, self.wall_specs, room_center, self.room_side)
 		xyz_list = xyz_list + xyz
@@ -85,7 +85,7 @@ class URDF_generator():
 		# hallway
 		element = 6
 		orientation = [-1,0]
-		n_chunks = randint(4,10)
+		n_chunks = randint(6,12)
 		xyz, sizes, parts, room_center = straight_hall(element, orientation, n_chunks, self.chunk_length, \
 											self.chunk_width, self.wall_specs, room_center, self.room_side)
 		xyz_list = xyz_list + xyz
@@ -104,7 +104,7 @@ class URDF_generator():
 		# hallway
 		element = 8
 		orientation = [0,1]
-		n_chunks = randint(4,10)
+		n_chunks = randint(3,5)
 		xyz, sizes, parts, room_center = straight_hall(element, orientation, n_chunks, self.chunk_length, \
 											self.chunk_width, self.wall_specs, room_center, self.room_side)
 		xyz_list = xyz_list + xyz

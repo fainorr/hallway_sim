@@ -59,9 +59,6 @@ class robot_sub():
 
 		# parse through bumper data to find relevant collisions
 		collisions = len(self.bumper_states)
-
-		print(self.bumper_states)
-		print(collisions)
 		self.collision_val = False
 
 		for i in range(0,collisions):

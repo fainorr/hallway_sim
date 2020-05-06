@@ -8,7 +8,10 @@ roslib.load_manifest('hallway_sim')
 from std_msgs.msg import *
 from sensor_msgs.msg import *
 from numpy import *
+import os
 import time
+import sys
+
 import lidar_compare
 
 
@@ -16,12 +19,12 @@ class lidar_quad():
 
 	def __init__(self):
 
-		self.dT = 0.1;
+		self.dT = 0.1
 		self.timenow = time.time()
 		self.oldtime = self.timenow
 
 		self.obst_size = 3;         # number of consecutive dots
-		self.safe_range = 2;      	# search ranges for obstacles
+		self.safe_range = 1;      	# search ranges for obstacles
 
 		self.distances = zeros(360)
 		self.angles = zeros(360)
@@ -42,6 +45,15 @@ class lidar_quad():
 
 		# create loop
 		rospy.Timer(rospy.Duration(self.dT), self.loop, oneshot=False)
+
+		# create text file for storing robot position data
+		self.start_time = rospy.get_param("/start_time")
+		self.this_folder = os.path.dirname(__file__)
+		self.data_file = os.path.join(self.this_folder, '..', 'eval', '{}_nav.txt'.format(self.start_time))
+		with open(self.data_file, 'w+') as output:
+			output.write('obstacle_size {0}\n'.format(self.obst_size))
+			output.write('safe_range {0}\n'.format(self.safe_range))
+			output.write('update_rate {0}\n'.format(self.dT))
 
 
 	def loop(self, event):

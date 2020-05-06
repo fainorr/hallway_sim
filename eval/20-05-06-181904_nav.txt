@@ -1,0 +1,3 @@
+obstacle_size 3
+safe_range 2
+update_rate 0.1

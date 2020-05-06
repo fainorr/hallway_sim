@@ -14,7 +14,7 @@ class gazebo_drive():
 
 	def __init__(self):
 
-		self.dT = 0.2;
+		self.dT = 0.01;
 		self.timenow = time.time()
 		self.oldtime = self.timenow
 

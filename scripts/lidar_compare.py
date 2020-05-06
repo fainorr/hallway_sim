@@ -38,8 +38,7 @@ class lidar_compare():
 
 
 		# --- ANALYZE SCAN ---
-		# [left, back, right, front]
-        # GAZEBO: [back, right, front, left]
+		# GAZEBO: [back, right, front, left]
 
 		quad_obstacles =[0.,0.,0.,0.]
 		obst_percent = [0.,0.,0.,0.]
@@ -86,20 +85,8 @@ class lidar_compare():
 				if obst_intensity[3] < obst_intensity[1]:
 					action = "turn"
 					direction = "left"
-					# if old_commands[1] == "left":
-					# 	action = "turn"
-					# 	direction = "left"
-					# elif old_commands[1] == "right":
-					# 	action = "turn"
-					# 	direction = "right"
 				if obst_intensity[3] >= obst_intensity[1]:
 					action = "turn"
 					direction = "right"
-					# if old_commands[1] == "right":
-					# 	action = "turn"
-					# 	direction = "right"
-					# elif old_commands[1] == "left":
-					# 	action = "turn"
-					# 	direction = "left"
 
 		return action, direction

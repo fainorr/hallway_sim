@@ -46,7 +46,7 @@ class lidar_quad():
 		# create loop
 		rospy.Timer(rospy.Duration(self.dT), self.loop, oneshot=False)
 
-		# create text file for storing robot position data
+		# create text file for storing navigation parameters
 		self.start_time = rospy.get_param("/start_time")
 		self.this_folder = os.path.dirname(__file__)
 		self.data_file = os.path.join(self.this_folder, '..', 'eval', '{}_nav.txt'.format(self.start_time))

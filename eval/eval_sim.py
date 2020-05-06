@@ -12,7 +12,17 @@ from matplotlib import _color_data
 
 # plot hallway links with robot path to evaluation navigation simulations
 
-timestamp = '20-05-05-183508'
+timestamp = '20-05-06-182900'
+
+
+# extract navigation parameter data from text file
+
+with open('eval/{}_nav.txt'.format(timestamp), 'r') as file:
+	nav_full = file.readlines()
+
+obst_size = nav_full[0].strip('obstacle_size ,\n')
+safe_range = nav_full[1].strip('safe_range ,\n')
+update_rate = nav_full[2].strip('update_rate ,\n')
 
 
 # extract hallway data from text file
@@ -104,10 +114,26 @@ for i in range(0,len(robot_collision)):
 		n_collisions += 1
 
 plt.annotate(bumper_text, xy=(0, 0), xytext=(0.05, 0.95), textcoords='axes fraction',
-        horizontalalignment='left', verticalalignment='top', fontsize=9)
+		horizontalalignment='left', verticalalignment='top', fontsize=9, weight='bold')
 
 collisions_text = 'Collisions: {0}/{1}'.format(n_collisions, len(robot_collision))
-plt.annotate(collisions_text, xy=(0, 0), xytext=(0.05, 0.9), textcoords='axes fraction',
-		horizontalalignment='left', verticalalignment='top', fontsize=9)
+plt.annotate(collisions_text, xy=(0, 0), xytext=(0.05, 0.91), textcoords='axes fraction',
+		horizontalalignment='left', verticalalignment='top', fontsize=9, backgroundcolor=[1, 1, 1, 0.5])
+
+
+# add navigation details annotation
+
+obstacle_size_text = 'obstacle size N: {0}'.format(obst_size)
+safe_range_text = 'search range R: {0}'.format(safe_range)
+update_rate_text = 'update rate dT: {0}'.format(update_rate)
+
+plt.annotate('NAV PARAMETERS', xy=(0, 0), xytext=(0.95, 0.95), textcoords='axes fraction',
+		horizontalalignment='right', verticalalignment='top', fontsize=9, weight='bold')
+plt.annotate(obstacle_size_text, xy=(0, 0), xytext=(0.95, 0.91), textcoords='axes fraction',
+		horizontalalignment='right', verticalalignment='top', fontsize=9, backgroundcolor=[1, 1, 1, 0.5])
+plt.annotate(safe_range_text, xy=(0, 0), xytext=(0.95, 0.87), textcoords='axes fraction',
+		horizontalalignment='right', verticalalignment='top', fontsize=9, backgroundcolor=[1, 1, 1, 0.5])
+plt.annotate(update_rate_text, xy=(0, 0), xytext=(0.95, 0.83), textcoords='axes fraction',
+		horizontalalignment='right', verticalalignment='top', fontsize=9, backgroundcolor=[1, 1, 1, 0.5])
 
 plt.show()

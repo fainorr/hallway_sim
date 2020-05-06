@@ -20,8 +20,8 @@ class URDF_generator():
 
 		# --- define hallway specs ---
 
-		self.chunk_length = [4.0, 1.0, 0.5]
-		self.chunk_width = [4.0, 1.0, 2.0]
+		self.chunk_length = [4.0, 1.0, 0.5]	# [avg, std, min]
+		self.chunk_width = [4.0, 1.0, 2.0] # [avg, std, min]
 		self.wall_specs = [3.0, 0.2]
 		self.room_side = self.chunk_width[0]+2.0*self.chunk_width[1]
 
@@ -38,7 +38,7 @@ class URDF_generator():
 		element = 1
 		room_center = [0,0]
 		openings = [False, False, True, False]
-		xyz, sizes, parts, room_center1 = hall_intersect(element, openings, self.chunk_width, \
+		xyz, sizes, parts, room_center = hall_intersect(element, openings, self.chunk_width, \
 											self.wall_specs, room_center, self.room_side)
 		xyz_list = xyz_list + xyz
 		size_list = size_list + sizes
@@ -48,8 +48,8 @@ class URDF_generator():
 		element = 2
 		orientation = [1,0]
 		n_chunks = randint(4,10)
-		xyz, sizes, parts, room_center2 = straight_hall(element, orientation, n_chunks, self.chunk_length, \
-											self.chunk_width, self.wall_specs, room_center1, self.room_side)
+		xyz, sizes, parts, room_center = straight_hall(element, orientation, n_chunks, self.chunk_length, \
+											self.chunk_width, self.wall_specs, room_center, self.room_side)
 		xyz_list = xyz_list + xyz
 		size_list = size_list + sizes
 		part_list = part_list + parts
@@ -57,8 +57,8 @@ class URDF_generator():
 		# intersection room
 		element = 3
 		openings = [True, True, False, False]
-		xyz, sizes, parts, room_center3 = hall_intersect(element, openings, self.chunk_width, \
-											self.wall_specs, room_center2, self.room_side)
+		xyz, sizes, parts, room_center = hall_intersect(element, openings, self.chunk_width, \
+											self.wall_specs, room_center, self.room_side)
 		xyz_list = xyz_list + xyz
 		size_list = size_list + sizes
 		part_list = part_list + parts
@@ -67,17 +67,17 @@ class URDF_generator():
 		element = 4
 		orientation = [0,1]
 		n_chunks = randint(4,10)
-		xyz, sizes, parts, room_center4 = straight_hall(element, orientation, n_chunks, self.chunk_length, \
-											self.chunk_width, self.wall_specs, room_center3, self.room_side)
+		xyz, sizes, parts, room_center = straight_hall(element, orientation, n_chunks, self.chunk_length, \
+											self.chunk_width, self.wall_specs, room_center, self.room_side)
 		xyz_list = xyz_list + xyz
 		size_list = size_list + sizes
 		part_list = part_list + parts
 
 		# intersection room
 		element = 5
-		openings = [True, False, True, True]
-		xyz, sizes, parts, room_center5 = hall_intersect(element, openings, self.chunk_width, \
-											self.wall_specs, room_center4, self.room_side)
+		openings = [True, False, False, True]
+		xyz, sizes, parts, room_center = hall_intersect(element, openings, self.chunk_width, \
+											self.wall_specs, room_center, self.room_side)
 		xyz_list = xyz_list + xyz
 		size_list = size_list + sizes
 		part_list = part_list + parts
@@ -86,18 +86,27 @@ class URDF_generator():
 		element = 6
 		orientation = [-1,0]
 		n_chunks = randint(4,10)
-		xyz, sizes, parts, room_center6 = straight_hall(element, orientation, n_chunks, self.chunk_length, \
-											self.chunk_width, self.wall_specs, room_center5, self.room_side)
+		xyz, sizes, parts, room_center = straight_hall(element, orientation, n_chunks, self.chunk_length, \
+											self.chunk_width, self.wall_specs, room_center, self.room_side)
+		xyz_list = xyz_list + xyz
+		size_list = size_list + sizes
+		part_list = part_list + parts
+
+		# intersection room
+		element = 7
+		openings = [False, True, True, False]
+		xyz, sizes, parts, room_center = hall_intersect(element, openings, self.chunk_width, \
+											self.wall_specs, room_center, self.room_side)
 		xyz_list = xyz_list + xyz
 		size_list = size_list + sizes
 		part_list = part_list + parts
 
 		# hallway
-		element = 7
-		orientation = [1,0]
+		element = 8
+		orientation = [0,1]
 		n_chunks = randint(4,10)
-		xyz, sizes, parts, room_center7 = straight_hall(element, orientation, n_chunks, self.chunk_length, \
-											self.chunk_width, self.wall_specs, room_center5, self.room_side)
+		xyz, sizes, parts, room_center = straight_hall(element, orientation, n_chunks, self.chunk_length, \
+											self.chunk_width, self.wall_specs, room_center, self.room_side)
 		xyz_list = xyz_list + xyz
 		size_list = size_list + sizes
 		part_list = part_list + parts

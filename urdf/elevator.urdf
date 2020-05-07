@@ -349,13 +349,17 @@
     <origin xyz = "0 0 0" rpy = "0 0 0"/>
   </joint>
 
-  <joint name = "outer_button_panel_joint" type = "fixed">
+  <joint name = "outer_button_panel_joint" type = "revolute">
+    <axis xyz = "1 0 0"/>
+    <limit effort = "1000000000000000000000.0" lower = "0.0" upper = "0.0" velocity = "0.0"/>
     <parent link = "left_panel"/>
     <child link = "Outer_Button"/>
     <origin xyz = "0 0 0" rpy = "0 0 0"/>
   </joint>
 
-  <joint name = "inner_button_wall_joint" type = "fixed">
+  <joint name = "inner_button_wall_joint" type = "revolute">
+    <axis xyz = "1 0 0"/>
+    <limit effort = "1000000000000000000000.0" lower = "0.0" upper = "0.0" velocity = "0.0"/>
     <parent link = "front_wall_interior"/>
     <child link = "Inner_Button"/>
     <origin xyz = "0 0 0" rpy = "0 0 0"/>

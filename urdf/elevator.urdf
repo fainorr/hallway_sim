@@ -243,6 +243,50 @@
     </inertial>
   </link>
 
+  <link name = "Outer_Button">
+    <visual>
+      <origin xyz = "2 1.375 1.5" rpy = "0 0 0"/>
+      <geometry>
+        <sphere radius = "0.02"/>
+      </geometry>
+    </visual>
+
+    <collision>
+      <origin xyz = "2 1.375 1.5" rpy = "0 0 0"/>
+      <geometry>
+        <sphere radius = "0.02"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value = "0.00001"/>
+      <origin xyz = "2 1.375 1.5"/>
+      <inertia ixx = "1" ixy = "1" ixz = "1" iyy = "1" iyz = "1" izz = "1"/>
+    </inertial>
+  </link>
+
+  <link name = "Inner_Button">
+    <visual>
+      <origin xyz = "-0.75 0.875 1.5" rpy = "0 0 0"/>
+      <geometry>
+        <sphere radius = "0.02"/>
+      </geometry>
+    </visual>
+
+    <collision>
+      <origin xyz = "-0.75 0.875 1.5" rpy = "0 0 0"/>
+      <geometry>
+        <sphere radius = "0.02"/>
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value = "0.00001"/>
+      <origin xyz = "-0.75 0.875 1.5"/>
+      <inertia ixx = "1" ixy = "1" ixz = "1" iyy = "1" iyz = "1" izz = "1"/>
+    </inertial>
+  </link>
+
   <joint name = "front_exterior_ground_joint" type = "fixed">
     <parent link = "floor"/>
     <child link = "front_wall_exterior"/>
@@ -304,6 +348,26 @@
     <child link = "right_panel"/>
     <origin xyz = "0 0 0" rpy = "0 0 0"/>
   </joint>
+
+  <joint name = "outer_button_panel_joint" type = "fixed">
+    <parent link = "left_panel"/>
+    <child link = "Outer_Button"/>
+    <origin xyz = "0 0 0" rpy = "0 0 0"/>
+  </joint>
+
+  <joint name = "inner_button_wall_joint" type = "fixed">
+    <parent link = "front_wall_interior"/>
+    <child link = "Inner_Button"/>
+    <origin xyz = "0 0 0" rpy = "0 0 0"/>
+  </joint>
+
+  <gazebo reference = "Outer_Button">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference = "Inner_Button">
+    <material>Gazebo/Red</material>
+  </gazebo>
 
   <gazebo>
     <static>false</static>

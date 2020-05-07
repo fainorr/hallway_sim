@@ -366,6 +366,14 @@
   </joint>
 
   <gazebo reference = "Outer_Button">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo refernce = "Inner_Button">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference = "Outer_Button">
     <sensor name = "Outer_Button_Bumper" type = "contact">
       <!-- <geom>base_link_2_geom</geom> -->
       <!-- <selfCollide>true</selfCollide> -->

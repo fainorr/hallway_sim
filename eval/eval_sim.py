@@ -136,4 +136,5 @@ plt.annotate(safe_range_text, xy=(0, 0), xytext=(0.95, 0.87), textcoords='axes f
 plt.annotate(update_rate_text, xy=(0, 0), xytext=(0.95, 0.83), textcoords='axes fraction',
 		horizontalalignment='right', verticalalignment='top', fontsize=9, backgroundcolor=[1, 1, 1, 0.5])
 
+
 plt.show()

@@ -64,7 +64,10 @@ class robot_sub():
 		for i in range(0,collisions):
 			self.collision_name = self.bumper_states[i].collision2_name
 			if "random_hall" in self.collision_name:
-				self.collision_val = True
+				if "random_hall::base" in self.collision_name:
+					base = True
+				else:
+					self.collision_val = True
 
 		# push positions and collision value to text file for post-processing
 		with open(self.data_file, 'a') as output:

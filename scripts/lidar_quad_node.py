@@ -23,8 +23,8 @@ class lidar_quad():
 		self.timenow = time.time()
 		self.oldtime = self.timenow
 
-		self.obst_size = 3;         # number of consecutive dots
-		self.safe_range = 1;      	# search ranges for obstacles
+		self.obst_size = 5;         # number of consecutive dots
+		self.safe_range = 1.0;      	# search ranges for obstacles
 
 		self.distances = zeros(360)
 		self.angles = zeros(360)

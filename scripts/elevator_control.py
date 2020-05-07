@@ -9,6 +9,8 @@ from std_msgs.msg import *
 from numpy import *
 import time
 
+import door_position
+
 class elevator_controller():
 
 	def __init__(self):
@@ -22,11 +24,12 @@ class elevator_controller():
 
 		# subscribe to action and button state
 		self.FSM_action = rospy.Subscriber('/action', String, self.actioncallback)
-		
+
+		# publish door position
+		self.door_location = rospy.Publisher('/elevator/door_to_ground_joint_position_controller/command', Float64, queue_size=1)
+		self.action = 'close'
 		# create loop
 		rospy.Timer(rospy.Duration(self.dT), self.loop, oneshot=False) 
-
-		self.action = 'close'
 
 
 	def loop(self, event):

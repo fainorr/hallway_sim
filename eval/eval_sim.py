@@ -12,7 +12,7 @@ from matplotlib import _color_data
 
 # plot hallway links with robot path to evaluation navigation simulations
 
-timestamp = '20-05-06-182900'
+timestamp = '20-05-07-005737'
 
 
 # extract navigation parameter data from text file
@@ -71,7 +71,7 @@ for y in range(0,len(robot_full)):
 # ax_max = max(max(link_xpos)+2, max(link_ypos)+2)
 # ax_min = max(min(link_xpos)-2, min(link_ypos)-2)
 ax_max = max(max(robot_xpos)+6, max(robot_ypos)+6)
-ax_min = max(min(robot_xpos)-6, min(robot_ypos)-6)
+ax_min = min(min(robot_xpos)-6, min(robot_ypos)-6)
 
 
 # set up x,y plane for figure

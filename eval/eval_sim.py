@@ -158,4 +158,3 @@ for sim in range(0,len(timestamps)):
 			horizontalalignment='right', verticalalignment='bottom', fontsize=8, backgroundcolor=[1, 1, 1, 0.5])
 
 	plt.savefig("eval/N{0}_R{1}_{2}.pdf".format(obst_size, safe_range, timestamp))
-	plt.show()

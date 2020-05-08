@@ -7,12 +7,12 @@ from math import *
 from fxn_straight_hall import *
 from fxn_hall_intersect import *
 
+# to install lxml library, run in terminal:
+# pip install lxml
+
 # ------------------------------------
 # RANDOMLY GENERATE HALLWAY WITH TURNS
 # ------------------------------------
-
-# to install lxml library, run in terminal:
-# pip install lxml
 
 class URDF_generator():
 
@@ -20,19 +20,33 @@ class URDF_generator():
 
 		# --- define hallway specs ---
 
+		# the hallway generates as a series of chunks, each with a length and
+		# width chosen from a normal distribution with average, standard
+		# deviation, and minimum specified here:
+
 		self.chunk_length = [4.0, 1.0, 0.5]	# [avg, std, min]
 		self.chunk_width = [2.5, 0.5, 2.0] # [avg, std, min]
-		self.wall_specs = [3.0, 0.2]
+		self.wall_specs = [3.0, 0.2] # [height, thickness]
+
+		# the hallway turns but joining with a square intersection room that
+		# has a side length of "room_side"
+
 		self.room_side = self.chunk_width[0]+2.0*self.chunk_width[1]
 
 
 	def set_links(self):
 
+		# --- build environment as combination of elements ---
+
+		# using the functions for a straight_hall and hall_intersect, the
+		# hallway is constructed as a series of elements
+
+		# once generated, the xyz location, size, and name of each
+		# link are appended to lists for the URDF writer.
+
 		xyz_list = []
 		size_list = []
 		part_list = []
-
-		# --- build environment as combination of hallways ---
 
 		# starting room
 		element = 1
@@ -116,7 +130,7 @@ class URDF_generator():
 
 	def set_base(self):
 
-		# --- base specs ---
+		# --- define base link specs ---
 
 		base_xyz = '{} {} {}'.format(0, 0, -self.wall_specs[1]/2.0)
 		base_size = '{} {} {}'.format(1000, 1000, self.wall_specs[1])
@@ -131,13 +145,21 @@ class URDF_generator():
 
 	def write_urdf(self):
 
+		# --- write random_hall.urdf for simulation ---
+
+		# using the functions above to find the base and link specifications,
+		# this function uses the lxml library to create the urdf file from scratch
+
+		# this function, regardless of input parameters, does not need to be adjusted
+
 		xyz_list, size_list, part_list = self.set_links()
 		base_xyz, base_size, base_inertia = self.set_base()
 
 		root = etree.Element('robot')
 		root.set("name","hallway")
 
-		# create base layer
+		# create base link
+
 		base = etree.SubElement(root,"link")
 		base.set("name","base")
 		for tag in range(0,2):
@@ -165,8 +187,10 @@ class URDF_generator():
 		inertia.set("izz",base_inertia[5])
 
 
-		# create walls for each chunk
+		# create each link in model
+
 		n_links = len(xyz_list)
+
 		for n in range(0,n_links):
 			link = etree.SubElement(root,"link")
 			link.set("name", part_list[n])
@@ -203,6 +227,7 @@ class URDF_generator():
 
 
 		# make hallway static
+
 		gazebo_link = etree.SubElement(root,"gazebo")
 		static = etree.SubElement(gazebo_link,"static")
 		static.text = "true"

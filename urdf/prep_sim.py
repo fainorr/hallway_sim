@@ -12,18 +12,26 @@ import sys
 # PREPARE SIMULATION
 # ------------------
 
-# store start_time from launch file argument
+# for each simulation, this script generates a randomized hallway and stores its
+# values in a txt file for future reference in post-processing
+
+
+# store start_time at time of launch
 
 start_time = rospy.get_param("/start_time")
 
 
-# first randomize urdf for simulation
+# write randomized urdf for simulation (using hallway_urdf_gen.py)
 
 urdf_gen = URDF_generator()
 xyz_list, size_list, part_list = urdf_gen.write_urdf()
 
 
-# make vectors of x and y positions for each link
+# ------------------------------
+# PUSH HALLWAY DIMENSIONS TO TXT
+# ------------------------------
+
+# for each link, ,make vectors of x and y positions
 
 link_xpos = []
 link_ypos = []
@@ -33,7 +41,8 @@ for item in xyz_list:
 	link_xpos.append(float(link_xyz[0]))
 	link_ypos.append(float(link_xyz[1]))
 
-# make vectors of x and y sizes for each link
+
+# for each link, make vectors of x and y sizes
 
 link_xsize = []
 link_ysize = []
@@ -46,8 +55,10 @@ for item in size_list:
 
 # push list of links to text file for post-processing
 
+filename = '{}_hall.txt'.format(start_time)
+
 this_folder = os.path.dirname(__file__)
-data_file = os.path.join(this_folder, '..', 'eval', '{}_hall.txt'.format(start_time))
+data_file = os.path.join(this_folder, '..', 'eval', filename)
 
 with open(data_file, 'w+') as output:
 	output.write('x_pos y_pos x_size y_size\n')

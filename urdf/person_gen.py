@@ -6,22 +6,27 @@ from numpy import *
 from math import *
 import sys
 
+# to install lxml library, run in terminal:
+# pip install lxml
+
 # ------------------------
 # RANDOMLY GENERATE PEOPLE
 # ------------------------
 
-# to install lxml library, run in terminal:
-# pip install lxml
-
-
-# person index from launch file
-index = sys.argv[1]
-
-
-# --- person specs ---
+# --- define person specs ---
 
 height_avg = 1.72
 height_std = 0.15
+
+
+# store person index from launch file
+
+try:
+    index = sys.argv[1]
+except:
+    index = 1
+
+# specify person dimensions based on height average and standard deviation
 
 height = round(random.normal(height_avg, height_std),3)
 body_height = round(6*height/7,3)
@@ -33,6 +38,7 @@ head_mass = round(34.2*head_height,3)
 
 
 # set vectors of link origins, sizes, and offsets [body, head]
+
 names = ['body', 'head']
 origins = ['0 0 0', '0 0 0']
 radii = ['{}'.format(body_radius), '{}'.format(head_radius)]
@@ -128,7 +134,7 @@ for n in range(0,2):
     origin.set("rpy",'0 0 0')
 
 
-# define the controller plugin
+# define the velocity controller plugin
 gazebo = etree.SubElement(root,"gazebo")
 plugin = etree.SubElement(gazebo,"plugin")
 plugin.set("name",'object_controller')

@@ -12,7 +12,7 @@ from matplotlib import _color_data
 
 # plot hallway links with robot path to evaluation navigation simulations
 
-timestamp = '20-05-07-011619'
+timestamp = '20-05-08-002723'
 
 
 # extract navigation parameter data from text file
@@ -136,5 +136,10 @@ plt.annotate(safe_range_text, xy=(0, 0), xytext=(0.95, 0.87), textcoords='axes f
 plt.annotate(update_rate_text, xy=(0, 0), xytext=(0.95, 0.83), textcoords='axes fraction',
 		horizontalalignment='right', verticalalignment='top', fontsize=9, backgroundcolor=[1, 1, 1, 0.5])
 
+
+# add timestamp
+
+plt.annotate(timestamp, xy=(0, 0), xytext=(0.97, 0.03), textcoords='axes fraction',
+		horizontalalignment='right', verticalalignment='bottom', fontsize=8, backgroundcolor=[1, 1, 1, 0.5])
 
 plt.show()

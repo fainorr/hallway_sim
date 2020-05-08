@@ -91,3 +91,25 @@ def analyze_intensity(distances):
 			obst_intensity[quad] = obst_intensity[quad]/total_obst_intensity*100
 
 	return obst_intensity
+
+
+# ---------------------
+# --- CLOSEST POINT ---
+# ---------------------
+# the output "closest_angle" returns the angle in the LIDAR scan where the
+# closest point exists.  This will be used such that the robot will always
+# keep the closet point to one of its sides.
+
+def analyze_closest(distances, angles):
+
+	closest_index = 0
+	closest_point = distances[0]
+
+	for i in range(1,360):
+		if distances[i] < closest_point:
+			closest_index = i
+			closest_point = distances[i]
+
+	closest_angle = angles[i]
+
+	return closest_angle

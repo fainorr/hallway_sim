@@ -65,28 +65,46 @@ class lidar_compare():
 		# method = "INTENSITY"
 		obst_intensity = analyze_intensity(distances)
 
+		# method = "CLOSEST POINT"
+		closest_angle = analyze_closest(r_pos,angles)
 
 		# FINDING ACTION AND DIRECTION
 
-		if quad_obstacles[2] == 0:
-			action = "forward"
-			direction = "left"
+		# if quad_obstacles[2] == 0:
+		# 	action = "forward"
+		# 	direction = "left"
+		#
+		# elif quad_obstacles[2] == 1:
+		#
+		# 	if quad_obstacles[3] == 0 and quad_obstacles[1] == 1: # left = 0, right = 1
+		# 		action = "turn"
+		# 		direction = "left"
+		# 	elif quad_obstacles[3] == 1 and quad_obstacles[1] == 0: # left = 1, right = 0
+		# 		action = "turn"
+		# 		direction = "right"
+		#
+		# 	else:
+		# 		if obst_intensity[3] < obst_intensity[1]:
+		# 			action = "turn"
+		# 			direction = "left"
+		# 		if obst_intensity[3] >= obst_intensity[1]:
+		# 			action = "turn"
+		# 			direction = "right"
 
-		elif quad_obstacles[2] == 1:
-
-			if quad_obstacles[3] == 0 and quad_obstacles[1] == 1: # left = 0, right = 1
-				action = "turn"
+		if closest_angle > 0:
+			if closest_angle > pi/3 and closest_angle < 2*pi/3:
+				action = "forward"
 				direction = "left"
-			elif quad_obstacles[3] == 1 and quad_obstacles[1] == 0: # left = 1, right = 0
+			else:
 				action = "turn"
 				direction = "right"
 
+		elif closest_angle <= 0:
+			if closest_angle < -pi/3 and closest_angle > -2*pi/3:
+				action = "forward"
+				direction = "left"
 			else:
-				if obst_intensity[3] < obst_intensity[1]:
-					action = "turn"
-					direction = "left"
-				if obst_intensity[3] >= obst_intensity[1]:
-					action = "turn"
-					direction = "right"
+				action = "turn"
+				direction = "left"
 
 		return action, direction

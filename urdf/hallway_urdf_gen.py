@@ -119,7 +119,7 @@ class URDF_generator():
 		# --- base specs ---
 
 		base_xyz = '{} {} {}'.format(0, 0, -self.wall_specs[1]/2.0)
-		base_size = '{} {} {}'.format(500, 500, self.wall_specs[1])
+		base_size = '{} {} {}'.format(1000, 1000, self.wall_specs[1])
 		base_inertia = ["50.0", "0.0", "0.0", "50.0", "0.0", "50.0"] # [ixx, ixy, ixz, iyy, iyz ,izz]
 
 		return base_xyz, base_size, base_inertia

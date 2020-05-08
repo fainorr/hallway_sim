@@ -110,6 +110,9 @@ def analyze_closest(distances, angles):
 			closest_index = i
 			closest_point = distances[i]
 
-	closest_angle = angles[i]
+	closest_angle = angles[closest_index]
 
-	return closest_angle
+	print(closest_index)
+	print(closest_angle)
+
+	return closest_angle, closest_point

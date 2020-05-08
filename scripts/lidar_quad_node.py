@@ -24,10 +24,10 @@ class lidar_quad():
 		self.oldtime = self.timenow
 
 		self.obst_size = 2;         # number of consecutive dots
-		self.safe_range = 1.4;      	# search ranges for obstacles
+		self.safe_range = 1.0;      	# search ranges for obstacles
 
 		self.distances = zeros(360)
-		self.angles = zeros(360)
+		self.angle_parameters = [0.0, 0.0, 0.0]
 
 		self.old_action = "stand"
 		self.old_direction = "left"
@@ -62,7 +62,7 @@ class lidar_quad():
 		self.oldtime = self.timenow
 
 		self.command_history = [self.old_action, self.old_direction]
-		self.action, self.direction = self.analyze.find_optimal_action(self.distances, self.angles, self.obst_size, self.safe_range, self.command_history)
+		self.action, self.direction = self.analyze.find_optimal_action(self.distances, self.angle_parameters, self.obst_size, self.safe_range, self.command_history)
 
 		self.action_msg = String()
 		self.action_msg.data = self.action
@@ -77,7 +77,7 @@ class lidar_quad():
 	def scancallback(self,data):
 
 		self.distances = array(data.ranges)
-		self.angles = arange(data.angle_min, data.angle_max, data.angle_increment)
+		self.angle_parameters = [data.angle_min, data.angle_max, data.angle_increment]
 
 	def actioncallback(self,data):
 

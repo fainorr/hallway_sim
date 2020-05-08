@@ -34,7 +34,7 @@
 		<!-- spawn robot -->
 		<!-- <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model" args="-file $(find floatinghead_description)/urdf/floatinghead.urdf -urdf -z .1 -model floatinghead" /> -->
 		<!-- <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" args="-perspective-file $(find floatinghead_description)/rqt/floatinghead.perspective"/> -->
-		<node name="spawn_robot" pkg="gazebo_ros" type="spawn_model" args="-file $(find lidar_nav)/urdf/lidar_body.urdf -urdf -z .1 -Y .3 -model floatinghead" />
+		<node name="spawn_robot" pkg="gazebo_ros" type="spawn_model" args="-file $(find lidar_nav)/urdf/lidar_body.urdf -urdf -z .1 -x .5 -Y .3 -model floatinghead" />
 		<node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" args="--perspective-file $(find lidar_nav)/rqt/floatinghead.perspective"/>
 
 		<!-- run control nodes -->

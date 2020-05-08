@@ -11,11 +11,7 @@ from matplotlib import _color_data
 # EVALUATE SIMULATION (in post-processing)
 # -------------------
 
-# plot hallway links with robot path to evaluation navigation simulations
-#
-# timestamp = '20-05-08-045817'
-
-# find all txt files in "/eval" directory
+# find all simulation txt files in "/eval" directory
 
 txt_files = []
 for file in os.listdir("eval/"):
@@ -27,6 +23,8 @@ for text in txt_files:
 	sim_time = text[0:15]
 	timestamps.append(sim_time)
 
+
+# for each simulation, plot hallway links with robot path to evaluate navigation success
 
 for sim in range(0,len(timestamps)):
 

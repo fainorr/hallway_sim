@@ -97,7 +97,7 @@ def analyze_intensity(distances):
 # --- CLOSEST POINT ---
 # ---------------------
 # the output "closest_angle" returns the angle in the LIDAR scan where the
-# closest point exists.  This will be used such that the robot will always
+# closest point exists.  This may be used such that the robot will always
 # keep the closet point to one of its sides.
 
 def analyze_closest(distances, angles):
@@ -111,8 +111,5 @@ def analyze_closest(distances, angles):
 			closest_point = distances[i]
 
 	closest_angle = angles[closest_index]
-
-	print(closest_index)
-	print(closest_angle)
 
 	return closest_angle, closest_point

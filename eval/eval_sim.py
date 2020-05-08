@@ -12,7 +12,7 @@ from matplotlib import _color_data
 
 # plot hallway links with robot path to evaluation navigation simulations
 
-timestamp = '20-05-08-002723'
+timestamp = '20-05-08-045817'
 
 
 # extract navigation parameter data from text file

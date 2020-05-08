@@ -21,7 +21,7 @@ class URDF_generator():
 		# --- define hallway specs ---
 
 		self.chunk_length = [4.0, 1.0, 0.5]	# [avg, std, min]
-		self.chunk_width = [4.0, 1.0, 2.0] # [avg, std, min]
+		self.chunk_width = [2.5, 0.5, 2.0] # [avg, std, min]
 		self.wall_specs = [3.0, 0.2]
 		self.room_side = self.chunk_width[0]+2.0*self.chunk_width[1]
 

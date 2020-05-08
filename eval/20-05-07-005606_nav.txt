@@ -1,3 +1,0 @@
-obstacle_size 5
-safe_range 1.5
-update_rate 0.1

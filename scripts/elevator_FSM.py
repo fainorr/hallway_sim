@@ -5,7 +5,7 @@
 import roslib
 import rospy
 roslib.load_manifest('hallway_sim')
-from std_msds.msg import *
+from std_msgs.msg import *
 from gazebo_msgs.msg import ContactsState, ContactState
 from numpy import *
 import time
@@ -14,7 +14,7 @@ import time
 class Elevator_FSM():
 	def __init__(self):
 
-		self.dT = 0.005
+		self.dT = 0.1
 		self.timenow = time.time()
 		self.oldtime = self.timenow
 
@@ -24,7 +24,7 @@ class Elevator_FSM():
 		self.outer_button_sub = rospy.Subscriber('/Outer_Button_State', ContactsState, self.outer_callback)
 		self.inner_button_sub = rospy.Subscriber('/Inner_Button_State', ContactsState, self.inner_callback)
 
-		self.door_action = rospy.Publisher('/door_action', String, queuesize=1)
+		self.door_action = rospy.Publisher('/door_action', String, queue_size=1)
 
 		#Create loop
 		rospy.Timer(rospy.Duration(self.dT), self.loop, oneshot=False)
@@ -204,9 +204,23 @@ class Elevator_FSM():
 		self.door_action.publish(action)
 
 
-	self.outer_callback(self,data):
+	def outer_callback(self,data):
 		self.outer_button_states = data.states
-		print(self.outer_button_states)
 
-	self.inner_callback(self,data):
+	def inner_callback(self,data):
 		self.inner_button_states = data.states
+
+
+# main function
+
+def main(args):
+	rospy.init_node('elevator_FSM', anonymous=True)
+	myNode = Elevator_FSM()
+
+	try:
+		rospy.spin()
+	except KeyboardInterrupt:
+		print "Shutting down"
+
+if __name__ == '__main__':
+	main(sys.argv)

@@ -17,7 +17,7 @@ class elevator_controller():
 
 		rospy.logwarn("started elevator controller")
 
-		self.dT = 0.005
+		self.dT = 0.1
 		self.timenow = time.time()
 		self.starttime = time.time()
 		self.time_elapsed = 0.0
@@ -53,7 +53,7 @@ class elevator_controller():
 		self.action = data.data
 
 def main(args):
-	ropsy.init_node('elevator_control_node', anonymous=True)
+	rospy.init_node('elevator_control_node', anonymous=True)
 	myNode = elevator_controller()
 
 	try:

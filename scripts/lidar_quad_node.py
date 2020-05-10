@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-# LIDAR ANALYSIS NODE
-
 import roslib
 import rospy
 roslib.load_manifest('hallway_sim')
@@ -11,9 +9,15 @@ from numpy import *
 import os
 import time
 import sys
-
 import lidar_compare
 
+
+# ---------------
+# LIDAR QUAD NODE
+# ---------------
+
+# this ROS node subscribes to the LIDAR scan data and runs the appropriate analysis
+# in functions in lidar_compare.py to find the optimal action for the robot
 
 class lidar_quad():
 
@@ -23,9 +27,11 @@ class lidar_quad():
 		self.timenow = time.time()
 		self.oldtime = self.timenow
 
+		# --- navigation parameters ---
 		self.obst_size = 3;         # number of consecutive dots
-		self.safe_range = 1.2;      	# search ranges for obstacles
+		self.safe_range = 1.2;     	# search ranges for obstacles
 
+		# initialize
 		self.distances = zeros(360)
 		self.angle_parameters = [0.0, 0.0, 0.0]
 
@@ -34,12 +40,12 @@ class lidar_quad():
 
 		self.analyze = lidar_compare.lidar_compare()
 
-		# subscribe to rplidar node
+		# subscribe to rplidar
 		self.lidar_subscriber = rospy.Subscriber('/scan', LaserScan, self.scancallback)
 		self.FSM_action = rospy.Subscriber('/action', String, self.actioncallback)
 		self.FSM_direction = rospy.Subscriber('/direction', String, self.directioncallback)
 
-		# publish array of booleans if an obstacle exists in each quadrant
+		# publish action and direction for the robot controller
 		self.FSM_action = rospy.Publisher('/action', String, queue_size=1)
 		self.FSM_direction = rospy.Publisher('/direction', String, queue_size=1)
 
@@ -61,9 +67,11 @@ class lidar_quad():
 		self.timenow = time.time()
 		self.oldtime = self.timenow
 
+		# find action and direction from the lidar_compare.py script
 		self.command_history = [self.old_action, self.old_direction]
 		self.action, self.direction = self.analyze.find_optimal_action(self.distances, self.angle_parameters, self.obst_size, self.safe_range, self.command_history)
 
+		# store results in string messages and publish
 		self.action_msg = String()
 		self.action_msg.data = self.action
 

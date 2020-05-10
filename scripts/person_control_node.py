@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-# PERSON CONTROL NODE
-
 import roslib
 import rospy
 roslib.load_manifest('hallway_sim')
@@ -10,6 +8,12 @@ from geometry_msgs.msg import *
 from numpy import *
 import time
 
+# -------------------
+# PERSON CONTROL NODE
+# -------------------
+
+# this node publishes linear and angular velocities for each "person" in the
+# gazebo world; the number of publishers must match the number of people spawned
 
 class person_drive():
 

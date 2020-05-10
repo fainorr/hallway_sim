@@ -11,7 +11,11 @@ from matplotlib import _color_data
 # EVALUATE SIMULATION (in post-processing)
 # -------------------
 
-# find all simulation txt files in "/eval" directory
+# with all the .txt files in this folder, this script plots the hallway with
+# the robot's path over time and checks for collisions; it saves each figure
+# as a pdf
+
+# find all simulation txt files in "eval" directory
 
 txt_files = []
 for file in os.listdir("eval/"):
@@ -83,8 +87,6 @@ for sim in range(0,len(timestamps)):
 	# ---------------
 
 	# find axes max and min limits
-	# ax_max = max(max(link_xpos)+2, max(link_ypos)+2)
-	# ax_min = max(min(link_xpos)-2, min(link_ypos)-2)
 	ax_max = max(max(robot_xpos)+6, max(robot_ypos)+6)
 	ax_min = min(min(robot_xpos)-6, min(robot_ypos)-6)
 
@@ -157,4 +159,7 @@ for sim in range(0,len(timestamps)):
 	plt.annotate(timestamp, xy=(0, 0), xytext=(0.97, 0.03), textcoords='axes fraction',
 			horizontalalignment='right', verticalalignment='bottom', fontsize=8, backgroundcolor=[1, 1, 1, 0.5])
 
+
+    # save figure as a pdf
+    
 	plt.savefig("eval/N{0}_R{1}_{2}.pdf".format(obst_size, safe_range, timestamp))

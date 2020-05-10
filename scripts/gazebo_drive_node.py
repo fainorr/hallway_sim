@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-# GAZEBO DRIVE NODE
-
 import roslib
 import rospy
 roslib.load_manifest('hallway_sim')
@@ -9,6 +7,13 @@ from std_msgs.msg import *
 from geometry_msgs.msg import *
 from numpy import *
 import time
+
+# -----------------
+# GAZEBO DRIVE NODE
+# -----------------
+
+# subscribing to the action and direction published by the lidar_quad_node.py,
+# this ROS node publishes linear and angular velocities to the robot
 
 class gazebo_drive():
 
@@ -21,6 +26,7 @@ class gazebo_drive():
 		self.action = "stand"
 		self.direction = "left"
 
+		# subscribe to the action and direction
 		self.FSM_action = rospy.Subscriber('/action', String, self.actioncallback)
 		self.FSM_direction = rospy.Subscriber('/direction', String, self.directioncallback)
 
@@ -32,6 +38,9 @@ class gazebo_drive():
 	def loop(self, event):
 
 		self.twist = Twist()
+
+		# based on the identified action and direction, move the robot accordingly
+
 		if self.action == "stand":
 			self.twist.linear.x = 0.0;
 			self.twist.linear.y = 0.0;
@@ -65,7 +74,6 @@ class gazebo_drive():
 				self.twist.angular.z = -pi/4.0;
 
 		self.robot_velocity.publish(self.twist)
-
 
 	def actioncallback(self,data):
 

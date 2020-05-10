@@ -62,7 +62,7 @@ def analyze_percent(in_range):
 # -----------------
 # --- INTENSITY ---
 # -----------------
-#  the output "obst_intensity" returns a percentage of point intensities in
+# the output "obst_intensity" returns a percentage of point intensities in
 # each quadrant. This point intensity is inversely proportional to the squared
 # distance from the LIDAR.
 

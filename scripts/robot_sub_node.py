@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-# ROBOT POSITION SUBSCRIBER NODE
-
 import roslib
 import rospy
 roslib.load_manifest('hallway_sim')
@@ -13,6 +11,13 @@ import os
 import time
 import sys
 
+# ------------------------------
+# ROBOT POSITION SUBSCRIBER NODE
+# ------------------------------
+
+# as the simulation runs, this node subscribes to the robot x and y positions
+# as well as its contact sensor and outputs the relevant data to a txt file
+# in the eval directory for post-processing.
 
 class robot_sub():
 
@@ -30,6 +35,8 @@ class robot_sub():
 		self.bumper_states = ContactState()
 		self.collision_name = String()
 
+		# subscribe to "model_states", which gazebo publishes for all models
+		# and the bumper_vals topic declared in the robot URDF
 		self.model_sub = rospy.Subscriber('/gazebo/model_states', ModelStates, self.modelcallback)
 		self.bumper_sub = rospy.Subscriber('/bumper_vals', ContactsState, self.bumpercallback)
 
@@ -50,14 +57,17 @@ class robot_sub():
 			if self.model_names[i] == self.robot_name:
 				self.model_i = i
 
-
 		# find robot x and y position
-		self.robot_pose = self.model_poses[self.model_i]
 
+		self.robot_pose = self.model_poses[self.model_i]
 		self.robot_x = self.robot_pose.position.x
 		self.robot_y = self.robot_pose.position.y
 
-		# parse through bumper data to find relevant collisions
+
+		# parse through bumper data to find relevant collisions;
+		# the relevant collisions are only those that with walls, which all begin
+		# with the same tag as a base_fixed joint"
+
 		collisions = len(self.bumper_states)
 		self.collision_val = False
 
@@ -66,7 +76,9 @@ class robot_sub():
 			if "random_hall::base::base_fixed" in self.collision_name:
 				self.collision_val = True
 
+
 		# push positions and collision value to text file for post-processing
+
 		with open(self.data_file, 'a') as output:
 			output.write('{0} {1} {2}\n'.format(self.robot_x, self.robot_y, self.collision_val))
 

@@ -9,6 +9,9 @@ from quad_analysis_methods import *
 # LIDAR COMPARE
 # -------------
 
+# this script assists the lidar_quad_node.py in processing the LIDAR scan data
+# using the methods outlined in quad_analysis_methods.py
+
 class lidar_compare():
 
 	def __init__(self):
@@ -18,10 +21,13 @@ class lidar_compare():
 
 	def find_optimal_action(self, r_pos, angle_parameters, obst_size, safe_range, old_commands):
 
+		# this function finds the optimal action and direction for the robot
+
 		action = "stand"
 		direction = "left"
 
-		# create angles vector
+		# create angles vector from the minimum angle and angle increment
+
 		angles = zeros(len(r_pos))
 		angle_min = angle_parameters[0]
 		angle_incr = angle_parameters[2]
@@ -29,22 +35,15 @@ class lidar_compare():
 		for i in range(0,len(r_pos)):
 			angles[i] = angle_min + angle_incr*i
 
-		x_pos = zeros(len(r_pos))
-		y_pos = zeros(len(r_pos))
 
-		for i in range(0,len(r_pos)):
-			x_pos[i] = r_pos[i]*cos(angles[i])
-			y_pos[i] = r_pos[i]*sin(angles[i])
-
-
-		# --- ANALYZE SCAN ---
-		# GAZEBO: [back, right, front, left]
+		# divide scan into four quadrants, and perform analysis on each
+		# results for gazebo: [back, right, front, left]
 
 		quad_obstacles =[0.,0.,0.,0.]
 		obst_percent = [0.,0.,0.,0.]
 		obst_intensity = [0.,0.,0.,0.]
 
-		# for analysis, reorder values into four quadrants
+		# for analysis, reorder values into appropriate four quadrants
 
 		distances = zeros(len(r_pos))
 		in_range = zeros(len(r_pos))
@@ -52,9 +51,16 @@ class lidar_compare():
 		distances[0:45] = r_pos[315:360]
 		distances[45:360] = r_pos[0:315]
 
+
+		# create vector "in_range" of 1's and 0's whether points lie within the
+		# specified safe_range parameter
+
 		for i in range(0,len(distances)):
 			if distances[i] > safe_range: in_range[i] = 0
 			else: in_range[i] = 1
+
+
+		# --- ANALYZE SCAN ---
 
 		# method = "QUADRANT"
 		quad_obstacles = analyze_quadrant(obst_size, in_range)
@@ -66,7 +72,10 @@ class lidar_compare():
 		obst_intensity = analyze_intensity(distances)
 
 
-		# FINDING ACTION AND DIRECTION
+		# --- FINDING ACTION AND DIRECTION ---
+
+		# this is the obstacle avoidance logic, which takes the analysis results
+		# and determines the best reaction for the robot
 
 		if quad_obstacles[2] == 0:
 			action = "forward"

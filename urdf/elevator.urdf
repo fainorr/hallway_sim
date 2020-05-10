@@ -378,7 +378,7 @@
       <!-- <geom>base_link_2_geom</geom> -->
       <!-- <selfCollide>true</selfCollide> -->
       <alwaysOn>true</alwaysOn>
-      <updateRate>10.0</updateRate>
+      <updateRate>1.0</updateRate>
       <material>Gazebo/Red</material>
       <contact>
         <collision>Outer_Button_collision</collision>
@@ -388,14 +388,14 @@
         <frameName></frameName>
       </plugin>
     </sensor>
-  </gazebo> 
+  </gazebo>
 
   <gazebo reference = "Inner_Button">
     <sensor name = "Inner_Button_Bumper" type = "contact">
       <!-- <geom>base_link_2_geom</geom> -->
       <!-- <selfCollide>true</selfCollide> -->
       <alwaysOn>true</alwaysOn>
-      <updateRate>1000.0</updateRate>
+      <updateRate>1.0</updateRate>
       <material>Gazebo/Red</material>
       <contact>
         <collision>Inner_Button_collision</collision>

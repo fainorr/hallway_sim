@@ -6,9 +6,9 @@ import roslib
 import rospy
 roslib.load_manifest('hallway_sim')
 from std_msds.msg import *
+from gazebo_msgs.msg import ContactsState, ContactState
 from numpy import *
 import time
-
 
 
 class Elevator_FSM():
@@ -20,9 +20,11 @@ class Elevator_FSM():
 
 		self.timenow = rospy.Time.now()
 
-		# Publishers here
+		# subscribe to button contact sensors
+		self.outer_button_sub = rospy.Subscriber('/Outer_Button_State', ContactsState, self.outer_callback)
+		self.inner_button_sub = rospy.Subscriber('/Inner_Button_State', ContactsState, self.inner_callback)
 
-
+		self.door_action = rospy.Publisher('/door_action', String, queuesize=1)
 
 		#Create loop
 		rospy.Timer(rospy.Duration(self.dT), self.loop, oneshot=False)
@@ -67,6 +69,9 @@ class Elevator_FSM():
 		self.Start_time1 = 0
 		self.delta_t2 = 0
 		self.Start_time2 = 0
+
+		self.outer_button_states = ContactState()
+		self.inner_button_states = ContactState()
 
 		self.A = 0
 		self.B = 0
@@ -152,10 +157,22 @@ class Elevator_FSM():
 		self.T2 = self.delta_t2 > 5
 		#----------------------------------------------------
 
+		# button presses
+
+		if len(self.outer_button_states) > 0:
+			self.outer_button_press = True
+		else:
+			self.outer_button_press = False
+
+		if len(self.inner_button_states) > 0:
+			self.inner_button_press = True
+		else:
+			self.inner_button_press = False
+
 		# Block 2
 
-		self.A = self.Ready and not self.button_press
-		self.B = self.Ready and self.button_press
+		self.A = self.Ready and not self.outer_button_press
+		self.B = self.Ready and self.outer_button_press
 		self.C = self.Open and not self.T0
 		self.D = self.Open and self.T0
 		self.E = self.Close and not self.closed
@@ -175,3 +192,21 @@ class Elevator_FSM():
 		self.Moving = self.F or self.G
 		self.Reopen = self.H or self.I
 		self.Reclose = self.J or self.K
+
+
+		# Block 4
+		if self.Open or self.Reopen:
+			action = 'open'
+
+		if self.Close or self.Reclose or self.Ready or self.Moving:
+			action = 'close'
+
+		self.door_action.publish(action)
+
+
+	self.outer_callback(self,data):
+		self.outer_button_states = data.states
+		print(self.outer_button_states)
+
+	self.inner_callback(self,data):
+		self.inner_button_states = data.states

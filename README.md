@@ -23,13 +23,13 @@ This folder contains any necessary ROS nodes for running simulations, both in py
 
 4. **robot_sub_node.py**: as the simulation runs, this node subscribes to the robot x and y positions as well as its contact sensor and outputs the relevant data to a .txt file for post-processing.
 
-5. **gen_hallway.sh**: this is a shell node that runs the **prep_sim.py** function to generate a randomized hallway.
+5. **person_control_node.py**: this node sends the linear and angular velocities for each "person" in the gazebo world; the number of publishers must match the number of people spawned.
 
-6. **timestamp.sh**: this shell script stores the start simulation time as a ROS parameter.  Any of the nodes that echo data to a .txt file uses this start_time in the name of the file to log simulations appropriately.
+6. **gen_hallway.sh**: this is a shell node that runs the **prep_sim.py** function to generate a randomized hallway.
 
-7. **person_control_node.py**: this node sends the linear and angular velocities for each "person" in the gazebo world; the number of publishers must match the number of people spawned.
+7. **gen_person.sh**: this is a shell node that runs the **person_gen.py** function to generate a new person model.
 
-8. **gen_person.sh**: this is a shell node that runs the **person_gen.py** function to generate a new person model.
+8. **timestamp.sh**: this shell script stores the start simulation time as a ROS parameter.  Any of the nodes that echo data to a .txt file uses this start_time in the name of the file to log simulations appropriately.
 
 
 ## EVAL:
@@ -49,7 +49,7 @@ The environment description files (written in URDF format) and any python script
 
     - **fxn_hall_intersect.py**: this function returns the links for a room that changes the direction of the hallway, open on sides where it connects with a straight section and closed otherwise
 
-3. **person_gen.py**: in the same way that the hallway_urdf_gen script creates a URDF for a randomized hallway, this script generates a randomized cylindrical "person" from a normal distribution and outputs its description to the **person.urdf** file.  To accomodate the possibility that a simulation might include more than one person, the URDF accepts an "index" specified in the launch file.
+3. **person_gen.py**: in the same way that the **hallway_urdf_gen.py** script creates a URDF for a randomized hallway, this script generates a randomized cylindrical "person" from a normal distribution and outputs its description to the **person.urdf** file.  To accomodate the possibility that a simulation might include more than one person, the URDF accepts an "index" specified in the launch file.
 
 4. **elevator.urdf**: with a move-able door and buttons as contact sensors, this URDF specifies an elevator model for testing the integration of the arm with a moving robot.
 

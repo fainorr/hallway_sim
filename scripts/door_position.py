@@ -27,3 +27,5 @@ class door_position():
 			self.x = self.x_start + 0.625
 			self.y = self.y_start
 			self.z = self.z_start
+
+		return self.x, self.y, self.z

@@ -18,13 +18,13 @@ class door_position():
 
 		if (action == "close"):
 
-			self.x = self.x_start - 0.625
+			self.x = self.x_start + 0.625
 			self.y = self.y_start
 			self.z = self.z_start
 
 		if (action == "open"):
 
-			self.x = self.x_start + 0.625
+			self.x = self.x_start - 0.625
 			self.y = self.y_start
 			self.z = self.z_start
 

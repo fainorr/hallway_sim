@@ -18,4 +18,7 @@
   	<remap from="/joint_states" to="/elevator/joint_states"/>
   </node>
 
+  <node name="elevator_FSM" pkg="hallway_sim" type="elevator_FSM.py"/>
+  <node name="elevator_control" pkg="hallway_sim" type="elevator_control.py"/>
+
 </launch>

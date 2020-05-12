@@ -237,7 +237,7 @@
     </collision>
 
     <inertial>
-      <mass value = "50"/>
+      <mass value = "0.5"/>
       <origin xyz = "0 1.125 1.5"/>
       <inertia ixx = "50.0" ixy = "0.0" ixz = "0.0" iyy = "50.0" iyz = "0.0" izz = "50.0"/>
     </inertial>
@@ -245,14 +245,14 @@
 
   <link name = "Outer_Button">
     <visual>
-      <origin xyz = "2 1.375 1.5" rpy = "0 0 0"/>
+      <origin xyz = "2 1.375 0.5" rpy = "0 0 0"/>
       <geometry>
         <sphere radius = "0.02"/>
       </geometry>
     </visual>
 
     <collision>
-      <origin xyz = "2 1.375 1.5" rpy = "0 0 0"/>
+      <origin xyz = "2 1.375 0.5" rpy = "0 0 0"/>
       <geometry>
         <sphere radius = "0.02"/>
       </geometry>
@@ -260,21 +260,21 @@
 
     <inertial>
       <mass value = "0.00001"/>
-      <origin xyz = "2 1.375 1.5"/>
+      <origin xyz = "2 1.375 0.5"/>
       <inertia ixx = "1" ixy = "1" ixz = "1" iyy = "1" iyz = "1" izz = "1"/>
     </inertial>
   </link>
 
   <link name = "Inner_Button">
     <visual>
-      <origin xyz = "-0.75 0.875 1.5" rpy = "0 0 0"/>
+      <origin xyz = "-0.75 0.875 0.5" rpy = "0 0 0"/>
       <geometry>
         <sphere radius = "0.02"/>
       </geometry>
     </visual>
 
     <collision>
-      <origin xyz = "-0.75 0.875 1.5" rpy = "0 0 0"/>
+      <origin xyz = "-0.75 0.875 0.5" rpy = "0 0 0"/>
       <geometry>
         <sphere radius = "0.02"/>
       </geometry>
@@ -282,7 +282,7 @@
 
     <inertial>
       <mass value = "0.00001"/>
-      <origin xyz = "-0.75 0.875 1.5"/>
+      <origin xyz = "-0.75 0.875 0.5"/>
       <inertia ixx = "1" ixy = "1" ixz = "1" iyy = "1" iyz = "1" izz = "1"/>
     </inertial>
   </link>
@@ -369,8 +369,40 @@
     <material>Gazebo/Red</material>
   </gazebo>
 
-  <gazebo reference = "Inner_Button">
+  <gazebo refernce = "Inner_Button">
     <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference = "Outer_Button">
+    <sensor name = "Outer_Button_Bumper" type = "contact">
+      <!-- <geom>base_link_2_geom</geom> -->
+      <!-- <selfCollide>true</selfCollide> -->
+      <alwaysOn>true</alwaysOn>
+      <updateRate>1.0</updateRate>
+      <contact>
+        <collision>Outer_Button_collision</collision>
+      </contact>
+      <plugin name = "gazebo_ros_bumper_controller" filename = "libgazebo_ros_bumper.so">
+        <bumperTopicName>Outer_Button_State</bumperTopicName>
+        <frameName></frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <gazebo reference = "Inner_Button">
+    <sensor name = "Inner_Button_Bumper" type = "contact">
+      <!-- <geom>base_link_2_geom</geom> -->
+      <!-- <selfCollide>true</selfCollide> -->
+      <alwaysOn>true</alwaysOn>
+      <updateRate>1.0</updateRate>
+      <contact>
+        <collision>Inner_Button_collision</collision>
+      </contact>
+      <plugin name = "gazebo_ros_bumper_controller" filename = "libgazebo_ros_bumper.so">
+        <bumperTopicName>Inner_Button_State</bumperTopicName>
+        <frameName></frameName>
+      </plugin>
+    </sensor>
   </gazebo>
 
   <gazebo>

@@ -1,0 +1,39 @@
+<launch>
+
+    <!-- set robot model -->
+    <arg name="model" default="$(find floatinghead_description)/urdf/floatinghead_overall.urdf"/>
+
+    <!-- initiate rviz -->
+    <node type="rviz" name="rviz" pkg="rviz" args="-d $(find floatinghead_description)/rviz/floatinghead.rviz" />
+    <param name="robot_description" command="cat $(arg model)" />
+
+    <!-- spawn robot -->
+    <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model" args="-file $(find floatinghead_description)/urdf/floatinghead_overall.urdf -urdf -z .1 -y 5 -x 1 -Y 4.7124 -model floatinghead" />
+    <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" args="--perspective-file $(find floatinghead_description)/rqt/floatinghead.perspective"/>
+
+    <!-- run camera depth and arm control nodes -->
+    <node pkg="dcam_description" type="cvproc.py" name="image_converter" output="screen"/>
+    <node pkg="dcam_description" type="depthloctest.py" name="depth_finder" output="screen"/>
+    <node pkg="arm_description" type="arm_control_node.py" name="arm_conontrol_node" output="screen"/>
+
+    <!-- arm controllers-->
+    <group ns="/openArm">    
+        <rosparam command="load" file="$(find arm_description)/config/joints.yaml"/>
+        <node name="controller_spawner" pkg="controller_manager" type="spawner"
+            respawn="false" output="screen" ns="/openArm"
+            args="--namespace=/openArm
+            joint_state_controller
+            joint1_position_controller
+            joint2_position_controller
+            joint3_position_controller
+            joint4_position_controller
+            --timeout 60">
+        </node>
+    </group>
+
+    <!-- run robot control nodes -->
+    <node name="explore_FSM" pkg="hallway_sim" type="explore_FSM.py"/>
+	<node name="gazebo_drive_node" pkg="hallway_sim" type="gazebo_drive_node.py"/>
+
+
+</launch>

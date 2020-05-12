@@ -12,6 +12,7 @@ import sys
 import lidar_compare
 from quad_analysis_methods import *
 
+
 # -----------
 # EXPLORE FSM
 # -----------
@@ -26,7 +27,7 @@ class explore_FSM():
 
         # --- navigation parameters ---
         self.obst_size = 3;         # number of consecutive dots
-        self.safe_range = 0.5;         # search ranges for obstacles
+        self.safe_range = 1.5;         # search ranges for obstacles
 
         # initialize
         self.distances = zeros(360)
@@ -46,7 +47,7 @@ class explore_FSM():
         # publish action and direction for the robot controller
         self.FSM_action = rospy.Publisher('/action', String, queue_size=1)
         self.FSM_direction = rospy.Publisher('/direction', String, queue_size=1)
-        self.arm_action = rospy.Publisher('/arm_action', String, queue_size=1)
+        self.arm_action_pub = rospy.Publisher('/arm_action', String, queue_size=1)
 
         # create loop
         rospy.Timer(rospy.Duration(self.dT), self.loop, oneshot=False)
@@ -70,16 +71,19 @@ class explore_FSM():
 
         # --- ANALYZE SCAN ---
 
-        quad_obstacles = analyze_quadrant(self.obst_size, self.in_range)
+        self.quad_obstacles =[0.,0.,0.,0.]
+        self.quad_obstacles = analyze_quadrant(self.obst_size, self.in_range)
 
-        if quad_obstacles[2] == 1:
+        if self.quad_obstacles[2] == 1:
             self.explore_action = "press"
 
         if self.explore_action == "wander":
 
             # find action and direction from the lidar_compare.py script
             self.command_history = [self.old_action, self.old_direction]
+            self.safe_range = 0.8
             self.action, self.direction = self.analyze.find_optimal_action(self.distances, self.angle_parameters, self.obst_size, self.safe_range, self.command_history)
+            self.safe_range = 1.5
             self.arm_action = "rest"
 
         elif self.explore_action == "press":
@@ -97,7 +101,7 @@ class explore_FSM():
         self.FSM_action.publish(self.action_msg)
         self.FSM_direction.publish(self.direction_msg)
 
-        self.arm_action.publish(self.arm_action)
+        self.arm_action_pub.publish(self.arm_action)
 
 
     def scancallback(self,data):
@@ -117,8 +121,8 @@ class explore_FSM():
 # main function
 
 def main(args):
-    rospy.init_node('lidar_quad_node', anonymous=True)
-    myNode = lidar_quad()
+    rospy.init_node('explore_FSM', anonymous=True)
+    myNode = explore_FSM()
 
     try:
         rospy.spin()

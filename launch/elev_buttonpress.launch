@@ -1,28 +1,5 @@
 <launch>
 
-    <!-- launch gazebo world -->
-    <include file="$(find gazebo_ros)/launch/empty_world.launch">
-      <arg name="world_name" value="$(find hallway_sim)/gazebo/emptyworld.world"/>
-    </include>
-
-
-    <!-- spawn elevator into gazebo -->
-    <param name="elev_description" textfile="$(find hallway_sim)/urdf/elevator.urdf"/>
-
-    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-file $(find hallway_sim)/urdf/elevator.urdf -urdf -z -0.5 -x 5 -y -1.5 -Y 1.5708 -model elevator" />
-
-    <rosparam file="$(find hallway_sim)/config/elevator_control.yaml" command="load"/>
-
-    <node name="controller_spawner" pkg="controller_manager" type="spawner" ns="/elevator" args="door_to_ground_joint_position_controller joint_state_controller"/>
-
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
-      <remap from="/joint_states" to="/elevator/joint_states"/>
-    </node>
-
-    <node name="elevator_FSM" pkg="hallway_sim" type="elevator_FSM.py"/>
-    <node name="elevator_control" pkg="hallway_sim" type="elevator_control.py"/>
-
-
     <!-- set robot model -->
     <arg name="model" default="$(find floatinghead_description)/urdf/floatinghead_overall.urdf"/>
 
@@ -31,11 +8,30 @@
     <param name="robot_description" command="cat $(arg model)" />
 
     <!-- spawn robot -->
-    <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model" args="-file $(find floatinghead_description)/urdf/floatinghead_overall.urdf -urdf -z .1 -model floatinghead" />
+    <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model" args="-file $(find floatinghead_description)/urdf/floatinghead_overall.urdf -urdf -z .1 -y 5 -x 1 -Y 4.7124 -model floatinghead" />
     <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" args="--perspective-file $(find floatinghead_description)/rqt/floatinghead.perspective"/>
 
+    <!-- run camera depth and arm control nodes -->
+    <node pkg="dcam_description" type="cvproc.py" name="image_converter" output="screen"/>
+    <node pkg="dcam_description" type="depthloctest.py" name="depth_finder" output="screen"/>
+    <node pkg="arm_description" type="arm_control_node.py" name="arm_conontrol_node" output="screen"/>
 
-    <!-- run control nodes -->
+    <!-- arm controllers-->
+    <group ns="/openArm">    
+        <rosparam command="load" file="$(find arm_description)/config/joints.yaml"/>
+        <node name="controller_spawner" pkg="controller_manager" type="spawner"
+            respawn="false" output="screen" ns="/openArm"
+            args="--namespace=/openArm
+            joint_state_controller
+            joint1_position_controller
+            joint2_position_controller
+            joint3_position_controller
+            joint4_position_controller
+            --timeout 60">
+        </node>
+    </group>
+
+    <!-- run robot control nodes -->
     <node name="explore_FSM" pkg="hallway_sim" type="explore_FSM.py"/>
 	<node name="gazebo_drive_node" pkg="hallway_sim" type="gazebo_drive_node.py"/>
 

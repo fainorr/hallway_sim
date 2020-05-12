@@ -245,14 +245,14 @@
 
   <link name = "Outer_Button">
     <visual>
-      <origin xyz = "2 1.375 1.5" rpy = "0 0 0"/>
+      <origin xyz = "2 1.375 0.5" rpy = "0 0 0"/>
       <geometry>
         <sphere radius = "0.02"/>
       </geometry>
     </visual>
 
     <collision>
-      <origin xyz = "2 1.375 1.5" rpy = "0 0 0"/>
+      <origin xyz = "2 1.375 0.5" rpy = "0 0 0"/>
       <geometry>
         <sphere radius = "0.02"/>
       </geometry>
@@ -260,21 +260,21 @@
 
     <inertial>
       <mass value = "0.00001"/>
-      <origin xyz = "2 1.375 1.5"/>
+      <origin xyz = "2 1.375 0.5"/>
       <inertia ixx = "1" ixy = "1" ixz = "1" iyy = "1" iyz = "1" izz = "1"/>
     </inertial>
   </link>
 
   <link name = "Inner_Button">
     <visual>
-      <origin xyz = "-0.75 0.875 1.5" rpy = "0 0 0"/>
+      <origin xyz = "-0.75 0.875 0.5" rpy = "0 0 0"/>
       <geometry>
         <sphere radius = "0.02"/>
       </geometry>
     </visual>
 
     <collision>
-      <origin xyz = "-0.75 0.875 1.5" rpy = "0 0 0"/>
+      <origin xyz = "-0.75 0.875 0.5" rpy = "0 0 0"/>
       <geometry>
         <sphere radius = "0.02"/>
       </geometry>
@@ -282,7 +282,7 @@
 
     <inertial>
       <mass value = "0.00001"/>
-      <origin xyz = "-0.75 0.875 1.5"/>
+      <origin xyz = "-0.75 0.875 0.5"/>
       <inertia ixx = "1" ixy = "1" ixz = "1" iyy = "1" iyz = "1" izz = "1"/>
     </inertial>
   </link>

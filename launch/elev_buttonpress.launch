@@ -9,7 +9,7 @@
     <!-- spawn elevator into gazebo -->
     <param name="elev_description" textfile="$(find hallway_sim)/urdf/elevator.urdf"/>
 
-    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-file $(find hallway_sim)/urdf/elevator.urdf -urdf -z 0 -model elevator" />
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-file $(find hallway_sim)/urdf/elevator.urdf -urdf -z -0.5 -x 5 -y -1.5 -Y 1.5708 -model elevator" />
 
     <rosparam file="$(find hallway_sim)/config/elevator_control.yaml" command="load"/>
 
@@ -24,19 +24,20 @@
 
 
     <!-- set robot model -->
-    <arg name="model" default="$(find floatinghead_description)/urdf/floatinghead.urdf"/>
+    <arg name="model" default="$(find floatinghead_description)/urdf/floatinghead_overall.urdf"/>
 
     <!-- initiate rviz -->
     <node type="rviz" name="rviz" pkg="rviz" args="-d $(find floatinghead_description)/rviz/floatinghead.rviz" />
     <param name="robot_description" command="cat $(arg model)" />
 
     <!-- spawn robot -->
-    <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model" args="-file $(find floatinghead_description)/urdf/floatinghead.urdf -urdf -z .1 -model floatinghead" />
+    <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model" args="-file $(find floatinghead_description)/urdf/floatinghead_overall.urdf -urdf -z .1 -model floatinghead" />
     <node name="rqt_gui" pkg="rqt_gui" type="rqt_gui" args="--perspective-file $(find floatinghead_description)/rqt/floatinghead.perspective"/>
 
 
     <!-- run control nodes -->
-
+    <node name="explore_FSM" pkg="hallway_sim" type="explore_FSM.py"/>
+	<node name="gazebo_drive_node" pkg="hallway_sim" type="gazebo_drive_node.py"/>
 
 
 </launch>

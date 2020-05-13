@@ -42,7 +42,7 @@
     <node pkg="arm_description" type="arm_control_node.py" name="arm_control_node" output="screen"/>
 
     <!-- arm controllers-->
-    <group ns="/openArm">    
+    <group ns="/openArm">
         <rosparam command="load" file="$(find arm_description)/config/joints.yaml"/>
         <node name="controller_spawner" pkg="controller_manager" type="spawner"
             respawn="false" output="screen" ns="/openArm"

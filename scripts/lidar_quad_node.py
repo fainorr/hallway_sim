@@ -29,7 +29,7 @@ class lidar_quad():
 
 		# --- navigation parameters ---
 		self.obst_size = 3;         # number of consecutive dots
-		self.safe_range = 1.2;     	# search ranges for obstacles
+		self.safe_range = 1.0;     	# search ranges for obstacles
 
 		# initialize
 		self.distances = zeros(360)

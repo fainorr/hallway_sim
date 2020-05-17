@@ -5,15 +5,21 @@ During the 2019-2020 school year, the navigation sub-team of Lafayette's openDog
 
 
 ## LAUNCH:
-Any simulation in Gazebo requires a launch file, which in general create an empty world, spawn URDF descriptions of robots or environments, and run nodes to manipulate any ROS topics.
+Any simulation in Gazebo requires a launch file, which creates an empty world, spawns URDF descriptions of robots or environments, and runs nodes to manipulate any ROS topics.
 
 1. **hallway.launch**: this launch file runs a full hallway navigation simulation.  It generates a randomized hallway, spawns the robot, and controls it using the obstacle avoidance node **lidar_quad_node.py**.  All the results are echoed to three associated .txt files automatically created and stored in the eval directory for post-processing with **eval_sim.py**.
 
 2. **room.launch**: this launch file spawns the basic four-sided **room.urdf** with the lidar_nav robot and three "people" who act with a random velocity.  The robot is controlled in the same manner as the hallway simulation, but the robot data is not echoed to a .txt file.
 
+3. **elevator.launch**: this launch file loads the **elevator.urdf** and controls its door based on contact with the outer button.
+
+4. **buttonpress.launch**: as part of the final integration step, this file inserts the **floatinghead** robot with arm attached and the elevator model to test the button press action.  The [**floatinghead repository**](https://github.com/dentinge/floatinghead_description), [**arm description**](https://github.com/MikeFischer1/arm_description), and [**depth camera library**](https://github.com/MikeFischer1/dcam_description) must all be cloned in the workspace.
+
 
 ## SCRIPTS:
 This folder contains any necessary ROS nodes for running simulations, both in python (.py) or shell command (.sh) format.  It also contains the necessary functions that nodes rely on.
+
+**robot control files**
 
 1. **lidar_quad_node.py**: this is the primary ROS node for controlling the robot.  It subscribes to the LIDAR scan data and sends it to the **lidar_compare.py** python script.  This node is also where the navigation parameters are established.
 
@@ -23,13 +29,28 @@ This folder contains any necessary ROS nodes for running simulations, both in py
 
 4. **robot_sub_node.py**: as the simulation runs, this node subscribes to the robot x and y positions as well as its contact sensor and outputs the relevant data to a .txt file for post-processing.
 
-5. **person_control_node.py**: this node sends the linear and angular velocities for each "person" in the gazebo world; the number of publishers must match the number of people spawned.
+5. **explore_FSM.py**: this node was constructed for the button press test.  It controls the robot by using the LIDAR to locate the elevator, and then it initiates the press action when the button is in range.
 
-6. **gen_hallway.sh**: this is a shell node that runs the **prep_sim.py** function to generate a randomized hallway.
 
-7. **gen_person.sh**: this is a shell node that runs the **person_gen.py** function to generate a new person model.
+**person control files**
 
-8. **timestamp.sh**: this shell script stores the start simulation time as a ROS parameter.  Any of the nodes that echo data to a .txt file uses this start_time in the name of the file to log simulations appropriately.
+6. **person_control_node.py**: this node sends the linear and angular velocities for each "person" in the gazebo world; the number of publishers must match the number of people spawned.
+
+
+**elevator control files**
+
+7. **elevator_FSM.py**: this node is a finite state machine for the elevator, which opens and closes its door based on the state of the button contact sensor.  It publishes a desired door action to the **elevator_control.py** node.
+
+8. **elevator_control.py**: with a requested action, this node finds the desired x, y, and z position of the door by calling the function outlined in **door_position.py** and publishes these values to the controller set up in the **elevator_control.yaml** file.
+
+
+**shell nodes**
+
+9. **gen_hallway.sh**: this is a shell node that runs the **prep_sim.py** function to generate a randomized hallway.
+
+10. **gen_person.sh**: this is a shell node that runs the **person_gen.py** function to generate a new person model.
+
+11. **timestamp.sh**: this shell script stores the start simulation time as a ROS parameter.  Any of the nodes that echo data to a .txt file uses this start_time in the name of the file to log simulations appropriately.
 
 
 ## EVAL:

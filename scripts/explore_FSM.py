@@ -83,7 +83,6 @@ class explore_FSM():
             self.command_history = [self.old_action, self.old_direction]
             self.safe_range = 0.8
             self.action, self.direction = self.analyze.find_optimal_action(self.distances, self.angle_parameters, self.obst_size, self.safe_range, self.command_history)
-            self.safe_range = 1.5
             self.arm_action = "rest"
 
         elif self.explore_action == "press":

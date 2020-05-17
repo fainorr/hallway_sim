@@ -2,9 +2,9 @@
 
 from numpy import *
 
-# -------------------------
+# ----------------------
 # ELEVATOR DOOR POSITION
-# -------------------------
+# ----------------------
 
 class door_position():
 

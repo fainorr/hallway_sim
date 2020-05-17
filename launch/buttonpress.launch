@@ -34,7 +34,7 @@
 
     <!-- run robot control nodes -->
     <node name="explore_FSM" pkg="hallway_sim" type="explore_FSM.py"/>
-	<node name="gazebo_drive_node" pkg="hallway_sim" type="gazebo_drive_node.py"/>
+		<node name="gazebo_drive_node" pkg="hallway_sim" type="gazebo_drive_node.py"/>
 
     <!-- run camera depth and arm control nodes -->
     <node pkg="dcam_description" type="cvproc.py" name="image_converter" output="screen"/>

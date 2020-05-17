@@ -19,8 +19,8 @@ from matplotlib import _color_data
 
 txt_files = []
 for file in os.listdir("eval/"):
-    if file.endswith("hall.txt"):
-        txt_files.append(file)
+	if file.endswith("hall.txt"):
+		txt_files.append(file)
 
 timestamps = []
 for text in txt_files:
@@ -160,6 +160,6 @@ for sim in range(0,len(timestamps)):
 			horizontalalignment='right', verticalalignment='bottom', fontsize=8, backgroundcolor=[1, 1, 1, 0.5])
 
 
-    # save figure as a pdf
-    
+	# save figure as a pdf
+
 	plt.savefig("eval/N{0}_R{1}_{2}.pdf".format(obst_size, safe_range, timestamp))

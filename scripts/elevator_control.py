@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-# ELEVATOR CONTROL NODE
-
 import roslib
 import rospy
 roslib.load_manifest('hallway_sim')
@@ -10,6 +8,12 @@ from numpy import *
 import time
 
 import door_position
+
+# ---------------------
+# ELEVATOR CONTROL NODE
+# ---------------------
+
+# this node controls the elevator door by subscribing to the finite state machine
 
 class elevator_controller():
 

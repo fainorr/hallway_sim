@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-# Elevator FSM Node
-
 import roslib
 import rospy
 roslib.load_manifest('hallway_sim')
@@ -10,6 +8,11 @@ from gazebo_msgs.msg import ContactsState, ContactState
 from numpy import *
 import time
 
+# ------------
+# ELEVATOR FSM
+# ------------
+
+# for setting an elevator door action based on the state of the buttons
 
 class Elevator_FSM():
 	def __init__(self):

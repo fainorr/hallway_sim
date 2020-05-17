@@ -12,7 +12,6 @@ import sys
 import lidar_compare
 from quad_analysis_methods import *
 
-
 # -----------
 # EXPLORE FSM
 # -----------
